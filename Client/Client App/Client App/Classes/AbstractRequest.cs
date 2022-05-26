@@ -8,6 +8,6 @@ namespace Client_App.Classes
 {
     internal abstract class AbstractRequest
     {
-        string type;
+        public string type;
     }
 }
