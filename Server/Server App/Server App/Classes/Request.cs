@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client_App.Classes
+namespace Server_App.Classes
 {
-    internal abstract class AbstractRequest
+    internal class Request
     {
         public string type;
     }
