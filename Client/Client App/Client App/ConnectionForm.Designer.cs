@@ -1,6 +1,6 @@
 ﻿namespace Client_App
 {
-    partial class Form1
+    partial class ConnectionForm
     {
         /// <summary>
         ///  Required designer variable.

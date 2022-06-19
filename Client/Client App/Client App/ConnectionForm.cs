@@ -1,8 +1,8 @@
 namespace Client_App
 {
-    public partial class Form1 : Form
+    public partial class ConnectionForm : Form
     {
-        public Form1()
+        public ConnectionForm()
         {
             InitializeComponent();
         }
