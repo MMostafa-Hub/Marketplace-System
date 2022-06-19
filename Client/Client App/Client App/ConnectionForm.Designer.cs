@@ -28,12 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.IPLabel = new System.Windows.Forms.Label();
+            this.portLabel = new System.Windows.Forms.Label();
+            this.connectButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // IPLabel
+            // 
+            this.IPLabel.AutoSize = true;
+            this.IPLabel.Location = new System.Drawing.Point(265, 83);
+            this.IPLabel.Name = "IPLabel";
+            this.IPLabel.Size = new System.Drawing.Size(50, 20);
+            this.IPLabel.TabIndex = 0;
+            this.IPLabel.Text = "label1";
+            // 
+            // portLabel
+            // 
+            this.portLabel.AutoSize = true;
+            this.portLabel.Location = new System.Drawing.Point(265, 120);
+            this.portLabel.Name = "portLabel";
+            this.portLabel.Size = new System.Drawing.Size(50, 20);
+            this.portLabel.TabIndex = 1;
+            this.portLabel.Text = "label1";
+            // 
+            // connectButton
+            // 
+            this.connectButton.Location = new System.Drawing.Point(302, 230);
+            this.connectButton.Name = "connectButton";
+            this.connectButton.Size = new System.Drawing.Size(94, 29);
+            this.connectButton.TabIndex = 2;
+            this.connectButton.Text = "button1";
+            this.connectButton.UseVisualStyleBackColor = true;
+            // 
+            // ConnectionForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.connectButton);
+            this.Controls.Add(this.portLabel);
+            this.Controls.Add(this.IPLabel);
+            this.Name = "ConnectionForm";
+            this.Text = "Connection Page";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private Label IPLabel;
+        private Label portLabel;
+        private Button connectButton;
     }
 }
