@@ -62,6 +62,7 @@
 			this.depositTextbox.Name = "depositTextbox";
 			this.depositTextbox.Size = new System.Drawing.Size(125, 30);
 			this.depositTextbox.TabIndex = 2;
+			this.depositTextbox.TextChanged += new System.EventHandler(this.depositTextbox_TextChanged);
 			// 
 			// DepositForm
 			// 

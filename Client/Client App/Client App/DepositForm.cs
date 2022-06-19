@@ -29,6 +29,18 @@ namespace Client_App
 
 		private void button1_Click(object sender, EventArgs e)
 		{
+			float depositValue;
+			if (float.TryParse(depositTextbox.Text, out depositValue))
+			{
+			}
+			else {
+				MessageBox.Show("Please enter a float value", "Wrong datatype",MessageBoxButtons.OK );
+			}
+
+		}
+
+		private void depositTextbox_TextChanged(object sender, EventArgs e)
+		{
 
 		}
 	}
