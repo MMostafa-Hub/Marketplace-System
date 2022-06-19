@@ -26,8 +26,7 @@ namespace Client_App
 
 		private void DepositForm_Load(object sender, EventArgs e)
 		{
-			//currentBalance.Text = user.balance;
-
+			currentBalance.Text = user.balance;
 		}
 
 		private void label1_Click(object sender, EventArgs e)

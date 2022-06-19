@@ -92,9 +92,9 @@
 			this.currentBalance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.currentBalance.Location = new System.Drawing.Point(361, 73);
 			this.currentBalance.Name = "currentBalance";
-			this.currentBalance.Size = new System.Drawing.Size(132, 23);
+			this.currentBalance.Size = new System.Drawing.Size(177, 23);
 			this.currentBalance.TabIndex = 5;
-			this.currentBalance.Text = "Current balance";
+			this.currentBalance.Text = "Current balance value";
 			this.currentBalance.Click += new System.EventHandler(this.label3_Click);
 			// 
 			// backButton
