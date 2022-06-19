@@ -37,7 +37,7 @@
             // IPLabel
             // 
             this.IPLabel.AutoSize = true;
-            this.IPLabel.Location = new System.Drawing.Point(265, 83);
+            this.IPLabel.Location = new System.Drawing.Point(195, 49);
             this.IPLabel.Name = "IPLabel";
             this.IPLabel.Size = new System.Drawing.Size(50, 20);
             this.IPLabel.TabIndex = 0;
@@ -46,7 +46,7 @@
             // portLabel
             // 
             this.portLabel.AutoSize = true;
-            this.portLabel.Location = new System.Drawing.Point(265, 120);
+            this.portLabel.Location = new System.Drawing.Point(195, 98);
             this.portLabel.Name = "portLabel";
             this.portLabel.Size = new System.Drawing.Size(50, 20);
             this.portLabel.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(302, 230);
+            this.connectButton.Location = new System.Drawing.Point(339, 187);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(94, 29);
             this.connectButton.TabIndex = 2;
@@ -65,7 +65,7 @@
             // instructionLabel
             // 
             this.instructionLabel.AutoSize = true;
-            this.instructionLabel.Location = new System.Drawing.Point(266, 167);
+            this.instructionLabel.Location = new System.Drawing.Point(195, 146);
             this.instructionLabel.Name = "instructionLabel";
             this.instructionLabel.Size = new System.Drawing.Size(50, 20);
             this.instructionLabel.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 259);
             this.Controls.Add(this.instructionLabel);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.portLabel);
