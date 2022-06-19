@@ -1,5 +1,6 @@
 using System.Configuration;
-using System.Collections.Specialized;
+using System.Net.Sockets;
+using static Client_App.Globals;
 
 namespace Client_App
 {
@@ -14,7 +15,17 @@ namespace Client_App
 
         private void connectButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                connectButton.Enabled = false;
+                clientSocket.Connect(serverIP, Int32.Parse(serverPort));
 
+            }
+            catch (SocketException)
+            {
+                MessageBox.Show("Connection failed. Please check the server is running on the set IP and ports", 
+                    "Connection Error", MessageBoxButtons.OK);
+            }
         }
 
         private void ConnectionForm_Load(object sender, EventArgs e)
@@ -24,6 +35,7 @@ namespace Client_App
             IPLabel.Text = "Server IP address set to " + serverIP;
             portLabel.Text = "Server port set to " + serverPort;
             instructionLabel.Text = "To change the values, edit the App.config file and restart the program";
+
         }
     }
 }
