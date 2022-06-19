@@ -18,11 +18,15 @@ namespace Client_App
             {
                 connectButton.Enabled = false;
                 clientSocket.Connect(serverIP, Int32.Parse(serverPort));
+                this.Hide();
                 if (returnForm == null)
                 {
-                    Form FirstForm = new FirstForm();
-                    this.Hide();
-                    FirstForm.Show();
+                    Form firstForm = new FirstForm();
+                    firstForm.Show();
+                }
+                else
+                {
+                    returnForm.Show();
                 }
             }
             catch (SocketException)
