@@ -9,6 +9,6 @@ namespace Client_App
 {
     internal static class Globals
     {
-        static System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();
+        public static System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();
     }
 }
