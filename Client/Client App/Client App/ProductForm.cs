@@ -15,6 +15,7 @@ namespace Client_App
         public ProductForm()
         {
             InitializeComponent();
+
         }
     }
 }
