@@ -6,55 +6,38 @@ using System.Net.Sockets;
 using System.Net.NetworkInformation;
 using System.Threading;
 using System.Text;
+using Server_App.Classes;
 public class Server
 {
     private static void ProcessClientRequests(object argument)
     {
-        /* The Parameter must be of type object to pass the function to the thread */
-        TcpClient client = (TcpClient)argument;
-
-        /* Associating the thread to the client stream */
-        NetworkStream client_stream = client.GetStream();
-
+        serverSocket socket = new serverSocket((TcpClient)argument);
         try
         {
-            StreamReader reader = new StreamReader(client_stream);
-            StreamWriter writer = new StreamWriter(client_stream);
-
-            string recieved_msg = String.Empty;
+            dynamic recieved_obj, response_obj;
             while (true)
             {
-                /* reading data sent by the client */
-                recieved_msg = reader.ReadLine();
-
-                /* Sending back Acknowledge */
-                writer.WriteLine("ACK");
-                writer.Flush();
-
-                /* for Debugging */
-                Console.WriteLine("From client -> " + recieved_msg);
-
-                /* TODO: deserialize the reciveied msg */
-
-                /* TODO: run the operation */
-
+                /* Listen on the socket */
+                recieved_obj = socket.read();
+                switch(recieved_obj)
+                {
+                    /* Switches for the specific reponse */
+                }
+                //socket.write(response_obj);
             }
 
             /* Closing the Connection */
-            reader.Close();
-            writer.Close();
-            client.Close();
+            socket.close();
+        }
+        catch (serverSocket.ReadTimeoutException e)
+        {
+            /**/
+        }
+        catch (serverSocket.WriteException e)
+        {
+            /**/
+        }
 
-            Console.WriteLine("Client connection closed!");
-        }
-        catch (IOException)
-        {
-            Console.WriteLine("Client Crashed!!");
-        }
-        finally
-        {
-            if (client != null) client.Close();
-        }
     }
 
     public static void Main()
@@ -91,5 +74,5 @@ public class Server
         {
             if (listener != null) listener.Stop();
         }
-    } 
+    }
 }
