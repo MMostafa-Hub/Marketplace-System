@@ -15,7 +15,7 @@ namespace Server_App
         {
             if (dbConnection == null)
             {
-                string connectionString = "Data Source = (LocalDb)\\Project; Initial Catalog = Parallel; Integrated Security = True";
+                string connectionString = "Data Source=(LocalDb)\\Project;Initial Catalog=Parallel;Integrated Security=True";
                 dbConnection = new SqlConnection(connectionString);
                 dbConnection.Open();
             }
