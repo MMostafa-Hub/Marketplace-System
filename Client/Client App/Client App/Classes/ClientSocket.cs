@@ -39,7 +39,6 @@ namespace Client_App.Classes
             {
                 throw new PortIsNotOpen();
             }
-            Console.WriteLine("Connection successful!");
             this.stream = this.port.GetStream();
 
             this.reader = new StreamReader(this.stream);
@@ -84,8 +83,6 @@ namespace Client_App.Classes
             this.reader.Close();
             this.writer.Close();
             this.port.Close();
-            Console.WriteLine("Connection Closed!");
-
         }
     }
 }
