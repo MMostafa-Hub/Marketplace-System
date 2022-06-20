@@ -37,26 +37,20 @@ namespace Client_App
             }
         }
 
-        private void ConnectionForm_Load(object sender, EventArgs e)
+        private void ConnectionForm_Shown(object sender, EventArgs e)
         {
+            if (returnForm != null)
+            {
+                MessageBox.Show("There was an error connecting to the server. Please reconnect again",
+                    "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             connectionForm = this;
-            getConfigData();
-            instructionLabel.Text = "To change the values, edit the App.config file and restart the program";
-            connectButton.Enabled = true;
-        }
-
-        private void RefreshButton_Click(object sender, EventArgs e)
-        {
             ConfigurationManager.RefreshSection("appSettings");
-            getConfigData();
-        }
-
-        private void getConfigData()
-        {
-            serverIP = ConfigurationManager.AppSettings["IP"];
-            serverPort = ConfigurationManager.AppSettings["Port"];
+            serverIP = ConfigurationManager.AppSettings.Get("IP");
+            serverPort = ConfigurationManager.AppSettings.Get("Port");
             IPLabel.Text = "Server IP address set to " + serverIP;
             portLabel.Text = "Server port set to " + serverPort;
+            connectButton.Enabled = true;
         }
     }
 }
