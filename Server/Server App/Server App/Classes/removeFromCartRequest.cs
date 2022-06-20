@@ -8,6 +8,6 @@ namespace Server_App.Classes
 {
     internal class removeFromCartRequest:Request
     {
-        int productID
+        public int productID;
     }
 }
