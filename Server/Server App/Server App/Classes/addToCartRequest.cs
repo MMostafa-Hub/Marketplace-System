@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Server_App.Classes
 {
-
-    internal class addToCartRequest : Request
+    internal class addToCartRequest:Request
     {
         public int productID;
         public int quantity;
     }
-
 }
