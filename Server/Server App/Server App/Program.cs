@@ -11,29 +11,30 @@ public class Server
 {
     private static void ProcessClientRequests(object argument)
     {
-        serverSocket socket = new serverSocket((TcpClient)argument);
+        ServerSocket serverSocket = new ServerSocket((TcpClient)argument);
         try
         {
-            dynamic recieved_obj, response_obj;
+
+            dynamic recieved_obj, transmit_obj;
             while (true)
             {
-                /* Listen on the socket */
-                recieved_obj = socket.read();
-                switch(recieved_obj)
+                recieved_obj = serverSocket.read();
+                switch (recieved_obj.type)
                 {
-                    /* Switches for the specific reponse */
+                    /* TODO: Choose the spcific operation based on the object type */
+                    /* transmit_obj = operation() */
                 }
-                //socket.write(response_obj);
+                serverSocket.write(transmit_obj);
             }
 
             /* Closing the Connection */
-            socket.close();
+            serverSocket.close();
         }
-        catch (serverSocket.ReadTimeoutException e)
+        catch (ServerSocket.ReadTimeoutException e)
         {
             /**/
         }
-        catch (serverSocket.WriteException e)
+        catch (ServerSocket.WriteException e)
         {
             /**/
         }
@@ -51,7 +52,7 @@ public class Server
             listener = new TcpListener(ip, 8080);
             listener.Start();
 
-            Console.WriteLine("MultiIPEchoServer started...");
+            Console.WriteLine("Multithreaded Server started...");
 
             /* The Main Thread is Waiting for a new Client connetction */
             while (true)
