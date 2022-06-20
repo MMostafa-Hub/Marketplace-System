@@ -21,8 +21,8 @@ namespace Client_App
                 this.Hide();
                 if (returnForm == null)
                 {
-                    Form firstForm = new FirstForm();
-                    firstForm.Show();
+                    /*Form firstForm = new FirstForm();
+                    firstForm.Show();*/
                 }
                 else
                 {
@@ -32,7 +32,7 @@ namespace Client_App
             catch (SocketException)
             {
                 MessageBox.Show("Connection failed. Please check the server is running on the set IP and ports", 
-                    "Connection Error", MessageBoxButtons.OK);
+                    "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 connectButton.Enabled = true;
             }
         }
@@ -40,12 +40,23 @@ namespace Client_App
         private void ConnectionForm_Load(object sender, EventArgs e)
         {
             connectionForm = this;
-            serverIP = ConfigurationManager.AppSettings.Get("IP");
-            serverPort = ConfigurationManager.AppSettings.Get("Port");
-            IPLabel.Text = "Server IP address set to " + serverIP;
-            portLabel.Text = "Server port set to " + serverPort;
+            getConfigData();
             instructionLabel.Text = "To change the values, edit the App.config file and restart the program";
             connectButton.Enabled = true;
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            ConfigurationManager.RefreshSection("appSettings");
+            getConfigData();
+        }
+
+        private void getConfigData()
+        {
+            serverIP = ConfigurationManager.AppSettings["IP"];
+            serverPort = ConfigurationManager.AppSettings["Port"];
+            IPLabel.Text = "Server IP address set to " + serverIP;
+            portLabel.Text = "Server port set to " + serverPort;
         }
     }
 }

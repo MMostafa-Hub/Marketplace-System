@@ -32,6 +32,7 @@
             this.portLabel = new System.Windows.Forms.Label();
             this.connectButton = new System.Windows.Forms.Button();
             this.instructionLabel = new System.Windows.Forms.Label();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // IPLabel
@@ -67,15 +68,26 @@
             this.instructionLabel.AutoSize = true;
             this.instructionLabel.Location = new System.Drawing.Point(195, 146);
             this.instructionLabel.Name = "instructionLabel";
-            this.instructionLabel.Size = new System.Drawing.Size(50, 20);
+            this.instructionLabel.Size = new System.Drawing.Size(428, 20);
             this.instructionLabel.TabIndex = 3;
-            this.instructionLabel.Text = "label1";
+            this.instructionLabel.Text = "To change the values, edit the App.config file and click \'Refresh\'";
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(678, 70);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(94, 76);
+            this.refreshButton.TabIndex = 4;
+            this.refreshButton.Text = "Refresh from App.config";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // ConnectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 259);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.instructionLabel);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.portLabel);
@@ -94,5 +106,6 @@
         private Label portLabel;
         private Button connectButton;
         private Label instructionLabel;
+        private Button refreshButton;
     }
 }
