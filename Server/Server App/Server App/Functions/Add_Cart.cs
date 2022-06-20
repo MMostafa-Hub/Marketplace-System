@@ -5,18 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Server_App.Classes;
-using Server_App.f
-
 namespace Server_App
 {
-    internal static class Add_Cart
+    internal static class Cart_Remove
     {
         /*Function_Name:addToCart
         *Input:AddToCartRequest ,username
         *Ouput:Inserts users selection into cart with the quantity specified in request(inserts into table has_in_cart)
         *Function Type:Non-Synchronized
         */
-        public static void addToCart(addToCartRequest request, string username)
+        public static void removeFromCart(addToCartRequest request, string username)
         { 
             /*Establishing Connection with Database*/
             SqlConnection connection=Globals.getDBConnection();
