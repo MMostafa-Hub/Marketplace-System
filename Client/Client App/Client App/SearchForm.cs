@@ -12,9 +12,17 @@ namespace Client_App
 {
     public partial class SearchForm : Form
     {
-        public SearchForm()
+        private Form backForm;
+        public SearchForm(Form backForm)
         {
             InitializeComponent();
+            this.backForm = backForm;   
         }
-    }
+
+		private void btn_back_Click(object sender, EventArgs e)
+		{
+            this.Close();
+            backForm.Show();
+        }
+	}
 }
