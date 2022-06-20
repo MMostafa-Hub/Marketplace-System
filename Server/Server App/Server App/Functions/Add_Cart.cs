@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using Server_App.Classes;
 namespace Server_App
 {
-    internal static class Cart_Remove
+    internal static class Add_Cart
     {
         /*Function_Name:addToCart
         *Input:AddToCartRequest ,username
         *Ouput:Inserts users selection into cart with the quantity specified in request(inserts into table has_in_cart)
         *Function Type:Non-Synchronized
         */
-        public static void removeFromCart(addToCartRequest request, string username)
+        public static void addToCart(addToCartRequest request, string username)
         { 
             /*Establishing Connection with Database*/
             SqlConnection connection=Globals.getDBConnection();
