@@ -23,6 +23,10 @@ namespace Client_App.Classes
         {
             public WriteException() : base() { }
         }
+        public class WrongTypeException : Exception
+        {
+            public WrongTypeException() : base() { }
+        }
 
         private TcpClient port;
         private NetworkStream stream;
@@ -45,25 +49,21 @@ namespace Client_App.Classes
             this.writer = new StreamWriter(this.stream);
 
         }
-        public dynamic read(int timeout = System.Threading.Timeout.Infinite)
+        public T read<T>(int timeout = System.Threading.Timeout.Infinite)
         {
             this.stream.ReadTimeout = timeout;
-            string recieved_json;
-            dynamic recieved_obj = new object();
             try
             {
-                recieved_json = this.reader.ReadLine();
-                var request = JsonConvert.DeserializeObject<Request>(recieved_json);
-                switch (request.type)
-                {
-                    /* TODO: According to the type it converts the recieved msg into the specific type */
-                }
+                return JsonConvert.DeserializeObject<T>(this.reader.ReadLine());
             }
-            catch (Exception ex)
+            catch (JsonReaderException ex)
+            {
+                throw new WrongTypeException();
+            }
+            catch (IOException ex)
             {
                 throw new ReadTimeoutException();
             }
-            return recieved_obj;
         }
         public void write(dynamic obj)
         {
