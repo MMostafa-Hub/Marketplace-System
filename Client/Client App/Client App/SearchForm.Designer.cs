@@ -86,6 +86,7 @@
 			this.btn_back.TabIndex = 4;
 			this.btn_back.Text = "Back";
 			this.btn_back.UseVisualStyleBackColor = true;
+			this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
 			// 
 			// listbox
 			// 
