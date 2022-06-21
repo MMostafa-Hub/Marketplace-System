@@ -2,6 +2,7 @@ using System.Configuration;
 using System.Net.Sockets;
 using static Client_App.Globals;
 using Client_App.Classes;
+using static Client_App.Classes.ClientSocket;
 
 namespace Client_App
 {
@@ -35,7 +36,7 @@ namespace Client_App
                 MessageBox.Show("Please enter proper port number", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 connectButton.Enabled = true;
             }
-            catch (SocketException)
+            catch (PortIsNotOpen)
             {
                 MessageBox.Show("Connection failed. Please check the server is running on the set IP and ports", 
                     "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
