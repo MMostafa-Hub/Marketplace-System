@@ -59,7 +59,7 @@ public class Server
             listener.Start();
 
             Console.WriteLine("IP Address: {0}\nPort Number: {1}", ippaddress.ToString(), 8080);
-            Console.WriteLine("MultiIPEchoServer started...");
+            Console.WriteLine("Multithreaded Server started...");
 
             /* The Main Thread is Waiting for a new Client connetction */
             while (true)
