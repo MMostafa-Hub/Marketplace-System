@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client_App.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -13,5 +14,6 @@ namespace Client_App
         public static Form connectionForm;
         public static Form returnForm = null;
         public static ClientSocket clientSocket;
+        public static User user;
     }
 }
