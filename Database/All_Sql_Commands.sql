@@ -13,38 +13,20 @@ VALUES ('admin2', 'admin456');
 CREATE TABLE users (
       username VARCHAR(10) PRIMARY KEY,
       password VARCHAR(10),
-	  balance float
+	age INTEGER,
+	gender VARCHAR(10),
+	  balance float,
+	  loggedIn BOOLEAN
 );
 
-INSERT INTO users (username, password, balance)
-VALUES ('David00', 'david123', 5000);
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('David00', 'david123', 20 , 'Male' , 2000 , false);
 
-INSERT INTO users (username, password, balance)
-VALUES ('Mohanad00', 'mohanad123', 5000);
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('John00', 'john456', 21 , 'Male' , 5000 , false);
 
-INSERT INTO users (username, password, balance)
-VALUES ('Marina00', 'marina123', 5000);
-
-INSERT INTO users (username, password, balance)
-VALUES ('Mario00', 'mario123', 5000);
-
-INSERT INTO users (username, password, balance)
-VALUES ('Mekky00', 'Mekky123', 5000);
-
-INSERT INTO users (username, password, balance)
-VALUES ('Maria00', 'maria123', 5000);
-
-INSERT INTO users (username, password, balance)
-VALUES ('Mostafa00', 'mostafa123', 5000);
-
-INSERT INTO users (username, password, balance)
-VALUES ('Nazeeh00', 'nazeeh123', 5000);
-
-INSERT INTO users (username, password, balance)
-VALUES ('Mahmoud00', 'mahmoud123', 5000);
-
-INSERT INTO users (username, password, balance)
-VALUES ('Hazem00', 'hazem123', 5000);
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('mark55', 'mark123', 23 , 'Male' , 20000 , false);
 
 
 
