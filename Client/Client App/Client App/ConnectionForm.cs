@@ -1,7 +1,7 @@
 using System.Configuration;
 using System.Net.Sockets;
 using static Client_App.Globals;
-using Client_App.ClientSocket;
+using Client_App.Classes;
 
 namespace Client_App
 {
