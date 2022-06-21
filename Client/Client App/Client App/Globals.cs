@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Client_App.ClientSocket;
 
 namespace Client_App
 {
@@ -11,5 +12,6 @@ namespace Client_App
     {
         public static Form connectionForm;
         public static Form returnForm = null;
+        public static ClientSocket clientSocket;
     }
 }
