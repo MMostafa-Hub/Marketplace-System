@@ -11,6 +11,7 @@ namespace Client_App.Classes
         public int id;
         public string name;
         public string category;
+        public string description;
         public float price;
         public int stockQuantity;
         public int soldQuantity;
