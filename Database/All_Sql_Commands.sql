@@ -11,8 +11,8 @@ VALUES ('admin2', 'admin456');
 
 
 CREATE TABLE users (
-      username VARCHAR(10) PRIMARY KEY,
-      password VARCHAR(10),
+      username VARCHAR(25) PRIMARY KEY,
+      password VARCHAR(25),
 	age INTEGER,
 	gender VARCHAR(10),
 	  balance float,
@@ -28,31 +28,59 @@ VALUES ('John00', 'john456', 21 , 'Male' , 5000 , false);
 INSERT INTO users (username, password, age , gender , balance , loggedIn)
 VALUES ('mark55', 'mark123', 23 , 'Male' , 20000 , false);
 
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('Mario00', 'mario12', 23 , 'Male' , 20000 , false);
+
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('Marina1', 'marina002', 23 , 'Male' , 20000 , false);
+
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('Mohamed77', 'password123', 23 , 'Male' , 20000 , false);
+
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('Hazem00', 'Hazem123', 23 , 'Male' , 20000 , false);
+
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('Mekky00', 'pass12345', 23 , 'Male' , 20000 , false);
+
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('Mahmoud', 'hoda123', 23 , 'Male' , 20000 , false);
+
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('fady00', 'fady123', 23 , 'Male' , 20000 , false);
+
 
 
 CREATE TABLE Product (
 	id int PRIMARY KEY IDENTITY(1,1),
 	name VARCHAR(25),
+	description VARCHAR(100),
 	category VARCHAR(25),
 	price float,
 	stockQuantity int,
 	soldQuantity int
 );
 
-INSERT INTO Product(name, category, price , stockQuantity , soldQuantity)
-VALUES ('iPhone 13', 'Mobiles', 13000, 10 , 0);
+INSERT INTO Product(name, description , category, price , stockQuantity , soldQuantity)
+VALUES ('iPhone 13', 'this is a very good one',  'Mobiles', 13000, 10 , 0);
 
 INSERT INTO Product(name, category, price , stockQuantity , soldQuantity)
-VALUES ('Samsung S12', 'Mobiles', 11000, 7 , 0);
+VALUES ('Samsung S12', 'this is a very good one', 'Mobiles', 11000, 7 , 0);
 
 INSERT INTO Product(name, category, price , stockQuantity , soldQuantity)
-VALUES ('Mx Master 3', 'Mouses', 4000, 30 , 0);
+VALUES ('Mx Master 3','this is a very good one','Mouses', 4000, 30 , 0);
 
 INSERT INTO Product(name, category, price , stockQuantity , soldQuantity)
-VALUES ('LG C2', 'TV', 25000, 5 , 0);
+VALUES ('LG C2','this is a very good one', 'TV', 25000, 5 , 0);
 
 INSERT INTO Product(name, category, price , stockQuantity , soldQuantity)
-VALUES ('MacBook Pro', 'Laptops', 40000, 8 , 0);
+VALUES ('MacBook Pro','this is a very good one', 'Laptops', 40000, 8 , 0);
+
+INSERT INTO Product(name, category, price , stockQuantity , soldQuantity)
+VALUES ('air pods Pro','this is a very good one', 'EarPods', 5000, 8 , 0);
+
+INSERT INTO Product(name, category, price , stockQuantity , soldQuantity)
+VALUES ('apple watch','this is a very good one', 'Watches', 8000, 8 , 0);
 
 
 CREATE TABLE orders (
