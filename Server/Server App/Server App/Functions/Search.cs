@@ -35,6 +35,8 @@ namespace Server_App.Functions
                 categories.Add(dataReader.GetString(0));
             }
 
+            dataReader.Close();
+
             sql = "SELECT id, name, price, stockQuantity FROM Product";
             command = new SqlCommand(sql, sqlConnection);
 
