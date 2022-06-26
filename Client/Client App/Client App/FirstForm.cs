@@ -16,5 +16,20 @@ namespace Client_App
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //AdminLoginForm.run
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //UserLoginForm.run
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //CreateAccountForm.run
+        }
     }
 }
