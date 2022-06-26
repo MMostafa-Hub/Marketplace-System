@@ -11,7 +11,7 @@ namespace Server_App.Classes
     internal class updateCartRequest : Request
     {
         //Dictionary (Key,Value)
-        Dictionary<int, int> Hashmap = new Dictionary<int, int>();
+        public Dictionary<int, int> Hashmap = new Dictionary<int, int>();
     }
 }
 
