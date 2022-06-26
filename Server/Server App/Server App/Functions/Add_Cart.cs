@@ -31,7 +31,7 @@ namespace Server_App
             adapter.InsertCommand.ExecuteNonQuery();
             /*closing connection and disposing command for Performance*/
             command.Dispose();
-            connection.Close();
+            
             
         }
        
