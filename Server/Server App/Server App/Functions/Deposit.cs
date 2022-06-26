@@ -20,7 +20,7 @@ namespace Server_App.Functions
 
             float newBalance = depositRequest.depositValue;
 
-            sql = "UPDATE users SET balance = " + newBalance.ToString() + " WHERE username= "  + '"'+ Globals.client_username + '"';
+            sql = "UPDATE users SET balance = " + newBalance.ToString() + " WHERE username= "  + "'" + Globals.client_username + "'";
             SqlCommand command = new SqlCommand(sql, connection);
 
             //adapter.InsertCommand = new SqlCommand(sql, connection);
