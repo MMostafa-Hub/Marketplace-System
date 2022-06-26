@@ -26,8 +26,6 @@ namespace Client_App
 			Request categoryRequest = new Request();
 			categoryRequest.type = "CategoryRequest";
 
-			categorycombobox.SelectedIndex = 0;
-			sortcombobox.SelectedIndex = 0;
 			try
 			{
 				clientSocket.write(categoryRequest);
@@ -52,6 +50,7 @@ namespace Client_App
 				this.Hide();
 			}
 
+
 			foreach (string category in cateResponse.categoryList)
 			{
 				categorycombobox.Items.Add(category);
@@ -61,7 +60,10 @@ namespace Client_App
 			{
 				string[] row = { product.name.ToString(), product.price.ToString(), product.stockQuantity.ToString() };
 				dataGridView1.Rows.Add(row);
-			}
+			}	  
+
+			sortcombobox.SelectedIndex = 0;
+			categorycombobox.SelectedIndex = 0;
 
 
 
