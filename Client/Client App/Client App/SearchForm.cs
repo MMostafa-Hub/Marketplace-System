@@ -25,10 +25,34 @@ namespace Client_App
 		{
 			Request categoryRequest = new Request();
 			categoryRequest.type = "CategoryRequest";
-			clientSocket.write(categoryRequest);
 
-			CategoryResponse cateResponse = clientSocket.read<CategoryResponse>(timeout:100);
-			foreach (string category in cateResponse.categoryList)
+			categorycombobox.SelectedIndex = 0;
+			sortcombobox.SelectedIndex = 0;
+			try
+			{
+				clientSocket.write(categoryRequest);
+			}
+			catch (clientSocket.WriteException) 
+			{
+				returnForm = this;
+				connectionForm.Show();
+				this.Hide();
+
+			}
+
+
+			try
+			{
+				CategoryResponse cateResponse = clientSocket.read<CategoryResponse>(timeout: 100);
+			}
+			catch (clientSocket.ReadTimeoutException)
+			{
+				returnForm = this;
+				connectionForm.Show();
+				this.Hide();
+			}
+
+				foreach (string category in cateResponse.categoryList)
 			{
 				categorycombobox.Items.Add(category);
 			}
@@ -51,7 +75,7 @@ namespace Client_App
 		private void sortcombobox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
-		}
+		}																										 
 
 		private void searchTxtBox_TextChanged(object sender, EventArgs e)
 		{
@@ -65,11 +89,16 @@ namespace Client_App
 			string sortText = sortcombobox.SelectedItem.ToString();
 			SearchRequest srequest = new SearchRequest(searchText, categoryText, sortText);
 
+			if (searchText == null) 
+			{
+				MessageBox.Show("Enter a product name", "Negative value ", MessageBoxButtons.OK);
+			}
+			
 
 		}
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
+		{																									  
 
 		}
 	}
