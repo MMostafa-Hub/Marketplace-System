@@ -30,7 +30,7 @@ namespace Client_App
 			CategoryResponse cateResponse = clientSocket.read<CategoryResponse>(timeout:100);
 			foreach (string category in cateResponse.categoryList)
 			{
-				categorycombobox.Add(category);
+				categorycombobox.Items.Add(category);
 			}
 
 			foreach (Product product in cateResponse.productList) 
@@ -41,10 +41,10 @@ namespace Client_App
 
 			
 
-			List<string> sortBy = new List<string>();
+			/*List<string> sortBy = new List<string>();
 			sortBy.Add("Price");
 			sortBy.Add("Latest product");
-			sortcombobox.DataSource = sortBy;
+			sortcombobox.DataSource = sortBy; */
 
 		}
 

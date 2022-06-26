@@ -34,13 +34,13 @@
 			this.searchTxtBox = new System.Windows.Forms.TextBox();
 			this.btn_back = new System.Windows.Forms.Button();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.searchedLabel = new System.Windows.Forms.Label();
 			this.categorycombobox = new System.Windows.Forms.ComboBox();
 			this.sortcombobox = new System.Windows.Forms.ComboBox();
 			this.sortlabel = new System.Windows.Forms.Label();
-			this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -113,6 +113,27 @@
 			this.dataGridView1.TabIndex = 6;
 			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
+			// productName
+			// 
+			this.productName.HeaderText = "Product Name";
+			this.productName.MinimumWidth = 6;
+			this.productName.Name = "productName";
+			this.productName.ReadOnly = true;
+			// 
+			// price
+			// 
+			this.price.HeaderText = "Price";
+			this.price.MinimumWidth = 6;
+			this.price.Name = "price";
+			this.price.ReadOnly = true;
+			// 
+			// status
+			// 
+			this.status.HeaderText = "Status";
+			this.status.MinimumWidth = 6;
+			this.status.Name = "status";
+			this.status.ReadOnly = true;
+			// 
 			// searchedLabel
 			// 
 			this.searchedLabel.AutoSize = true;
@@ -136,6 +157,9 @@
 			// 
 			this.sortcombobox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.sortcombobox.FormattingEnabled = true;
+			this.sortcombobox.Items.AddRange(new object[] {
+            "Price",
+            "Name"});
 			this.sortcombobox.Location = new System.Drawing.Point(114, 209);
 			this.sortcombobox.Name = "sortcombobox";
 			this.sortcombobox.Size = new System.Drawing.Size(151, 31);
@@ -151,27 +175,6 @@
 			this.sortlabel.Size = new System.Drawing.Size(64, 23);
 			this.sortlabel.TabIndex = 10;
 			this.sortlabel.Text = "Sort by";
-			// 
-			// productName
-			// 
-			this.productName.HeaderText = "Product Name";
-			this.productName.MinimumWidth = 6;
-			this.productName.Name = "productName";
-			this.productName.ReadOnly = true;
-			// 
-			// price
-			// 
-			this.price.HeaderText = "Price";
-			this.price.MinimumWidth = 6;
-			this.price.Name = "price";
-			this.price.ReadOnly = true;
-			// 
-			// status
-			// 
-			this.status.HeaderText = "Status";
-			this.status.MinimumWidth = 6;
-			this.status.Name = "status";
-			this.status.ReadOnly = true;
 			// 
 			// SearchForm
 			// 
