@@ -9,7 +9,7 @@ namespace Server_App.Classes
     internal class ProfileRequest : Request
     {
         
-        public ProfileRequest(string profileUserName)
+        public ProfileRequest()
         {
             type = "profile";
         }
