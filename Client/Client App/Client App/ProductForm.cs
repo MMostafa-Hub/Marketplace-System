@@ -12,10 +12,14 @@ namespace Client_App
 {
     public partial class ProductForm : Form
     {
-        
+        Product pro;
+        Form ProForm;
+
         public ProductForm(Product pro , Form ProForm)
         {
-            InitializeComponent();   
+            InitializeComponent();
+            this.pro = pro;
+            this.ProForm = ProForm;
         }
     }
 }
