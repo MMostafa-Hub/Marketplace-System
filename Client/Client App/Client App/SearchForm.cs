@@ -73,14 +73,6 @@ namespace Client_App
 
 			sortcombobox.SelectedIndex = 0;
 			categorycombobox.SelectedIndex = 0;
-
-
-
-			/*List<string> sortBy = new List<string>();
-			sortBy.Add("Price");
-			sortBy.Add("Latest product");
-			sortcombobox.DataSource = sortBy; */
-
 		}
 
 		private void sortcombobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,6 +95,45 @@ namespace Client_App
 			if (searchText == null)
 			{
 				MessageBox.Show("Enter a product name", "Negative value ", MessageBoxButtons.OK);
+			}
+			//receving a requestresponse
+			try
+			{
+				clientSocket.write(SearchRequest);
+			}
+			catch (clientSocket.WriteException)
+			{
+				returnForm = this;
+				connectionForm.Show();
+				this.Hide();
+
+			}
+
+
+			try
+			{
+				SearchResponse srchresponse = clientSocket.read<SearchResponse>(timeout: 100);
+			}
+			catch (clientSocket.ReadTimeoutException)
+			{
+				returnForm = this;
+				connectionForm.Show();
+				this.Hide();
+			}
+
+			foreach (Product product in srchresponse.productList)
+			{
+				string s;
+				if (product.stockQuantity >= 1)
+				{
+					s = "Available";
+				}
+				else
+				{
+					s = "Out of Stock";
+				}
+				string[] row = { product.name.ToString(), product.price.ToString(), s };
+				dataGridView1.Rows.Add(row);
 			}
 
 
