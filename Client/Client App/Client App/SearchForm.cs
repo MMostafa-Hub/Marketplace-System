@@ -39,14 +39,7 @@ namespace Client_App
 				dataGridView1.Rows.Add(row);
 			}
 
-			//DATAVIEW ITEMS
-
-			//List<Product>recevieditems=//recevieditem list
-			for (int i = 0; i < recevieditems.Size(); i++)
-			{
-				string[] row = { recevieditems[i].name.ToString(), recevieditems[i].price.ToString(), recevieditems[i].stockQuantity.ToString() };
-				dataGridView1.Rows.Add(row);
-			}
+			
 
 			List<string> sortBy = new List<string>();
 			sortBy.Add("Price");
