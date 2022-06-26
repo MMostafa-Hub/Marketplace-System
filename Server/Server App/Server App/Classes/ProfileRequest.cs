@@ -8,10 +8,9 @@ namespace Server_App.Classes
 {
     internal class ProfileRequest : Request
     {
-        public string profileUserName;
+        
         public ProfileRequest(string profileUserName)
         {
-            this.profileUserName = profileUserName;
             type = "profile";
         }
     }
