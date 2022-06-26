@@ -30,7 +30,7 @@ namespace Client_App
 			{
 				clientSocket.write(categoryRequest);
 			}
-			catch (clientSocket.WriteException)
+			catch (Exception)
 			{
 				returnForm = this;
 				connectionForm.Show();
@@ -43,7 +43,7 @@ namespace Client_App
 			{
 				CategoryResponse cateResponse = clientSocket.read<CategoryResponse>(timeout: 100);
 			}
-			catch (clientSocket.ReadTimeoutException)
+			catch (Exception)
 			{
 				returnForm = this;
 				connectionForm.Show();
@@ -72,7 +72,6 @@ namespace Client_App
 			}	  
 
 			sortcombobox.SelectedIndex = 0;
-			categorycombobox.SelectedIndex = 0;
 		}
 
 		private void sortcombobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,16 +91,16 @@ namespace Client_App
 			string sortText = sortcombobox.SelectedItem.ToString();
 			SearchRequest srequest = new SearchRequest(searchText, categoryText, sortText);
 
-			if (searchText == null)
+			if (searchText == null && categorycombobox==null)
 			{
-				MessageBox.Show("Enter a product name", "Negative value ", MessageBoxButtons.OK);
+				MessageBox.Show("Enter a product name and/or a category", "Negative value ", MessageBoxButtons.OK);
 			}
 			//receving a requestresponse
 			try
 			{
 				clientSocket.write(SearchRequest);
 			}
-			catch (clientSocket.WriteException)
+			catch (Exception)
 			{
 				returnForm = this;
 				connectionForm.Show();
@@ -114,7 +113,7 @@ namespace Client_App
 			{
 				SearchResponse srchresponse = clientSocket.read<SearchResponse>(timeout: 100);
 			}
-			catch (clientSocket.ReadTimeoutException)
+			catch (Exception)
 			{
 				returnForm = this;
 				connectionForm.Show();
@@ -142,6 +141,22 @@ namespace Client_App
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
+		}
+
+		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			DataGridView dgv = sender as DataGridView;
+			if (dgv == null)
+				return;
+			if (dgv.CurrentRow.Selected)
+			{
+				int rowIndex = e.RowIndex;
+				Product selected = srchresponse[rowIndex];
+				ProductForm productForm = new ProductForm(selected,this);
+				this.Hide();
+				productForm.Show();
+
+			}
 		}
 	}
 }
