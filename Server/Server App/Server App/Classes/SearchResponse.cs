@@ -10,7 +10,7 @@ namespace Server_App.Classes
     {
         
         List<Product> productList;
-        public SearchResponse(List<string> categoryList, List<Product> productList)
+        public SearchResponse(List<Product> productList)
         {
             
             this.productList = productList;
