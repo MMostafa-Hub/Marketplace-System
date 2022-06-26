@@ -58,7 +58,16 @@ namespace Client_App
 
 			foreach (Product product in cateResponse.productList)
 			{
-				string[] row = { product.name.ToString(), product.price.ToString(), product.stockQuantity.ToString() };
+				string s;
+				if (product.stockQuantity >= 1)
+				{
+					s = "Available";
+				}
+				else
+				{
+					s = "Out of Stock";
+				}
+				string[] row = { product.name.ToString(), product.price.ToString(), s };
 				dataGridView1.Rows.Add(row);
 			}	  
 
