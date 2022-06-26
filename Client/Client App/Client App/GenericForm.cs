@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Client_App.Classes;
+using static Client_App.Globals;
 
 namespace Client_App
 {
@@ -10,7 +12,8 @@ namespace Client_App
     {
         protected override void OnFormClosing(System.Windows.Forms.FormClosingEventArgs e)
         {
-            //TODO: send logout request
+            Request logoutRequest = new Request("logout");
+            clientSocket.write(logoutRequest);
             Application.Exit();
         }
     }
