@@ -32,9 +32,10 @@ namespace Server_App.Functions
             }
             catch(SqlException e)
             {
+                command.Dispose();
                 return new CreateAccountResponse(false);
             }
-            
+            command.Dispose();
             return new CreateAccountResponse(true);
 
         }
