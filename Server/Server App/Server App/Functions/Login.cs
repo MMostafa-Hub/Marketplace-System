@@ -23,7 +23,7 @@ namespace Server_App.Functions
 
             SqlCommand command = new SqlCommand(userSelect, connection);
 
-            lock (Globals.loginLock)
+            lock (Globals.userLoginLock)
             {
                 SqlDataReader dataReader = command.ExecuteReader();
 
