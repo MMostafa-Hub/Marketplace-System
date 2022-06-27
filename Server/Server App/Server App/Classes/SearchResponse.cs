@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Server_App.Classes
 {
-    internal class SearchResponse
+    internal class SearchResponse : AbstractResponse
     {
         
         List<Product> productList;
