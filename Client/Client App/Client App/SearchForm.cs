@@ -1,4 +1,4 @@
-﻿using Client_App.Classes;
+using Client_App.Classes;
 namespace Client_App
 {
 	public partial class SearchForm : Form
@@ -30,6 +30,7 @@ namespace Client_App
 			{
 				clientSocket.write(categoryRequest);
 			}
+
 			catch (clientSocket.WriteException)
 			{
 				returnForm = this;
@@ -49,7 +50,6 @@ namespace Client_App
 				connectionForm.Show();
 				this.Hide();
 			}
-
 
 			foreach (string category in cateResponse.categoryList)
 			{
@@ -74,8 +74,6 @@ namespace Client_App
 			sortcombobox.SelectedIndex = 0;
 			categorycombobox.SelectedIndex = 0;
 
-
-
 			/*List<string> sortBy = new List<string>();
 			sortBy.Add("Price");
 			sortBy.Add("Latest product");
@@ -85,6 +83,7 @@ namespace Client_App
 
 		private void sortcombobox_SelectedIndexChanged(object sender, EventArgs e)
 		{
+
 
 		}
 
@@ -99,6 +98,7 @@ namespace Client_App
 			string categoryText = categorycombobox.SelectedItem.ToString();
 			string sortText = sortcombobox.SelectedItem.ToString();
 			SearchRequest srequest = new SearchRequest(searchText, categoryText, sortText);
+
 
 			if (searchText == null)
 			{
