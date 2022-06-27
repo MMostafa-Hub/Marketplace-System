@@ -11,6 +11,11 @@ namespace Server_App
 {
     internal static class Cart_update
     {
+        /*Function Name:updateCart
+        *Input:updateCartRequest
+        *Output:Void
+        *Updates has_in_cart Table with all quantities user wants
+        */
         public static void updateCart(updateCartRequest request)
         {
 
@@ -23,9 +28,7 @@ namespace Server_App
             Dictionary<int,int>Hashmap=request.Hashmap;
             for (int i = 0; i < Hashmap.Count; i++)
             {
-                // Console.WriteLine(Hashmap.ElementAt(i).Key);
-                /*Creation of string that contains The query*/
-
+                /*Query To update the Cart*/
                 string sql = "UPDATE has_in_cart  set product_id=" + Hashmap.ElementAt(i).Key + ",quantity=" + Hashmap.ElementAt(i).Value + " Where user_username='" + username + "' AND product_id=" + Hashmap.ElementAt(i).Key;
                 /*Creating The command that will be executed*/
                 command = new SqlCommand(sql, connection);
