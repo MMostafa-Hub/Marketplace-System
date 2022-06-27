@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Client_App
 {
-    public partial class ProductForm : Form
+    public partial class ProductForm : GenericForm
     {
        Product pro;
-        Form ProForm;
+       GenericForm ProForm;
 
-        public ProductForm(Product  pro, Form ProForm)
+        public ProductForm(Product  pro, GenericForm ProForm)
         {
             InitializeComponent();
             this.pro = pro;
