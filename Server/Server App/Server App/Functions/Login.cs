@@ -40,8 +40,8 @@ namespace Server_App.Functions
                     return new UserLoginResponse(false);
                 }
                 //Testing
-                Console.WriteLine(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2));
-                if (dataReader.GetString(2) == "1") //The user is already logged in
+                Console.WriteLine(dataReader.GetString(0) + " " + dataReader.GetString(1) + " " + dataReader.GetBoolean(2));
+                if (dataReader.GetBoolean(2) == true) //The user is already logged in
                 {
                     dataReader.Close();
                     command.Dispose();
