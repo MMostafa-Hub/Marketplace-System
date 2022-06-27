@@ -35,6 +35,13 @@
             this.labelOutofStock = new System.Windows.Forms.Label();
             this.dataGridViewOxS = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.IndexCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoldQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBS)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,11 +70,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewBS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBS.Location = new System.Drawing.Point(91, 57);
+            this.dataGridViewBS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Index,
+            this.pName,
+            this.Price,
+            this.SoldQuantity});
+            this.dataGridViewBS.Location = new System.Drawing.Point(11, 57);
             this.dataGridViewBS.Name = "dataGridViewBS";
             this.dataGridViewBS.ReadOnly = true;
             this.dataGridViewBS.RowTemplate.Height = 25;
-            this.dataGridViewBS.Size = new System.Drawing.Size(259, 95);
+            this.dataGridViewBS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBS.Size = new System.Drawing.Size(424, 95);
             this.dataGridViewBS.TabIndex = 3;
             // 
             // panel1
@@ -112,11 +125,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewOxS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOxS.Location = new System.Drawing.Point(91, 60);
+            this.dataGridViewOxS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IndexCol,
+            this.pNameCol,
+            this.PriceCol});
+            this.dataGridViewOxS.Location = new System.Drawing.Point(11, 60);
             this.dataGridViewOxS.Name = "dataGridViewOxS";
             this.dataGridViewOxS.ReadOnly = true;
             this.dataGridViewOxS.RowTemplate.Height = 25;
-            this.dataGridViewOxS.Size = new System.Drawing.Size(259, 95);
+            this.dataGridViewOxS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewOxS.Size = new System.Drawing.Size(424, 95);
             this.dataGridViewOxS.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -134,6 +152,55 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(450, 340);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
+            // IndexCol
+            // 
+            this.IndexCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IndexCol.HeaderText = "Index";
+            this.IndexCol.Name = "IndexCol";
+            this.IndexCol.ReadOnly = true;
+            // 
+            // pNameCol
+            // 
+            this.pNameCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pNameCol.HeaderText = "Product Name";
+            this.pNameCol.Name = "pNameCol";
+            this.pNameCol.ReadOnly = true;
+            // 
+            // PriceCol
+            // 
+            this.PriceCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PriceCol.HeaderText = "Price";
+            this.PriceCol.Name = "PriceCol";
+            this.PriceCol.ReadOnly = true;
+            // 
+            // SoldQuantity
+            // 
+            this.SoldQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SoldQuantity.HeaderText = "Sold Quantity";
+            this.SoldQuantity.Name = "SoldQuantity";
+            this.SoldQuantity.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // pName
+            // 
+            this.pName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pName.HeaderText = "Product Name";
+            this.pName.Name = "pName";
+            this.pName.ReadOnly = true;
+            // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Index.HeaderText = "Rank";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            // 
             // ProductsReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -143,6 +210,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductsReportForm";
             this.Text = "ProductsReportForm";
+            this.Load += new System.EventHandler(this.ProductsReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -162,5 +230,12 @@
         private Label labelOutofStock;
         private DataGridView dataGridViewOxS;
         private TableLayoutPanel tableLayoutPanel1;
+        private DataGridViewTextBoxColumn IndexCol;
+        private DataGridViewTextBoxColumn pNameCol;
+        private DataGridViewTextBoxColumn PriceCol;
+        private DataGridViewTextBoxColumn Index;
+        private DataGridViewTextBoxColumn pName;
+        private DataGridViewTextBoxColumn Price;
+        private DataGridViewTextBoxColumn SoldQuantity;
     }
 }

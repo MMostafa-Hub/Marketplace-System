@@ -7,18 +7,62 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client_App.Classes;
+using static Client_App.Globals;
 
 namespace Client_App
 {
     public partial class ProductsReportForm : Form
     {
-        public ProductsReportForm()
+        Form adminPage;
+        public ProductsReportForm(Form adminPage)
         {
             InitializeComponent();
-            CreateReport();
+            this.adminPage = adminPage;
         }
 
-        public void CreateReport() 
-        {}
+        private void ProductsReportForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                clientSocket.write(new ProductsReportRequest());
+            }
+            catch (Exception)
+            {
+                returnForm = this.adminPage;
+                connectionForm.Show();
+                this.adminPage.Hide();
+            }
+
+            ProductsReportResponse productsResponse = null;
+            try
+            {
+                productsResponse = clientSocket.read<ProductsReportResponse>(timeout: 100);
+            }
+            catch (Exception)
+            {
+                returnForm = this.adminPage;
+                connectionForm.Show();
+                this.adminPage.Hide();
+            }
+            if (productsResponse != null)
+            {
+                int index = 1;
+                foreach (Product product in productsResponse.bestSellers)
+                {
+                    string[] row = { index.ToString(), product.name, product.price.ToString(), product.soldQuantity.ToString() };
+                    dataGridViewBS.Rows.Add(row);
+                    index++;
+                }
+
+                index = 1;
+                foreach (Product product in productsResponse.outStock)
+                {
+                    string[] row = { index.ToString(), product.name, product.price.ToString() };
+                    dataGridViewOxS.Rows.Add(row);
+                    index++;
+                }
+            }
+        }
     }
 }
