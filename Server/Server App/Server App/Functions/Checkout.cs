@@ -10,7 +10,7 @@ namespace Server_App
 {
      internal static class Checkout
     {
-        public static int checkOut(checkOutRequest request,float totalAmount,string date)
+        public static checkOutResponse checkOut(checkOutRequest request)
         {
             /*Establishing Connection with Database*/
             SqlConnection connection=Globals.getDBConnection();
@@ -52,7 +52,7 @@ namespace Server_App
                   if(inStock<Hashmap.ElementAt(i).Value)
                   {
                     /*Cant provide as instock quantity is less than quantity user wants*/
-                    return -1;
+                    return new checkOutResponse(false); /*Checkout failure*/
                   }
                  }
                  dataReader.Close();
@@ -73,8 +73,8 @@ namespace Server_App
               dataReader.Close();
               command.Dispose();
               /*2-Handling users table,we should deduct total amount from user balance(Updating user balance with new amount)*/
-              balance-=totalAmount;
-              sql = "UPDATE users SET balance = " + totalAmount.ToString() + " WHERE username= "  + "'" +username + "'";
+              balance-=request.totalAmount;
+              sql = "UPDATE users SET balance = " + request.totalAmount.ToString() + " WHERE username= "  + "'" +username + "'";
               command = new SqlCommand(sql, connection);
               adapter.InsertCommand = command;
               adapter.InsertCommand.ExecuteNonQuery();
@@ -113,7 +113,7 @@ namespace Server_App
               /*4-Creation of Order for The user and inserting new entry in Order Table*/
 
               /*Insertion query has dateTime and username (Order no is implicitly inserted by DBMS)*/
-              sql = "insert into orders Values("+"'" +request.date.ToString("MM/dd/yyyy HH:mm:ss")+"'"+  ", '" + username + "')";
+              sql = "insert into orders Values("+"'" +(request.date).ToString("MM/dd/yyyy HH:mm:ss")+"'"+  ", '" + username + "')";
               command = new SqlCommand(sql, connection);
               adapter.InsertCommand = command;
               adapter.InsertCommand.ExecuteNonQuery();
@@ -153,7 +153,7 @@ namespace Server_App
               command.Dispose();
             }
 
-            return 1;
+            return new checkOutResponse(true); /*Success*/
         }
      
     }
