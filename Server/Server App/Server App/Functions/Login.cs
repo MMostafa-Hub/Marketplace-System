@@ -20,46 +20,43 @@ namespace Server_App.Functions
 
             SqlCommand command = new SqlCommand(adminSelect, connection);
 
-            lock (Globals.adminLoginLock)
+            SqlDataReader dataReader = command.ExecuteReader();
+
+            dataReader.Read();
+
+
+
+            if (!dataReader.HasRows) //No matching records for the username
             {
-                SqlDataReader dataReader = command.ExecuteReader();
+                //Testing
+                //Console.WriteLine("No matching records");
 
-                dataReader.Read();
-                
-                
-                
-                if (!dataReader.HasRows) //No matching records for the username
-                {
-                    //Testing
-                    //Console.WriteLine("No matching records");
-                    
-                    dataReader.Close();
-                    command.Dispose();
-                    return new AdminLoginResponse(0);
-                }
-                
-                
-                
+                dataReader.Close();
+                command.Dispose();
+                return new AdminLoginResponse(0);
+            }
 
-                if (dataReader.GetString(1) == request.getPassword()) //Matching password for the username 
-                {
-                    
 
-                    Globals.client_username = dataReader.GetString(0);
 
-                    
-                    dataReader.Close();
-                    
-                    
-                    command.Dispose();
-                    return new AdminLoginResponse(1);
-                }
-                else //Non matching password 
-                {
-                    dataReader.Close();
-                    command.Dispose();
-                    return new AdminLoginResponse(0);
-                }
+
+            if (dataReader.GetString(1) == request.getPassword()) //Matching password for the username 
+            {
+
+
+                Globals.client_username = dataReader.GetString(0);
+
+
+                dataReader.Close();
+
+
+                command.Dispose();
+                return new AdminLoginResponse(1);
+            }
+            else //Non matching password 
+            {
+                dataReader.Close();
+                command.Dispose();
+                return new AdminLoginResponse(0);
             }
 
         }
