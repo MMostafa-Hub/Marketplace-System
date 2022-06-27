@@ -18,5 +18,16 @@ namespace Server_App.Classes
 
             type = "userLogin";
         }
+
+        public String getUserName()
+        {
+            return username;
+        }
+
+        public String getPassowrd()
+        {
+            return password;
+        }
+
     }
 }
