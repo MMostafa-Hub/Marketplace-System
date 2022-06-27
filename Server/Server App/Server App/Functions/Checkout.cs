@@ -10,6 +10,10 @@ namespace Server_App
 {
      internal static class Checkout
     {
+      /*Name:checkOut
+      *Input:checkOutRequest
+      *Returns:checkoutResponse(True) if success ,CheckOutResponse(False) if fail
+      */
         public static checkOutResponse checkOut(checkOutRequest request)
         {
             /*Establishing Connection with Database*/
@@ -21,6 +25,7 @@ namespace Server_App
             SqlCommand command;
             SqlDataReader dataReader;
             SqlDataAdapter adapter = new SqlDataAdapter();
+            /*Hashmap to hold Produc ids ,quantity in Cart*/
             Dictionary<int,int>Hashmap=new Dictionary<int, int>();
             
 
@@ -60,7 +65,7 @@ namespace Server_App
               }
               /*On Reaching Here all items are avaiable in stock*/
 
-              /*Deduct Total amount from user*/
+              /*1-Deduct Total amount from user*/
               sql = "SELECT balance FROM users where username='" + username + "'";
               command = new SqlCommand(sql, connection);
               dataReader = command.ExecuteReader();
@@ -98,6 +103,7 @@ namespace Server_App
 
                   dataReader.Close();
                   command.Dispose();
+                  /*Increase sold Items with quantity and decrease instock items with quantity*/
                   sold += quantity;
                   inStock-= quantity;
                   /*Updating each item instock and sold quantity in product Table  */
