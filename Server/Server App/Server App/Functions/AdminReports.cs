@@ -10,7 +10,7 @@ namespace Server_App.Functions
 {
     internal static class AdminReports
     {
-        static DashboardResponse dashboard()
+        static public DashboardResponse dashboard()
         {
             int customers, activeUsers, ordersCount;
             float dailyProfit;
@@ -61,6 +61,35 @@ namespace Server_App.Functions
 
             DashboardResponse dashboard = new DashboardResponse(customers, activeUsers, ordersCount, dailyProfit);
             return dashboard;
+        }
+        
+        static public OrdersReportResponse orderReport()
+        {
+            List<DayOrder> orders = new List<DayOrder>();
+           
+
+            SqlConnection sqlConnection = Globals.getDBConnection();
+
+
+            SqlCommand command;
+            SqlDataReader dataReader;
+            String sql;
+            sql = "SELECT COUNT(DISTINCT o.number), SUM(p.price * c.quantity), CAST(o.dateCreated AS DATE) FROM orders AS o, product AS p, contain AS c"+
+                  "WHERE o.number = c.order_no AND p.id = c.product_id GROUP BY CAST(o.dateCreated AS DATE)";
+            command = new SqlCommand(sql,sqlConnection);    
+            dataReader= command.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                int count = dataReader.GetInt32(0);
+                float profit = (float)dataReader.GetInt32(1);
+                string date = dataReader.GetString(2);
+
+                orders.Add(new DayOrder(date, count, profit));
+            }
+
+            OrdersReportResponse ordersReport = new OrdersReportResponse(orders);
+            return ordersReport;
         }
     }
 }
