@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Client_App
 {
-    public partial class ProductForm : Form
+    public partial class ProductForm : GenericForm
     {
         Product pro;
         Form ProForm;
@@ -20,6 +20,13 @@ namespace Client_App
             InitializeComponent();
             this.pro = pro;
             this.ProForm = ProForm;
+        }
+
+
+
+        private void BT2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
