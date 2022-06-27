@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Server_App.Classes
 {
-    internal abstract class checkOutResponse:AbstractResponse
+    internal  class checkOutResponse:AbstractResponse
     {
         public bool flag;
         public checkOutResponse(bool flag)
