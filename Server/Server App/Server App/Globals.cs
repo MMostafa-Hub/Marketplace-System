@@ -13,8 +13,10 @@ namespace Server_App
         [ThreadStatic]
         public static string client_username;
 
-        private static SqlConnection? dbConnection = null;
 
+        public static readonly object userLoginLock = new object();
+                
+        private static SqlConnection? dbConnection = null;
         public static SqlConnection getDBConnection()
         {
             if (dbConnection == null)

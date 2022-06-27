@@ -1,4 +1,4 @@
-﻿using Client_App.Classes;
+using Client_App.Classes;
 namespace Client_App
 {
 	public partial class SearchForm : Form
@@ -26,13 +26,12 @@ namespace Client_App
 			Request categoryRequest = new Request();
 			categoryRequest.type = "CategoryRequest";
 
-			categorycombobox.SelectedIndex = 0;
-			sortcombobox.SelectedIndex = 0;
 			try
 			{
 				clientSocket.write(categoryRequest);
 			}
-			catch (clientSocket.WriteException) 
+
+			catch (clientSocket.WriteException)
 			{
 				returnForm = this;
 				connectionForm.Show();
@@ -52,18 +51,28 @@ namespace Client_App
 				this.Hide();
 			}
 
-				foreach (string category in cateResponse.categoryList)
+			foreach (string category in cateResponse.categoryList)
 			{
 				categorycombobox.Items.Add(category);
 			}
 
-			foreach (Product product in cateResponse.productList) 
+			foreach (Product product in cateResponse.productList)
 			{
-				string[] row = { product.name.ToString(), product.price.ToString(), product.stockQuantity.ToString() };
+				string s;
+				if (product.stockQuantity >= 1)
+				{
+					s = "Available";
+				}
+				else
+				{
+					s = "Out of Stock";
+				}
+				string[] row = { product.name.ToString(), product.price.ToString(), s };
 				dataGridView1.Rows.Add(row);
-			}
+			}	  
 
-			
+			sortcombobox.SelectedIndex = 0;
+			categorycombobox.SelectedIndex = 0;
 
 			/*List<string> sortBy = new List<string>();
 			sortBy.Add("Price");
@@ -75,7 +84,8 @@ namespace Client_App
 		private void sortcombobox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
-		}																										 
+
+		}
 
 		private void searchTxtBox_TextChanged(object sender, EventArgs e)
 		{
@@ -89,16 +99,17 @@ namespace Client_App
 			string sortText = sortcombobox.SelectedItem.ToString();
 			SearchRequest srequest = new SearchRequest(searchText, categoryText, sortText);
 
-			if (searchText == null) 
+
+			if (searchText == null)
 			{
 				MessageBox.Show("Enter a product name", "Negative value ", MessageBoxButtons.OK);
 			}
-			
+
 
 		}
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{																									  
+		{
 
 		}
 	}
