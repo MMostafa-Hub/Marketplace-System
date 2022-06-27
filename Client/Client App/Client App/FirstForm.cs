@@ -17,19 +17,46 @@ namespace Client_App
             InitializeComponent();
         }
 
+        // Admin Login Button
         private void button1_Click(object sender, EventArgs e)
         {
-            //AdminLoginForm.run
+            AdminLoginForm f = new Client_App.AdminLoginForm();
+            f.ShowDialog();
         }
 
+        // User Login Button
         private void button2_Click(object sender, EventArgs e)
         {
-            //UserLoginForm.run
+            UserLoginForm f = new Client_App.UserLoginForm();
+            f.ShowDialog();
         }
 
+        // Create Account Button
         private void button3_Click(object sender, EventArgs e)
         {
-            //CreateAccountForm.run
+            CreateAccountForm f = new Client_App.CreateAccountForm();
+            f.ShowDialog();
+        }
+
+        // Admin Login Pic
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            AdminLoginForm f = new Client_App.AdminLoginForm();
+            f.ShowDialog();
+        }
+
+        // User Login Pic
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            UserLoginForm f = new Client_App.UserLoginForm();
+            f.ShowDialog();
+        }
+
+        // Create Account Pic
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            CreateAccountForm f = new Client_App.CreateAccountForm();
+            f.ShowDialog();
         }
     }
 }
