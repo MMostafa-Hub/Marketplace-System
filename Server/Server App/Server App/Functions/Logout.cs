@@ -17,7 +17,9 @@ namespace Server_App.Functions
 
             command.ExecuteNonQuery();
             command.Dispose();
-            
+
+            Globals.client_username = "";
+
 
         }
     }
