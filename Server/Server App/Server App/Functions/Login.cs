@@ -44,16 +44,17 @@ namespace Server_App.Functions
                 //Testing
                 //Console.WriteLine(dataReader.GetString(0) + " " + dataReader.GetString(1) + " " + dataReader.GetBoolean(2));
                 
-                if (dataReader.GetBoolean(2) == true) //The user is already logged in
-                {
-                    dataReader.Close();
-                    command.Dispose();
-                    return new UserLoginResponse(420);
-                }
-                //Check logic of what precedes what. Check the password is correct then check if the user is logged in.
+                
 
                 if (dataReader.GetString(1) == request.getPassword()) //Matching password for the username 
                 {
+                    if (dataReader.GetBoolean(2) == true) //The user is already logged in
+                    {
+                        dataReader.Close();
+                        command.Dispose();
+                        return new UserLoginResponse(420);
+                    }
+
                     Globals.client_username = dataReader.GetString(0);
 
                     String loggedInUpdateSql = "UPDATE users SET loggedIn = 1 WHERE username = " + "'" + request.getUserName() + "'";
