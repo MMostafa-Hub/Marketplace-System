@@ -19,7 +19,7 @@ namespace Server_App.Functions
             UserLoginRequest unviableRequest = new UserLoginRequest("Mohanad", "mohanad"); // Expected on Console: No matching records
             */
 
-            String userSelect = "SELECT username, password, loggedIn FROM users WHERE username = " + "'" + request.getUserName() + "'";
+            String userSelect = "SELECT username, password, loggedIn, balance FROM users WHERE username = " + "'" + request.getUserName() + "'";
 
             SqlCommand command = new SqlCommand(userSelect, connection);
 
@@ -38,7 +38,7 @@ namespace Server_App.Functions
                     
                     dataReader.Close();
                     command.Dispose();
-                    return new UserLoginResponse(0);
+                    return new UserLoginResponse(0, null);
                 }
                 
                 //Testing
@@ -52,7 +52,7 @@ namespace Server_App.Functions
                     {
                         dataReader.Close();
                         command.Dispose();
-                        return new UserLoginResponse(420);
+                        return new UserLoginResponse(420,null);
                     }
 
                     Globals.client_username = dataReader.GetString(0);
@@ -60,16 +60,44 @@ namespace Server_App.Functions
                     String loggedInUpdateSql = "UPDATE users SET loggedIn = 1 WHERE username = " + "'" + request.getUserName() + "'";
                     command = new SqlCommand(loggedInUpdateSql, connection);
                     command.ExecuteNonQuery();
+                    float userBalance = dataReader.GetFloat(3);
 
                     dataReader.Close();
-                    command.Dispose();
-                    return new UserLoginResponse(1);
+                    
+                    String cartSql = "SELECT product.id, product.name, product.category, product.description, product.price, product.stockQuantity, product.soldQuantity,has_in_cart.quantity FROM(has_in_cart JOIN users ON has_in_cart.user_username = users.username) JOIN product on has_in_cart.product_id = product.id WHERE users.username = " + "'" + request.getUserName() + "'";
+                    command = new SqlCommand(cartSql, connection);
+                    dataReader = command.ExecuteReader();
+
+                    Dictionary<Product, int> products = new Dictionary<Product, int>();
+                    while (dataReader.Read())
+                    {
+                        Product product = new Product();
+                        product.id = (int)dataReader.GetValue(0);
+                        product.name = dataReader.GetString(1);
+                        product.category = dataReader.GetString(2);
+                        product.description = dataReader.GetString(3);
+                        product.price = (float)dataReader.GetValue(4);
+                        product.stockQuantity = (int)dataReader.GetValue(5);
+                        product.stockQuantity = (int)dataReader.GetValue(6);
+
+                        products.Add(product, (int)dataReader.GetValue(7));
+                    }
+                    dataReader.Close();
+                    User user = new User();
+                    user.username = request.getUserName();
+                    user.balance = userBalance;
+
+                    Cart cart = new Cart();
+                    cart.products = products;
+                    user.cart = cart;
+
+                    return new UserLoginResponse(1,user);
                 }
                 else //Non matching password 
                 {
                     dataReader.Close();
                     command.Dispose();
-                    return new UserLoginResponse(0);
+                    return new UserLoginResponse(0,null);
                 }
             }
 
