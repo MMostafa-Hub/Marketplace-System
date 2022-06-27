@@ -23,8 +23,8 @@ namespace Client_App
                 this.Hide();
                 if (returnForm == null)
                 {
-                    Form firstForm = new FirstForm();
-                    firstForm.Show();
+                    //Form firstForm = new FirstForm();
+                    //firstForm.Show();
                 }
                 else
                 {
