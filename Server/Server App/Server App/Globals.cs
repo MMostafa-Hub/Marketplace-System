@@ -11,8 +11,8 @@ namespace Server_App
     {
         /* Client Username shared in the thread address space only */
         [ThreadStatic]
-        public static string client_username;
-
+       
+        public static readonly object checkOutLock = new object();
         private static SqlConnection? dbConnection = null;
 
         public static SqlConnection getDBConnection()
