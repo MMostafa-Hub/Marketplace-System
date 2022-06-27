@@ -16,7 +16,6 @@ namespace Server_App
         public static readonly object userLoginLock = new object();
                 
         private static SqlConnection? dbConnection = null;
-
         public static SqlConnection getDBConnection()
         {
             if (dbConnection == null)
