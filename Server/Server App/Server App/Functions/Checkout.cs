@@ -145,11 +145,15 @@ namespace Server_App
                 command.Dispose();
               }
               /*6-Remove items from cart*/
-              
-              
+
+              sql = "delete from has_in_cart where user_username='" + username+"'";
+              command = new SqlCommand(sql, connection);
+              adapter.InsertCommand = command;
+               adapter.InsertCommand.ExecuteNonQuery();
+              command.Dispose();
             }
 
-            return 0;
+            return 1;
         }
      
     }
