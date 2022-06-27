@@ -8,7 +8,7 @@ namespace Server_App.Classes
 {
     internal class checkOutRequest:Request
     {
-        float totalAmount;
-        string date;
+        public float totalAmount;
+        public string date;
     }
 }
