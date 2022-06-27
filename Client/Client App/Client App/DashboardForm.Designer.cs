@@ -144,9 +144,9 @@
             this.labelProfit.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.labelProfit.Location = new System.Drawing.Point(27, 78);
             this.labelProfit.Name = "labelProfit";
-            this.labelProfit.Size = new System.Drawing.Size(68, 25);
+            this.labelProfit.Size = new System.Drawing.Size(97, 25);
             this.labelProfit.TabIndex = 12;
-            this.labelProfit.Text = "Profit$";
+            this.labelProfit.Text = "Profit EGP";
             // 
             // pictureBox1
             // 
@@ -264,6 +264,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashboardForm";
             this.Text = "DashboardForm";
+            this.Load += new System.EventHandler(this.DashboardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
