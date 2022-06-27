@@ -16,12 +16,15 @@ namespace Server_App.Classes
         public int stockQuantity;
         public int soldQuantity;
         
-        public Product(int id, string name, float price, int stockQuantity)
+        public Product(int id, string name, string description, string category, float price, int stockQuantity, int soldQuantity)
         {
             this.id = id;
             this.name = name;
+            this.description = description;
+            this.category = category;
             this.price = price;
             this.stockQuantity = stockQuantity;
+            this.soldQuantity = soldQuantity;
         }
     }
 }
