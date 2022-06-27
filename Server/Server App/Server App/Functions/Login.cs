@@ -83,14 +83,17 @@ namespace Server_App.Functions
                         products.Add(product, (int)dataReader.GetValue(7));
                     }
                     dataReader.Close();
+                    
                     User user = new User();
                     user.username = request.getUserName();
                     user.balance = userBalance;
 
                     Cart cart = new Cart();
                     cart.products = products;
-                    user.cart = cart;
 
+                    user.cart = cart;
+                    
+                    command.Dispose();
                     return new UserLoginResponse(1,user);
                 }
                 else //Non matching password 
