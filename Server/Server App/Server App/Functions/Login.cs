@@ -13,7 +13,12 @@ namespace Server_App.Functions
         {
             SqlConnection connection = Globals.getDBConnection();
 
-            
+
+            /*Testing request
+            UserLoginRequest viableRequest = new UserLoginRequest("John00", "john456"); //Expected on Console: John00 john456 0 
+            UserLoginRequest unviableRequest = new UserLoginRequest("Mohanad", "mohanad"); // Expected on Console: No matching records
+            */
+
             String userSelect = "SELECT username, password, loggedIn FROM users WHERE username = " + "'" + request.getUserName() + "'";
 
             SqlCommand command = new SqlCommand(userSelect, connection);
@@ -23,14 +28,19 @@ namespace Server_App.Functions
                 SqlDataReader dataReader = command.ExecuteReader();
 
                 dataReader.Read();
-
+                
+                
+                
                 if (!dataReader.HasRows) //No matching records for the username
                 {
+                    //Testing
+                    Console.WriteLine("No matching records");
                     dataReader.Close();
                     command.Dispose();
                     return new UserLoginResponse(false);
                 }
-
+                //Testing
+                Console.WriteLine(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2));
                 if (dataReader.GetString(2) == "1") //The user is already logged in
                 {
                     dataReader.Close();
