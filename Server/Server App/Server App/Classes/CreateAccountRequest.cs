@@ -22,5 +22,23 @@ namespace Server_App.Classes
 
             type = "createAccount";
         }
+
+        public String getUsername()
+        {
+            return username;
+        }
+
+        public String getPassword()
+        {
+            return password;
+        }
+        public String getGender()
+        {
+            return gender; 
+        }
+        public int getAge()
+        {
+            return age;
+        }
     }
 }
