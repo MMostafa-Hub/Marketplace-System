@@ -9,6 +9,12 @@ namespace Server_App
 {
     internal static class Globals
     {
+        /* Client Username shared in the thread address space only */
+        [ThreadStatic]
+        public static string client_username;
+
+        public static readonly object userLoginLock = new object();
+                
         private static SqlConnection? dbConnection = null;
         public static SqlConnection getDBConnection()
         {
