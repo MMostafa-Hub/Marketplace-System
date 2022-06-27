@@ -12,48 +12,49 @@ namespace Client_App
 {
     public partial class AdminReportForm : Form
     {
-        private Form logoutForm;
-        public AdminReportForm(Form logoutForm)
+        Form logoutForm;
+
+        public AdminReportForm(string adminName, Form logoutForm)
         {
             InitializeComponent();
-            //labelAdmin.Text = username;
+            labelAdmin.Text = adminName;
+            this.logoutForm = logoutForm;
             labelTitle.Text = "Dashboard";
-            labelTime.Text = DateTime.Now.ToLongTimeString();
             this.pnlFormLoader.Controls.Clear();
-            DashboardForm DashBF = new DashboardForm() {Dock=DockStyle.Fill, TopLevel=false, TopMost=true};
+            DashboardForm DashBF = new DashboardForm(this) {Dock=DockStyle.Fill, TopLevel=false, TopMost=true};
             this.pnlFormLoader.Controls.Add(DashBF);
             DashBF.Show();
-            this.logoutForm = logoutForm;
+            labelTime.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             labelTitle.Text = "Dashboard";
-            labelTime.Text = DateTime.Now.ToLongTimeString();
             this.pnlFormLoader.Controls.Clear();
-            DashboardForm DashBF= new DashboardForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            DashboardForm DashBF= new DashboardForm(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.pnlFormLoader.Controls.Add(DashBF);
             DashBF.Show();
+            labelTime.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void btnProdRep_Click(object sender, EventArgs e)
         {
             labelTitle.Text = "Products Report";
-            labelTime.Text = DateTime.Now.ToLongTimeString();
             this.pnlFormLoader.Controls.Clear();
-            ProductsReportForm ProductsRF = new ProductsReportForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            ProductsReportForm ProductsRF = new ProductsReportForm(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.pnlFormLoader.Controls.Add(ProductsRF);
             ProductsRF.Show();
+            labelTime.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void btnUserAct_Click(object sender, EventArgs e)
         {
-            labelTitle.Text = "Users Activity";
-            labelTime.Text = DateTime.Now.ToLongTimeString();
+            labelTitle.Text = "Orders Report";
             this.pnlFormLoader.Controls.Clear();
-            UsersActivityForm UsersAF = new UsersActivityForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            this.pnlFormLoader.Controls.Add(UsersAF);
-            UsersAF.Show();
+            OrdersReportForm OrdersRF = new OrdersReportForm(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            this.pnlFormLoader.Controls.Add(OrdersRF);
+            OrdersRF.Show();
+            labelTime.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -61,15 +62,12 @@ namespace Client_App
             string message = "Are you sure you want to Logout?";
             string title = "Confirm Logout";
             MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-            DialogResult result = MessageBox.Show(message, title, buttons);
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
-                this.Close();
+                this.Hide();
                 logoutForm.Show();
-            }
-            else
-            {
-                // Do something  
+                MessageBox.Show("You have logged out successfully", "Logout");
             }
         }
     }

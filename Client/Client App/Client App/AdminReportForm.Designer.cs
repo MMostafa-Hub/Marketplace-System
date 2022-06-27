@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnUserAct = new System.Windows.Forms.Button();
+            this.btnOrdRepo = new System.Windows.Forms.Button();
             this.btnProdRep = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -52,7 +52,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnUserAct);
+            this.panel1.Controls.Add(this.btnOrdRepo);
             this.panel1.Controls.Add(this.btnProdRep);
             this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Controls.Add(this.panel2);
@@ -74,17 +74,17 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnUserAct
+            // btnOrdRepo
             // 
-            this.btnUserAct.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUserAct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserAct.Location = new System.Drawing.Point(0, 243);
-            this.btnUserAct.Name = "btnUserAct";
-            this.btnUserAct.Size = new System.Drawing.Size(125, 51);
-            this.btnUserAct.TabIndex = 3;
-            this.btnUserAct.Text = "Users Activity";
-            this.btnUserAct.UseVisualStyleBackColor = true;
-            this.btnUserAct.Click += new System.EventHandler(this.btnUserAct_Click);
+            this.btnOrdRepo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOrdRepo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrdRepo.Location = new System.Drawing.Point(0, 243);
+            this.btnOrdRepo.Name = "btnOrdRepo";
+            this.btnOrdRepo.Size = new System.Drawing.Size(125, 51);
+            this.btnOrdRepo.TabIndex = 3;
+            this.btnOrdRepo.Text = "Orders Report";
+            this.btnOrdRepo.UseVisualStyleBackColor = true;
+            this.btnOrdRepo.Click += new System.EventHandler(this.btnUserAct_Click);
             // 
             // btnProdRep
             // 
@@ -225,7 +225,7 @@
         private PictureBox pictureBox1;
         private Panel panel2;
         private Button btnLogout;
-        private Button btnUserAct;
+        private Button btnOrdRepo;
         private Button btnProdRep;
         private Button btnDashboard;
         private Panel pnlFormLoader;
