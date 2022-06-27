@@ -8,11 +8,11 @@ namespace Server_App.Classes
 {
     internal class AdminLoginResponse : AbstractResponse
     {
-        bool success;
+        int status;
 
-        public AdminLoginResponse(bool success)
+        public AdminLoginResponse(int status)
         {
-            this.success = success;
+            this.status = status;
         }
     }
 }
