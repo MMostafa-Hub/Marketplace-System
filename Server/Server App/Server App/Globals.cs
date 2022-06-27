@@ -10,7 +10,6 @@ namespace Server_App
     internal static class Globals
     {
         private static SqlConnection? dbConnection = null;
-        public static string client_username;
         public static SqlConnection getDBConnection()
         {
             if (dbConnection == null)
