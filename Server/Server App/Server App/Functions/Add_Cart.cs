@@ -14,7 +14,7 @@ namespace Server_App
         *Ouput:Inserts users selection into cart with the quantity specified in request(inserts into table has_in_cart)
         *Function Type:Non-Synchronized
         */
-        public static void addToCart(addToCartRequest request, string username)
+        public static void addToCart(addToCartRequest request)
         { 
             /*Establishing Connection with Database*/
             SqlConnection connection=Globals.getDBConnection();
@@ -22,6 +22,7 @@ namespace Server_App
             SqlDataAdapter adapter = new SqlDataAdapter(); 
             int ID=request.productID;
             int Quantity=request.quantity;
+            string username=Globals.client_username;
             /*Creation of string that contains The query*/
             string sql="insert into has_in_cart Values('"+username+"',"+ID.ToString()+","+Quantity.ToString()+")";
             /*Creating The command that will be executed*/
