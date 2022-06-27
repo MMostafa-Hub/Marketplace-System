@@ -15,13 +15,14 @@ namespace Server_App
         *Ouput:Inserts users selection into cart with the quantity specified in request(inserts into table has_in_cart)
         *Function Type:Non-Synchronized
         */
-        public static void removefromCart(removeFromCartRequest request, string username)
+        public static void removefromCart(removeFromCartRequest request)
         { 
             /*Establishing Connection with Database*/
             SqlConnection connection=Globals.getDBConnection();
             /*Creation of adapter used to execute insert update delete commands*/
             SqlDataAdapter adapter = new SqlDataAdapter(); 
             int ID=request.productID;
+            string username=Globals.client_username;
             /*Creation of string that contains The query*/
             string sql = "delete from has_in_cart where user_username='" + username + "' AND product_id=" + ID.ToString(); 
             /*Creating The command that will be executed*/
