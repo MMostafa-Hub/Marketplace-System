@@ -76,9 +76,9 @@ namespace Server_App.Functions
                         product.name = dataReader.GetString(1);
                         product.category = dataReader.GetString(2);
                         product.description = dataReader.GetString(3);
-                        product.price = (float)dataReader.GetValue(4);
+                        product.price = (float)(double)dataReader.GetValue(4);
                         product.stockQuantity = (int)dataReader.GetValue(5);
-                        product.stockQuantity = (int)dataReader.GetValue(6);
+                        product.soldQuantity = (int)dataReader.GetValue(6);
 
                         products.Add(product, (int)dataReader.GetValue(7));
                     }
