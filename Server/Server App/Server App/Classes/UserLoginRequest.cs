@@ -24,7 +24,7 @@ namespace Server_App.Classes
             return username;
         }
 
-        public String getPassowrd()
+        public String getPassword()
         {
             return password;
         }
