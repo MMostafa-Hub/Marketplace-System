@@ -32,7 +32,7 @@ namespace Server_App.Functions
             
             return products;
         }
-        static CategoryResponse categorySearch()
+        static public CategoryResponse categorySearch()
         {
 
             SqlConnection sqlConnection = Globals.getDBConnection();
@@ -73,7 +73,7 @@ namespace Server_App.Functions
             return response;
         }
 
-        static SearchResponse search(SearchRequest request)
+        static public SearchResponse search(SearchRequest request)
         {
 
             List<Product> products = new List<Product>();
@@ -85,8 +85,7 @@ namespace Server_App.Functions
             string? search = request.searchtxt, category = request.categorytxt;
             string sortType = request.sorttxt; 
 
-           // sql = "SELECT DISTINCT category FROM Product";
-           // command = new SqlCommand(sql, sqlConnection);
+           
 
             if (search != null && category != null)
             {
