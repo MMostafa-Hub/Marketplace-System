@@ -61,51 +61,92 @@ namespace Server_App
               /*On Reaching Here all items are avaiable in stock*/
 
               /*Deduct Total amount from user*/
-            sql = "SELECT balance FROM users where username='" + username + "'";
-            command = new SqlCommand(sql, connection);
-            dataReader = command.ExecuteReader();
+              sql = "SELECT balance FROM users where username='" + username + "'";
+              command = new SqlCommand(sql, connection);
+              dataReader = command.ExecuteReader();
 
-            float balance=0;
-            while (dataReader.Read())
-            {
-              balance = (float)(double)dataReader.GetValue(0);
-            }
-            dataReader.Close();
-            command.Dispose();
-            /*2-Handling users table,we should deduct total amount from user balance(Updating user balance with new amount)*/
-            balance-=totalAmount;
-            sql = "UPDATE users SET balance = " + totalAmount.ToString() + " WHERE username= "  + "'" +username + "'";
-            command = new SqlCommand(sql, connection);
-            adapter.InsertCommand = command;
-            adapter.InsertCommand.ExecuteNonQuery();
-            command.Dispose();
-            /*3-Update Instock and sold columns in DataBase*/
-            for (int i = 0; i < Hashmap.Count(); i++)
-            {
-                int sold=0;
-                int inStock=0;
-                int quantity = Hashmap.ElementAt(i).Value;
-                int product_id = (Hashmap.ElementAt(i).Key);
-                sql = "SELECT stockQuantity,soldQuantity FROM product where id=" + product_id.ToString();
+              float balance=0;
+              while (dataReader.Read())
+              {
+                balance = (float)(double)dataReader.GetValue(0);
+              }
+              dataReader.Close();
+              command.Dispose();
+              /*2-Handling users table,we should deduct total amount from user balance(Updating user balance with new amount)*/
+              balance-=totalAmount;
+              sql = "UPDATE users SET balance = " + totalAmount.ToString() + " WHERE username= "  + "'" +username + "'";
+              command = new SqlCommand(sql, connection);
+              adapter.InsertCommand = command;
+              adapter.InsertCommand.ExecuteNonQuery();
+              command.Dispose();
+
+              /*3-Update Instock and sold columns in DataBase*/
+              for (int i = 0; i < Hashmap.Count(); i++)
+              {
+                  int sold=0;
+                  int inStock=0;
+                  int quantity = Hashmap.ElementAt(i).Value;
+                  int product_id = (Hashmap.ElementAt(i).Key);
+                  sql = "SELECT stockQuantity,soldQuantity FROM product where id=" + product_id.ToString();
+                  command = new SqlCommand(sql, connection);
+                  dataReader = command.ExecuteReader();
+                  while (dataReader.Read())
+                  { 
+                      inStock= dataReader.GetInt32(0);
+                      sold=dataReader.GetInt32(1);
+                  }
+
+                  dataReader.Close();
+                  command.Dispose();
+                  sold += quantity;
+                  inStock-= quantity;
+                  /*Updating each item instock and sold quantity in product Table  */
+                  sql = "UPDATE product SET stockQuantity = " + inStock.ToString() + ",soldQuantity=" + sold.ToString() + "where id=" + product_id.ToString();
+                  command = new SqlCommand(sql, connection);
+                  adapter.InsertCommand = new SqlCommand(sql, connection);
+                  adapter.InsertCommand = command;
+                  adapter.InsertCommand.ExecuteNonQuery();
+
+                  command.Dispose();
+              }
+
+              /*4-Creation of Order for The user and inserting new entry in Order Table*/
+
+              /*Insertion query has dateTime and username (Order no is implicitly inserted by DBMS)*/
+              sql = "insert into orders Values("+"'" +request.date.ToString("MM/dd/yyyy HH:mm:ss")+"'"+  ", '" + username + "')";
+              command = new SqlCommand(sql, connection);
+              adapter.InsertCommand = command;
+              adapter.InsertCommand.ExecuteNonQuery();
+              command.Dispose();
+
+
+              /*retrieve order number to be used in insertion in contain table*/
+              sql = "SELECT number FROM orders where user_username='" + username + "'AND dateCreated='"+request.date.ToString("MM/dd/yyyy HH:mm:ss")+"'";
+              command = new SqlCommand(sql, connection);
+              dataReader = command.ExecuteReader();
+
+              int order_no=0;
+              while (dataReader.Read())
+              {
+                order_no=dataReader.GetInt32(0);
+              }
+              dataReader.Close();
+              command.Dispose();
+
+              /*5-inserting all products of the order into contains Table*/
+              for (int i = 0; i < Hashmap.Count(); i++)
+              {
+                int product_id=Hashmap.ElementAt(i).Key;
+                int quantity=Hashmap.ElementAt(i).Value;
+                sql = "insert into contain Values("+order_no.ToString()+','+ product_id.ToString()+','+quantity.ToString()+")";
                 command = new SqlCommand(sql, connection);
-                dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                { 
-                    inStock= dataReader.GetInt32(0);
-                    sold=dataReader.GetInt32(1);
-                }
-                dataReader.Close();
-                command.Dispose();
-                sold += quantity;
-                inStock-= quantity;
-                sql = "UPDATE product SET stockQuantity = " + inStock.ToString() + ",soldQuantity=" + sold.ToString() + "where id=" + product_id.ToString();
-                command = new SqlCommand(sql, connection);
-                adapter.InsertCommand = new SqlCommand(sql, connection);
                 adapter.InsertCommand = command;
                 adapter.InsertCommand.ExecuteNonQuery();
-
                 command.Dispose();
-            }
+              }
+              /*6-Remove items from cart*/
+              
+              
             }
 
             return 0;
