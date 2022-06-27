@@ -34,18 +34,21 @@ namespace Server_App.Functions
                 if (!dataReader.HasRows) //No matching records for the username
                 {
                     //Testing
-                    Console.WriteLine("No matching records");
+                    //Console.WriteLine("No matching records");
+                    
                     dataReader.Close();
                     command.Dispose();
-                    return new UserLoginResponse(false);
+                    return new UserLoginResponse(0);
                 }
+                
                 //Testing
-                Console.WriteLine(dataReader.GetString(0) + " " + dataReader.GetString(1) + " " + dataReader.GetBoolean(2));
+                //Console.WriteLine(dataReader.GetString(0) + " " + dataReader.GetString(1) + " " + dataReader.GetBoolean(2));
+                
                 if (dataReader.GetBoolean(2) == true) //The user is already logged in
                 {
                     dataReader.Close();
                     command.Dispose();
-                    return new UserLoginResponse(false);
+                    return new UserLoginResponse(420);
                 }
                 //Check logic of what precedes what. Check the password is correct then check if the user is logged in.
 
@@ -59,13 +62,13 @@ namespace Server_App.Functions
 
                     dataReader.Close();
                     command.Dispose();
-                    return new UserLoginResponse(true);
+                    return new UserLoginResponse(1);
                 }
                 else //Non matching password 
                 {
                     dataReader.Close();
                     command.Dispose();
-                    return new UserLoginResponse(false);
+                    return new UserLoginResponse(0);
                 }
             }
 
