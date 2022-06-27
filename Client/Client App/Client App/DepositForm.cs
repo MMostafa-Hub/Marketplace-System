@@ -44,13 +44,7 @@ namespace Client_App
 					try
 					{
 						DepositRequest depositRequest = new DepositRequest(depositValue+user.balance);
-						string serialRequestString = JsonSerializer.Serialize(depositRequest);//changed to string
-
-						NetworkStream serverStream = clientSocket.GetStream();
-						byte[] outStream = System.Text.Encoding.ASCII.GetBytes(serialRequestString);//changed to bytes 
-						serverStream.Write(outStream, 0, outStream.Length);//send to socket
-						serverStream.Flush();
-
+						clientSocket.write(depositRequest);
 						user.balance += depositValue;
 
 						currentBalance.Text = user.balance;//new balance
@@ -90,6 +84,3 @@ namespace Client_App
 		}	
 	}
 }
-/*byte[] inStream = new byte[10025];
-  serverStream.Read(inStream, 0, (int)clientSocket.ReceiveBufferSize);
-  user.balance = float.Parse(System.Text.Encoding.ASCII.GetString(inStream));*/
