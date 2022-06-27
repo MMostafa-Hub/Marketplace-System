@@ -4,9 +4,12 @@ namespace Client_App
 {
     public partial class DashboardForm : Form
     {
-        public DashboardForm()
+        Form adminPage;
+
+        public DashboardForm(Form adminPage)
         {
             InitializeComponent();
+            this.adminPage = adminPage;
         }
 
         private void DashboardForm_Load(object sender, EventArgs e)
@@ -17,9 +20,9 @@ namespace Client_App
             }
             catch (Exception)
             {
-                returnForm = this;
+                returnForm = this.adminPage;
                 connectionForm.Show();
-                this.Hide();
+                this.adminPage.Hide();
             }
 
             DashboardResponse dbResponse = null;
@@ -29,9 +32,9 @@ namespace Client_App
             }
             catch (Exception)
             {
-                returnForm = this;
+                returnForm = this.adminPage;
                 connectionForm.Show();
-                this.Hide();
+                this.adminPage.Hide();
             }
             if (dbResponse != null)
             {
