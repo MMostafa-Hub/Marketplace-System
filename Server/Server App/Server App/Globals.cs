@@ -14,8 +14,9 @@ namespace Server_App
         public static string client_username;
 
 
+        public static readonly object userLoginLock = new object();
+                
         private static SqlConnection? dbConnection = null;
-
         public static SqlConnection getDBConnection()
         {
             if (dbConnection == null)
