@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client_App.Classes;
+
 
 namespace Client_App
 {
-    public partial class ProductForm2 : GenericForm
+    public partial class ProductForm : GenericForm
     {
-       Product pro;
+        Product pro;
        GenericForm ProForm;
         int key = 0;
         int a = 0;
