@@ -67,7 +67,7 @@ namespace Server_App.Functions
                     orderHistory.Add(order);
                     lastOrderNumber = (int)dataReader.GetValue(2);
                     productsInOrder = new List<Tuple<string, int>>();
-                    dateCreated = dataReader.GetString(3);
+                    dateCreated = dataReader.GetDateTime(3).ToString();
                 }
                 String productName = dataReader.GetString(4);
                 int productQuantity = (int)dataReader.GetValue(5);
