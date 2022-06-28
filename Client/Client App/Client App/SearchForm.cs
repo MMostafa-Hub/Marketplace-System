@@ -1,5 +1,6 @@
 ﻿using Client_App.Classes;
 using static Client_App.Globals;
+
 namespace Client_App
 {
 	public partial class SearchForm : Form
@@ -51,7 +52,7 @@ namespace Client_App
 				connectionForm.Show();
 				this.Hide();
 			}
-			
+
 			foreach (string category in cateResponse.categoryList)
 			{
 				categorycombobox.Items.Add(category);
@@ -75,11 +76,12 @@ namespace Client_App
 			}
 
 			sortcombobox.SelectedIndex = 0;
+
 		}
 		
 		private void sortcombobox_SelectedIndexChanged(object sender, EventArgs e)
 		{
-	 	  
+
 		}
 
 		private void searchTxtBox_TextChanged(object sender, EventArgs e)
