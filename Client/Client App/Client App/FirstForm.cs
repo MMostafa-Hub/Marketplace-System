@@ -58,5 +58,10 @@ namespace Client_App
             CreateAccountForm f = new Client_App.CreateAccountForm();
             f.ShowDialog();
         }
+
+        private void FirstForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
