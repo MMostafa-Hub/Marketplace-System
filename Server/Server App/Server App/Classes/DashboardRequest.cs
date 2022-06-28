@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client_App.Classes
+namespace Server_App.Classes
 {
 	internal class DashboardRequest : Request
 	{
