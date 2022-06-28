@@ -3,7 +3,7 @@
 	internal class SearchResponse : AbstractResponse
 	{
 		public List<Product> productList;
-		public SearchResponse(List<string> categoryList, List<Product> productList)
+		public SearchResponse( List<Product> productList)
 		{
 
 			this.productList = productList;
