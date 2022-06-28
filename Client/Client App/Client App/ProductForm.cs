@@ -90,23 +90,47 @@ namespace Client_App
                 {
                     MessageBox.Show("The Quantity Exceeded The limits");
                 }
+                try
+                {
+                    Dictionary<int, int> hmap = new Dictionary<int, int>();
+                    hmap.Add(product.id,key);
+                    updateCartRequest updateToCartReq = new updateCartRequest();
+                    clientSocket.write(updateToCartReq);
+
+                    MessageBox.Show("Your product is successfully added");
+                    CartForm cartF = new CartForm();
+                    cartF.Show();
+                    this.Close();
+
+                }
+                catch (Exception)
+                {
+                    connectionForm.Show(this);
+                    this.Hide();
+
+                }
+            }
+            else {
+
+                try
+                {
+                    addToCartRequest addToCartReq = new addToCartRequest(product.id, key);
+                    clientSocket.write(addToCartReq);
+                    MessageBox.Show("Your product is successfully added");
+                    CartForm cartF = new CartForm();
+                    cartF.Show();
+                    this.Close();
+
+                }
+                catch (Exception)
+                {
+                    connectionForm.Show(this);
+                    this.Hide();
+
+                }
             }
 
-            try {
-                addToCartRequest addToCartReq = new addToCartRequest(product.id, key);
-                clientSocket.write(addToCartReq);
-                MessageBox.Show("Your product is successfully added");
-                CartForm cartF = new CartForm();
-                cartF.Show();
-                this.Close();
 
-            }
-            catch (Exception)
-            {
-                connectionForm.Show(this);
-                this.Hide();
-
-            }
 
             }
         }
