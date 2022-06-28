@@ -28,14 +28,14 @@ namespace Client_App
 
         private void CartForm_Load(object sender, EventArgs e)
         {
-            foreach (Tuple<Product, int> item in user.cart)
-
+            Dictionary<int, Tuple<Product, int>> hashMap = user.cart.products;
+            for(int i=0;i<hashMap.Count;i++)
             {
-               
-                int quantity = item.Item2;
-                float price = item.Item1.price;
+                Tuple<Product, int> tuple= hashMap.ElementAt(i).Value;
+                int quantity = tuple.Item2;
+                float price = tuple.Item1.price;
                 float total_Amount = calculateTotalProce(quantity, price);
-                string[] row = { item.Item1.id.ToString() ,  item.Item1.name , quantity.ToString() , price.ToString() , calculateTotalProce(quantity ,price).ToString()};
+                string[] row = { tuple.Item1.id.ToString() ,  tuple.Item1.name , quantity.ToString() , price.ToString() , calculateTotalProce(quantity ,price).ToString()};
                 cartView.Rows.Add(row);
                 Total += total_Amount;
             }
