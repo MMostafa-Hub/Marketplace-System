@@ -8,7 +8,7 @@ using static Client_App.Globals;
 
 namespace Client_App
 {
-    internal class GenericForm : Form
+    public class GenericForm : Form
     {
         protected override void OnFormClosing(System.Windows.Forms.FormClosingEventArgs e)
         {
