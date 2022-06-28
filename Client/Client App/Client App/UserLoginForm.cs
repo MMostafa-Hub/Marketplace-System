@@ -23,23 +23,23 @@ namespace Client_App
             string username = textBox1.Text;
             if (username == null)
             {
-                this.label3.Text = "* Enter the username";
+                this.label3.Text = "*Enter the username.";
                 this.label3.Show();
             }
             string password = textBox2.Text;
             if (username == null)
             {
-                this.label4.Text = "* Enter the password";
+                this.label4.Text = "*Enter the password.";
                 this.label4.Show();
             }
             if (username.Length > 25)
             {
-                this.label3.Text = "* invalid username";
+                this.label3.Text = "*invalid username.";
                 this.label3.Show();
             }
             if (password.Length > 25)
             {
-                this.label4.Text = "* invalid password";
+                this.label4.Text = "*invalid password.";
                 this.label4.Show();
             }
             UserLoginRequest request = new UserLoginRequest(username, password);
