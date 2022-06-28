@@ -32,9 +32,9 @@ namespace Server_App.Classes
             this.reader = new StreamReader(this.stream);
             this.writer = new StreamWriter(this.stream);
         }
-        public dynamic read(int timeout = System.Threading.Timeout.Infinite)
+        public dynamic read()
         {
-            this.stream.ReadTimeout = timeout;
+            this.stream.ReadTimeout = 60000;
             string recieved_json;
             dynamic recieved_obj = new object();
             try
@@ -43,7 +43,32 @@ namespace Server_App.Classes
                 var request = JsonConvert.DeserializeObject<Request>(recieved_json);
                 switch (request.type)
                 {
-                    /* TODO: Cast the request to its aprobriate type */
+                    /* Cast the request to its aprobriate type */
+                    case "userLogin":
+                        recieved_obj = JsonConvert.DeserializeObject<UserLoginRequest>(recieved_json);
+                        break;
+                    case "adminLogin":
+                        recieved_obj = JsonConvert.DeserializeObject<AdminLoginRequest>(recieved_json);
+                        break;
+                    case "logout":
+                        recieved_obj = request;
+                        break;
+                    case "createAccount":
+                        recieved_obj = JsonConvert.DeserializeObject<CreateAccountRequest>(recieved_json);
+                        break;
+                    case "deposit":
+                        recieved_obj = JsonConvert.DeserializeObject<DepositRequest>(recieved_json);
+                        break;
+                    case "profile":
+                        recieved_obj = JsonConvert.DeserializeObject<DepositRequest>(recieved_json);
+                        break;
+                    case "addToCart":
+                        recieved_obj = JsonConvert.DeserializeObject<addToCartRequest>(recieved_json);
+                        break;
+                    default:
+                        Console.WriteLine("This Type Doesn't Exist");
+                        break;
+
                 }
             }
             catch (Exception ex)
