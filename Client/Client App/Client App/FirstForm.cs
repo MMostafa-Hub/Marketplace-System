@@ -22,6 +22,7 @@ namespace Client_App
         {
             AdminLoginForm f = new Client_App.AdminLoginForm();
             f.ShowDialog();
+            this.Hide();
         }
 
         // User Login Button
@@ -29,6 +30,7 @@ namespace Client_App
         {
             UserLoginForm f = new Client_App.UserLoginForm();
             f.ShowDialog();
+            this.Hide();
         }
 
         // Create Account Button
@@ -36,6 +38,7 @@ namespace Client_App
         {
             CreateAccountForm f = new Client_App.CreateAccountForm();
             f.ShowDialog();
+            this.Hide();
         }
 
         // Admin Login Pic
@@ -43,6 +46,7 @@ namespace Client_App
         {
             AdminLoginForm f = new Client_App.AdminLoginForm();
             f.ShowDialog();
+            this.Hide();
         }
 
         // User Login Pic
@@ -50,6 +54,7 @@ namespace Client_App
         {
             UserLoginForm f = new Client_App.UserLoginForm();
             f.ShowDialog();
+            this.Hide();
         }
 
         // Create Account Pic
@@ -57,6 +62,7 @@ namespace Client_App
         {
             CreateAccountForm f = new Client_App.CreateAccountForm();
             f.ShowDialog();
+            this.Hide();
         }
 
         private void FirstForm_Load(object sender, EventArgs e)
