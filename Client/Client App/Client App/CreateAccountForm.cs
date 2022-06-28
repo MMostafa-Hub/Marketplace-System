@@ -110,6 +110,19 @@ namespace Client_App
                 connectionForm.Show();
                 this.Hide();
             }
+
+            if(response.getSuccess())
+            {
+                label5.Hide();
+                HomePageForm f = new Client_App.HomePageForm();
+                f.ShowDialog();
+                this.Hide();
+            }
+            else
+            {
+                label5.Text = "*This Username is already exist.";
+                label5.Show();
+            }
         }
     }
 }

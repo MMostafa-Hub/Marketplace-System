@@ -14,5 +14,9 @@ namespace Client_App.Classes
         {
             this.success = success;
         }
+        public bool getSuccess()
+        {
+            return success;
+        }
     }
 }
