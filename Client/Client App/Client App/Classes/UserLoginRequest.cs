@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Client_App.Classes
 {
-    internal class UserLoginRequest : AbstractRequest
+    internal class UserLoginRequest : Request
     {
         String username;
         String password;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Client_App.Classes
 {
-    internal class UserLoginResponse
+    internal class UserLoginResponse : Response
     {
         int status;
         User? user = null;
@@ -15,6 +15,16 @@ namespace Client_App.Classes
         {
             this.status = status;
             this.user = user;
+        }
+
+        public int getStatus()
+        {
+            return status;
+        }
+
+        public User? getUser()
+        {
+            return user;
         }
     }
 }
