@@ -85,8 +85,18 @@ namespace Server_App.Functions
             dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                dailyProfit = (float)dataReader.GetValue(0); ////// bug is here, returns null if no orders were made that day, results in exception
+                if(dataReader.IsDBNull(0))
+                {
+                    dailyProfit=0;
+                }
+                else
+                {
+                    dailyProfit = (float)(double)dataReader.GetValue(0); ////// bug is here, returns null if no orders were made that day, results in exception
+                }
+                
+                
             }
+            
 
             dataReader.Close();
 
