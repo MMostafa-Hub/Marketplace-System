@@ -16,7 +16,7 @@ namespace Client_App.Classes
             this.productID = productID;
             this.quantity = quantity;
 
-            var addToCartReq = new Requests.addToCartRequest(product.id, ProductForm2.TB1.text);
+            var addToCartReq = new Requests.addToCartRequest(product.id, ProductForm.TB1.text);
             ClientSocket.write(addToCartReq);
         }
 
