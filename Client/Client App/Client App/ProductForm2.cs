@@ -39,14 +39,14 @@ namespace Client_App
         }
 
         private void BT1_Click(object sender, EventArgs e)
-         {
-             LB2_2.Text = this.pro.id;
-             LB3_3.Text = this.pro.name;
+        {
+            LB2_2.Text = this.pro.id;
+            LB3_3.Text = this.pro.name;
 
             //TB1.Text = this.pro.Quantity;
 
-             LB4_4.Text = this.pro.price;
-             LB5_5.Text = this.pro.stockQuantity;
+            LB4_4.Text = this.pro.price;
+            LB5_5.Text = this.pro.stockQuantity;
 
 
 
@@ -76,6 +76,8 @@ namespace Client_App
 
 
             }
+
+        }
             //Problem 1
             private void TB1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -93,3 +95,4 @@ namespace Client_App
 
     }
 }
+
