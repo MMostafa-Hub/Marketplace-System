@@ -42,9 +42,9 @@ namespace Client_App
 
         private void BT2_Click(object sender, EventArgs e)
         {
-            SearchForm sf = new SearchForm(this);
+           
             this.Close();
-            sf.Show();
+            returnForm.Show();
                 }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace Client_App
                 key = Convert.ToInt32(Quant);
                 if (key <= 0 || key > product.stockQuantity)
                 {
-                    MessageBox.Show("Please Enter a Quantity number between (1 and 9)");
+                    MessageBox.Show("Please Enter a Quantity number between (1 and " + product.stockQuantity + ")");
                 }
                 else
                 {
@@ -95,13 +95,11 @@ namespace Client_App
                     Dictionary<int, int> hmap = new Dictionary<int, int>();
                     hmap.Add(product.id,key);
                     /*Waiting for completion*/
-                    updateCartRequest updateToCartReq = new updateCartRequest();
+                    updateCartRequest updateToCartReq = new updateCartRequest(hmap);
                     clientSocket.write(updateToCartReq);
 
                     MessageBox.Show("Your product is successfully added");
-                    CartForm cartF = new CartForm();
-                    cartF.Show();
-                    this.Close();
+                   
 
                 }
                 catch (Exception)
@@ -119,9 +117,7 @@ namespace Client_App
                     addToCartRequest addToCartReq = new addToCartRequest(product.id, key);
                     clientSocket.write(addToCartReq);
                     MessageBox.Show("Your product is successfully added");
-                    CartForm cartF = new CartForm();
-                    cartF.Show();
-                    this.Close();
+
 
                 }
                 catch (Exception)

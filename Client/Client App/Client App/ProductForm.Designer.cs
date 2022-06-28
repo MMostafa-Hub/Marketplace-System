@@ -146,7 +146,7 @@
             // BT1
             // 
             this.BT1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BT1.Location = new System.Drawing.Point(553, 240);
+            this.BT1.Location = new System.Drawing.Point(571, 218);
             this.BT1.Name = "BT1";
             this.BT1.Size = new System.Drawing.Size(180, 59);
             this.BT1.TabIndex = 11;
