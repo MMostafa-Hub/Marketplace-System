@@ -14,6 +14,10 @@ namespace Client_App.Classes
         {
             this.type = type;
         }
+        public Request()
+        { 
+            
+        }
 
     }
 }

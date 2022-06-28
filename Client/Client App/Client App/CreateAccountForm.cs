@@ -92,7 +92,7 @@ namespace Client_App
             {
                 clientSocket.write(request);
             }
-            catch (Exceptioin)
+            catch (Exception)
             {
                 returnForm = this;
                 connectionForm.Show();
@@ -114,7 +114,7 @@ namespace Client_App
             if(response.getSuccess())
             {
                 label5.Hide();
-                HomePageForm f = new Client_App.HomePageForm();
+                HomeForm f = new Client_App.HomeForm();
                 f.ShowDialog();
                 this.Hide();
             }

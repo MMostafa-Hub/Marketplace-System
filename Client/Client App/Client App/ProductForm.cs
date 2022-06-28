@@ -94,6 +94,7 @@ namespace Client_App
                 {
                     Dictionary<int, int> hmap = new Dictionary<int, int>();
                     hmap.Add(product.id,key);
+                    /*Waiting for completion*/
                     updateCartRequest updateToCartReq = new updateCartRequest();
                     clientSocket.write(updateToCartReq);
 
@@ -114,6 +115,7 @@ namespace Client_App
 
                 try
                 {
+                    /*Waiting for completion*/
                     addToCartRequest addToCartReq = new addToCartRequest(product.id, key);
                     clientSocket.write(addToCartReq);
                     MessageBox.Show("Your product is successfully added");

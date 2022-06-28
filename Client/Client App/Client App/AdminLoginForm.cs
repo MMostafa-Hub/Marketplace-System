@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Client_App.Globals;
+using Client_App.Classes;
 
 namespace Client_App
 {
@@ -69,7 +70,7 @@ namespace Client_App
             {
                 clientSocket.write(request);
             }
-            catch (Exceptioin)
+            catch (Exception)
             {
                 returnForm = this;
                 connectionForm.Show();
@@ -98,7 +99,6 @@ namespace Client_App
                 AdminReportForm f = new Client_App.AdminReportForm(request.getUsername());
                 f.ShowDialog();
                 this.Hide();
-                Globals.User = response.getUser();
             }
         }
 
