@@ -8,8 +8,8 @@ namespace Client_App.Classes
 {
 	internal class SearchRequest : Request
 	{
-		string searchtxt;
-		string  categorytxt;
+		string? searchtxt;
+		string?  categorytxt;
 		string sorttxt;
 		public SearchRequest(string searchtxt,string categorytxt,string sorttxt)
 		{
