@@ -14,15 +14,8 @@ namespace Client_App
 {
     public partial class HomeForm : GenericForm
     {
-        Form returnForm;
         public HomeForm()
         {
-            InitializeComponent();
-        }
-
-        public HomeForm(Form returnForm)
-        {
-            this.returnForm = returnForm;
             InitializeComponent();
         }
 
@@ -58,7 +51,7 @@ namespace Client_App
         {
             Request logoutRequest = new Request("logout");
             clientSocket.write(logoutRequest);
-            returnForm.Show();
+            logoutForm.Show();
             this.Close();
         }
     }
