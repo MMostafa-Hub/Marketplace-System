@@ -119,20 +119,23 @@ namespace Client_App
                 if (isNumeric(row.Cells[2].Value.ToString()))
                 {
                     ourMap.Add((int)row.Cells[0].Value, (int)row.Cells[2].Value);
-                }else
+                    try
+                    {
+                        updateCartRequest newRequest = new updateCartRequest(ourMap);
+                        clientSocket.write(newRequest);
+                    }
+                    catch
+                    {
+                        connectionForm.Show();
+                        this.Hide();
+                    }
+                }
+                else
                 {
                     MessageBox.Show("please enter numeric values in quantity");
                 }
             }
-            try { 
-            updateCartRequest newRequest = new updateCartRequest(ourMap);
-            clientSocket.write(newRequest);
-            }
-            catch
-            {
-                connectionForm.Show();
-                this.Hide();
-            }
+
 
         }
 
