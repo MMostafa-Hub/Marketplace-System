@@ -14,14 +14,11 @@ namespace Client_App
 {
     public partial class ProfileForm : GenericForm
     {
-        Form backForm, logoutForm;
-        private Label labelMsg = null;
-
-        public ProfileForm(Form backForm, Form logoutForm)
+        Form backForm;
+        public ProfileForm(Form backForm)
         {
             InitializeComponent();
             this.backForm = backForm;
-            this.logoutForm = logoutForm;
             labelUserName.Text = user.username;
             labelUserBalance.Text = user.balance.ToString();
         }
@@ -54,26 +51,13 @@ namespace Client_App
             {
                 if (profileResponse.ordersHistory.Count == 0)
                 {
-                    //dataGridViewOH.RowHeadersVisible = false;
                     dataGridViewOH.Visible = false;
-                    labelMsg = new Label();
-                    labelMsg.Name = "labelMsg";
-                    labelMsg.Anchor = AnchorStyles.None;
-                    labelMsg.AutoSize = true;
-                    labelMsg.Text = "No Orders yet!";
-                    labelMsg.Location = new Point(10, 67);
-                    labelMsg.Font = new Font("Nirmala UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-                    this.Controls.Add(labelMsg);
+                    labelMsg.Visible = true;
                 }
                 else
                 {
-                    if (labelMsg != null)
-                    {
-                        this.Controls.Remove(labelMsg);
-                        labelMsg = null;
-                        //dataGridViewOH.RowHeadersVisible = true;
-                        dataGridViewOH.Visible = true;
-                    }
+                    labelMsg.Visible = false;
+                    dataGridViewOH.Visible = true;
                     int index = 1;
                     foreach (Order order in profileResponse.ordersHistory)
                     {

@@ -37,6 +37,7 @@
             this.labelName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelMsg = new System.Windows.Forms.Label();
             this.dataGridViewOH = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +73,7 @@
             // buttonDeposit
             // 
             this.buttonDeposit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonDeposit.Location = new System.Drawing.Point(424, 66);
+            this.buttonDeposit.Location = new System.Drawing.Point(421, 66);
             this.buttonDeposit.Name = "buttonDeposit";
             this.buttonDeposit.Size = new System.Drawing.Size(67, 24);
             this.buttonDeposit.TabIndex = 5;
@@ -85,7 +86,7 @@
             this.labelUserBalance.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelUserBalance.AutoSize = true;
             this.labelUserBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelUserBalance.Location = new System.Drawing.Point(327, 65);
+            this.labelUserBalance.Location = new System.Drawing.Point(324, 65);
             this.labelUserBalance.Name = "labelUserBalance";
             this.labelUserBalance.Size = new System.Drawing.Size(65, 24);
             this.labelUserBalance.TabIndex = 4;
@@ -96,7 +97,7 @@
             this.labelUserName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelUserName.AutoSize = true;
             this.labelUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelUserName.Location = new System.Drawing.Point(327, 27);
+            this.labelUserName.Location = new System.Drawing.Point(324, 27);
             this.labelUserName.Name = "labelUserName";
             this.labelUserName.Size = new System.Drawing.Size(114, 24);
             this.labelUserName.TabIndex = 3;
@@ -107,7 +108,7 @@
             this.labelBalance.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelBalance.AutoSize = true;
             this.labelBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelBalance.Location = new System.Drawing.Point(230, 65);
+            this.labelBalance.Location = new System.Drawing.Point(227, 65);
             this.labelBalance.Name = "labelBalance";
             this.labelBalance.Size = new System.Drawing.Size(91, 24);
             this.labelBalance.TabIndex = 2;
@@ -130,7 +131,7 @@
             this.labelName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelName.Location = new System.Drawing.Point(230, 27);
+            this.labelName.Location = new System.Drawing.Point(227, 27);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(71, 24);
             this.labelName.TabIndex = 0;
@@ -155,6 +156,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.labelMsg);
             this.panel2.Controls.Add(this.dataGridViewOH);
             this.panel2.Controls.Add(this.labelOrdHisto);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -162,6 +164,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(498, 262);
             this.panel2.TabIndex = 2;
+            // 
+            // labelMsg
+            // 
+            this.labelMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMsg.AutoSize = true;
+            this.labelMsg.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelMsg.Location = new System.Drawing.Point(281, 27);
+            this.labelMsg.Name = "labelMsg";
+            this.labelMsg.Size = new System.Drawing.Size(113, 21);
+            this.labelMsg.TabIndex = 3;
+            this.labelMsg.Text = "No Orders yet!";
             // 
             // dataGridViewOH
             // 
@@ -181,7 +196,7 @@
             this.dataGridViewOH.ReadOnly = true;
             this.dataGridViewOH.RowTemplate.Height = 25;
             this.dataGridViewOH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewOH.Size = new System.Drawing.Size(476, 186);
+            this.dataGridViewOH.Size = new System.Drawing.Size(470, 186);
             this.dataGridViewOH.TabIndex = 2;
             // 
             // Index
@@ -296,5 +311,6 @@
         private Panel panel3;
         private Button buttonLogout;
         private Button buttonBack;
+        private Label labelMsg;
     }
 }
