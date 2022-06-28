@@ -10,6 +10,28 @@ namespace Server_App.Functions
 {
     internal static class AdminReports
     {
+        static List<Product> addProductsToList(SqlDataReader dataReader)
+        {
+            List<Product> products = new List<Product>();
+
+            if (dataReader.HasRows)
+            {
+                while (dataReader.Read())
+                {
+                    int id = dataReader.GetInt32(0);
+                    string name = dataReader.GetString(1);
+                    string description = dataReader.GetString(2);
+                    string categories = dataReader.GetString(3);
+                    float price = ((float)(double)dataReader.GetValue(4));
+                    int stock = dataReader.GetInt32(5);
+                    int sold = dataReader.GetInt32(6);
+                    products.Add(new Product(id, name, description, categories, price, stock, sold));
+                }
+            }
+
+
+            return products;
+        }
         static public DashboardResponse dashboard()
         {
             int customers, activeUsers, ordersCount;
@@ -90,6 +112,36 @@ namespace Server_App.Functions
 
             OrdersReportResponse ordersReport = new OrdersReportResponse(orders);
             return ordersReport;
+        }
+
+        static public ProductsReportResponse productReport()
+        {
+            List<Product> bestSellers = new List<Product>();
+            List<Product> outOfStock = new List<Product>();
+
+            SqlConnection sqlConnection = Globals.getDBConnection();
+
+
+            SqlCommand command;
+            SqlDataReader dataReader;
+            String sql;
+
+            //best sellers
+            sql = "SELECT TOP 5 * FROM product ORDER BY soldQuantity";
+            command = new SqlCommand(sql, sqlConnection);
+            dataReader = command.ExecuteReader();
+            bestSellers = addProductsToList(dataReader);
+            dataReader.Close();
+
+            //out of stock
+            sql = "SELECT * FROM product WHERE stockQuantity < 1";
+            command = new SqlCommand(sql, sqlConnection);
+            dataReader = command.ExecuteReader();
+            outOfStock = addProductsToList(dataReader);
+            dataReader.Close();
+
+            ProductsReportResponse report = new ProductsReportResponse(bestSellers, outOfStock);
+            return report;
         }
     }
 }
