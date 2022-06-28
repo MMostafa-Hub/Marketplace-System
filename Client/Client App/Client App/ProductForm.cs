@@ -80,6 +80,7 @@ namespace Client_App
                     MessageBox.Show("Product is added Successfully");
                 }
             }
+            
 
             if (Globals.user.cart.products.ContainsKey(product.id))
             {
