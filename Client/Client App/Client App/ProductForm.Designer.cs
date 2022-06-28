@@ -162,6 +162,7 @@
             this.BT2.TabIndex = 12;
             this.BT2.Text = "Back";
             this.BT2.UseVisualStyleBackColor = true;
+            this.BT2.Click += new System.EventHandler(this.BT2_Click);
             // 
             // textBox1
             // 

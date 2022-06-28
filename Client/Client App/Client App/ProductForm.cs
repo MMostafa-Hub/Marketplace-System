@@ -40,6 +40,13 @@ namespace Client_App
             }
         }
 
+        private void BT2_Click(object sender, EventArgs e)
+        {
+            SearchForm sf = new SearchForm(this);
+            this.Close();
+            sf.Show();
+                }
+
         private void button1_Click(object sender, EventArgs e)
         {
             string Quant = textBox1.Text;
