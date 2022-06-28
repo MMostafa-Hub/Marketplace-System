@@ -10,7 +10,8 @@ namespace Client_App.Classes
     {
         public string type;
 
-        public Request (string type)        {
+        public Request (string type)
+        {
             this.type = type;
         }
 
