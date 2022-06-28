@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server_App.Classes
+namespace Client_App.Classes
 {
-    internal abstract class AbstractRequest
+    internal class Cart
     {
-        public string type;
+        public Dictionary<Product, int> products;
     }
 }
