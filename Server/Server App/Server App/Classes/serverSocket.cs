@@ -60,9 +60,9 @@ namespace Server_App.Classes
                     case "deposit":
                         recieved_obj = JsonConvert.DeserializeObject<DepositRequest>(recieved_json);
                         break;
-                    //case "profile":
-                    //    recieved_obj = JsonConvert.DeserializeObject<ProfileRequest>(recieved_json);
-                    //    break;
+                    case "profile":
+                        recieved_obj = JsonConvert.DeserializeObject<ProfileRequest>(recieved_json);
+                        break;
                     case "addToCart":
                         recieved_obj = JsonConvert.DeserializeObject<addToCartRequest>(recieved_json);
                         break;
@@ -75,15 +75,15 @@ namespace Server_App.Classes
                     case "SearchRequest":
                         recieved_obj = JsonConvert.DeserializeObject<SearchRequest>(recieved_json);
                         break;
-                    //case "dashboard":
-                    //    recieved_obj = JsonConvert.DeserializeObject<DashboardRequest>(recieved_json);
-                    //    break;
-                    //case "productsReport":
-                    //    recieved_obj = JsonConvert.DeserializeObject<ProductsReportRequest>(recieved_json);
-                    //    break;
-                    //case "ordersReport":
-                    //    recieved_obj = JsonConvert.DeserializeObject<OrdersReportRequest>(recieved_json);
-                    //    break;
+                    case "dashboard":
+                        recieved_obj = JsonConvert.DeserializeObject<DashboardRequest>(recieved_json);
+                        break;
+                    case "productsReport":
+                        recieved_obj = JsonConvert.DeserializeObject<ProductsReportRequest>(recieved_json);
+                        break;
+                    case "ordersReport":
+                        recieved_obj = JsonConvert.DeserializeObject<OrdersReportRequest>(recieved_json);
+                        break;
                     case "updateCart":
                         recieved_obj = JsonConvert.DeserializeObject<updateCartRequest>(recieved_json);
                         break;

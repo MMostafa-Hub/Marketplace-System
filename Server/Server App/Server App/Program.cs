@@ -40,9 +40,9 @@ public class Server
                     case "deposit":
                         Deposit.depositBalance(recieved_obj);
                         break;
-                    //case "profile":
-                    //    serverSocket.write(Profile.profile(recieved_obj));
-                    //    break;
+                    case "profile":
+                        serverSocket.write(Profile.profile(recieved_obj));
+                        break;
                     case "addToCart":
                         Add_Cart.addToCart(recieved_obj);
                         break;
@@ -55,21 +55,21 @@ public class Server
                     case "SearchRequest":
                         serverSocket.write(Search.search(recieved_obj));
                         break;
-                    //case "dashboard":
-                    //    serverSocket.write(AdminReports.dashboard());
-                    //    break;
-                    //case "productsReport":
-                    //    serverSocket.write(AdminReports.productReport());
-                    //    break;
-                    //case "ordersReport":
-                    //    serverSocket.write(AdminReports.orderReport());
-                    //    break;
+                    case "dashboard":
+                        serverSocket.write(AdminReports.dashboard());
+                        break;
+                    case "productsReport":
+                        serverSocket.write(AdminReports.productReport());
+                        break;
+                    case "ordersReport":
+                        serverSocket.write(AdminReports.orderReport());
+                        break;
                     case "updateCart":
                         Cart_update.updateCart(recieved_obj);
                         break;
-                    //case "checkOut":
-                    //    serverSocket.write(Checkout.checkOut(recieved_obj));
-                    //    break;
+                    case "checkOut":
+                        serverSocket.write(Checkout.checkOut(recieved_obj));
+                        break;
                 }
             }
 
