@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Client_App.Classes
 {
-    internal class CreateAccountRequest : AbstractRequest
+    internal class CreateAccountRequest : Request
     {
         String username;
         String password;

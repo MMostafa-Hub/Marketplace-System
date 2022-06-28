@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Client_App.Classes
 {
-    internal class CreateAccountResponse
+    internal class CreateAccountResponse : AbstractResponse
     {
         bool success;
 

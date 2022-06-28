@@ -1,4 +1,5 @@
 ﻿using Client_App.Classes;
+using static Client_App.Globals;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,9 +88,28 @@ namespace Client_App
             age = Convert.ToInt32(numericUpDown1.Value);
 
             CreateAccountRequest request = new CreateAccountRequest(username, password, gender, age);
-            ClientSocket s = new ClientSocket();
-            s.write(request);
+            try
+            {
+                clientSocket.write(request);
+            }
+            catch (Exceptioin)
+            {
+                returnForm = this;
+                connectionForm.Show();
+                this.Hide();
+            }
 
+            CreateAccountResponse response = null;
+            try
+            {
+                response = clientSocket.read<CreateAccountResponse>(timeout: 100);
+            }
+            catch (Exception)
+            {
+                returnForm = this;
+                connectionForm.Show();
+                this.Hide();
+            }
         }
     }
 }
