@@ -198,6 +198,7 @@ namespace Client_App
 			}	   */
 
 			//added	  start
+			
 
 			List<String> catlist = new List<String>();
 			List<Product>prodlist= new List<Product>();
@@ -265,19 +266,26 @@ namespace Client_App
 
 		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			DataGridView dgv = sender as DataGridView;
-			if (dgv == null)
-				return;
-			if (dgv.CurrentRow.Selected)
-			{			 
+			DataGridView dgv = sender as DataGridView; 
+			if (dgv == null) return;
+			try 
+			{ 
+				if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null) 
+				{
+					// condition--> dgv.CurrentRow.Selected
+					 dataGridView1.CurrentRow.Selected = true;
+					 int rowIndex = e.RowIndex; 
+					//Product selected = srchresponse.productList[rowIndex];
+					//ProductForm productForm = new ProductForm(selected,this);
+					MessageBox.Show("selected row number " + e.RowIndex, "Negative value ", MessageBoxButtons.OK); 
+					this.Hide();
+					//productForm.Show();
+				} 
+			} 
+			catch (Exception ex) 
+			{
 				
-				int rowIndex = e.RowIndex;
-				Product selected = srchresponse.productList[rowIndex];
-				//ProductForm productForm = new ProductForm(selected,this);
-				this.Hide();
-				//productForm.Show();		 
-
-			}	
+			} 
 		}
 	}
 }
