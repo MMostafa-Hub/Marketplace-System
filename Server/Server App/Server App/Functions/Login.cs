@@ -116,19 +116,19 @@ namespace Server_App.Functions
                     command = new SqlCommand(cartSql, connection);
                     dataReader = command.ExecuteReader();
 
-                    Dictionary<Product, int> products = new Dictionary<Product, int>();
+                    Dictionary<int, Tuple<Product, int>> products = new Dictionary<int, Tuple<Product, int>>();
                     while (dataReader.Read())
                     {
-                        Product product = new Product();
-                        product.id = (int)dataReader.GetValue(0);
-                        product.name = dataReader.GetString(1);
-                        product.category = dataReader.GetString(2);
-                        product.description = dataReader.GetString(3);
-                        product.price = (float)(double)dataReader.GetValue(4);
-                        product.stockQuantity = (int)dataReader.GetValue(5);
-                        product.soldQuantity = (int)dataReader.GetValue(6);
+                        Product product = new Product((int)dataReader.GetValue(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), (float)(double)dataReader.GetValue(4), (int)dataReader.GetValue(5), (int)dataReader.GetValue(6));
+                        //product.id = (int)dataReader.GetValue(0);
+                        //product.name = dataReader.GetString(1);
+                        //product.category = dataReader.GetString(2);
+                        //product.description = dataReader.GetString(3);
+                        //product.price = (float)(double)dataReader.GetValue(4);
+                        //product.stockQuantity = (int)dataReader.GetValue(5);
+                        //product.soldQuantity = (int)dataReader.GetValue(6);
 
-                        products.Add(product, (int)dataReader.GetValue(7));
+                        products.Add(product.id,new Tuple<Product,int>( product,(int)dataReader.GetValue(7)));
                     }
                     dataReader.Close();
                     

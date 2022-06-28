@@ -15,7 +15,8 @@ namespace Server_App.Classes
         public float price;
         public int stockQuantity;
         public int soldQuantity;
-        
+        public Product()
+        { }
         public Product(int id, string name, string description, string category, float price, int stockQuantity, int soldQuantity)
         {
             this.id = id;

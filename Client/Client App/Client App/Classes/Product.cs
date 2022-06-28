@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Client_App.Classes
 {
-    internal class Product
+    public class Product
     {
         public int id;
         public string name;
