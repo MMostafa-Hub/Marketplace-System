@@ -23,7 +23,8 @@ namespace Client_App
                 this.Hide();
                 if (returnForm == null)
                 {
-                    Form firstForm = new FirstForm();
+                    FirstForm firstForm = new FirstForm();
+                    logoutForm = firstForm;
                     firstForm.Show();
                 }
                 else
