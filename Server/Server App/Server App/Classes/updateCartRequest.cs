@@ -12,6 +12,11 @@ namespace Server_App.Classes
     {
         //Dictionary (Key,Value)
         public Dictionary<int, int> Hashmap = new Dictionary<int, int>();
+        public updateCartRequest(Dictionary<int,int>Hashmap)
+        {
+            this.Hashmap=Hashmap;
+            type="updateCart";
+        }
     }
 }
 

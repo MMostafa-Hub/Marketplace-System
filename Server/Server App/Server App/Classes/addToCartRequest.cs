@@ -10,5 +10,11 @@ namespace Server_App.Classes
     {
         public int productID;
         public int quantity;
+        public addToCartRequest(int productID,int quantity)
+        {
+            this.productID=productID;
+            this.quantity=quantity;
+            type="addToCart";
+        } 
     }
 }
