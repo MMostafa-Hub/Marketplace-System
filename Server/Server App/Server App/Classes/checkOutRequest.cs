@@ -10,5 +10,11 @@ namespace Server_App.Classes
     {
         public float totalAmount;
         public DateTime date;
+        public checkOutRequest(float totalAmount,DateTime date)
+        {
+            this.totalAmount=totalAmount;
+            this.date=date;
+            type="checkOut";
+        }
     }
 }

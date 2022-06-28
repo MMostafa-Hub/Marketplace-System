@@ -9,5 +9,10 @@ namespace Server_App.Classes
     internal class removeFromCartRequest:Request
     {
         public int productID;
+        public removeFromCartRequest(int productID)
+        {
+            this.productID=productID;
+            type="removeFromCart";
+        }
     }
 }
