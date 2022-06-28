@@ -107,12 +107,12 @@ public class Server
             }
             var ippaddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
 
-
+            int portNumber = 49152;
             /* Creating a port */
-            listener = new TcpListener(ippaddress, 8080);
+            listener = new TcpListener(ippaddress, portNumber);
             listener.Start();
 
-            Console.WriteLine("IP Address: {0}\nPort Number: {1}", ippaddress.ToString(), 8080);
+            Console.WriteLine("IP Address: {0}\nPort Number: {1}", ippaddress.ToString(), portNumber);
             Console.WriteLine("Multithreaded Server started...");
 
             /* The Main Thread is Waiting for a new Client connetction */
