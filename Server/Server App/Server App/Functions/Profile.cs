@@ -80,7 +80,7 @@ namespace Server_App.Functions
 
             ProfileResponse response = new ProfileResponse(age, gender, orderHistory);
 
-
+            return response;
             dataReader.Close();
             command.Dispose();
         }
