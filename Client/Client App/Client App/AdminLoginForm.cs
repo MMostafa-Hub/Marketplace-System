@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Client_App.Globals;
 
 namespace Client_App
 {
@@ -94,9 +95,10 @@ namespace Client_App
             else if (response.getStatus() == 1)
             {
                 label5.Hide();
-                AdminReportForm f = new Client_App.AdminReportForm();
+                AdminReportForm f = new Client_App.AdminReportForm(request.getUsername());
                 f.ShowDialog();
                 this.Hide();
+                Globals.User = response.getUser();
             }
         }
 
