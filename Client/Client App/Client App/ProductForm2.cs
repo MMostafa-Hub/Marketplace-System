@@ -27,9 +27,9 @@ namespace Client_App
 
         private void BT2_Click(object sender, EventArgs e)
         {
-            HomeForm hf = new HomeForm(this);
+            
             this.Close();
-            hf.Show();
+            ProForm.Show();
 
         }
 
