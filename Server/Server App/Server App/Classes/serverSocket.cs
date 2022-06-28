@@ -59,14 +59,20 @@ namespace Server_App.Classes
                     case "deposit":
                         recieved_obj = JsonConvert.DeserializeObject<DepositRequest>(recieved_json);
                         break;
-                    case "profile":
-                        recieved_obj = JsonConvert.DeserializeObject<DepositRequest>(recieved_json);
-                        break;
+                    //case "profile":
+                    //    recieved_obj = JsonConvert.DeserializeObject<ProfileRequest>(recieved_json);
+                    //    break;
                     case "addToCart":
                         recieved_obj = JsonConvert.DeserializeObject<addToCartRequest>(recieved_json);
                         break;
-                    default:
-                        Console.WriteLine("This Type Doesn't Exist");
+                    case "CategoryRequest":
+                        recieved_obj = request;
+                        break;
+                    case "removeFromCart":
+                        recieved_obj = JsonConvert.DeserializeObject<removeFromCartRequest>(recieved_json);
+                        break;
+                    case "SearchRequest":
+                        recieved_obj = JsonConvert.DeserializeObject<SearchRequest>(recieved_json);
                         break;
 
                 }
