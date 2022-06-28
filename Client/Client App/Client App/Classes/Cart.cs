@@ -8,6 +8,6 @@ namespace Client_App.Classes
 {
     internal class Cart
     {
-        public Dictionary<Product, int> products;
+        public Dictionary<int, int> products;
     }
 }

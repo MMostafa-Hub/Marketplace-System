@@ -15,6 +15,7 @@ namespace Client_App.Classes
         {
             this.productID = productID;
             this.quantity = quantity;
+            this.type = "addToCart";
         }
 
 
