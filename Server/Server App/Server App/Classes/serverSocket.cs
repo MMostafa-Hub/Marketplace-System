@@ -33,7 +33,8 @@ namespace Server_App.Classes
             this.writer = new StreamWriter(this.stream);
         }
         public dynamic read()
-        {
+        {   
+            /* Setting the timeout to be 1 minute */
             this.stream.ReadTimeout = 60000;
             string recieved_json;
             dynamic recieved_obj = new object();
@@ -73,6 +74,21 @@ namespace Server_App.Classes
                         break;
                     case "SearchRequest":
                         recieved_obj = JsonConvert.DeserializeObject<SearchRequest>(recieved_json);
+                        break;
+                    //case "dashboard":
+                    //    recieved_obj = JsonConvert.DeserializeObject<DashboardRequest>(recieved_json);
+                    //    break;
+                    //case "productsReport":
+                    //    recieved_obj = JsonConvert.DeserializeObject<ProductsReportRequest>(recieved_json);
+                    //    break;
+                    //case "ordersReport":
+                    //    recieved_obj = JsonConvert.DeserializeObject<OrdersReportRequest>(recieved_json);
+                    //    break;
+                    case "updateCart":
+                        recieved_obj = JsonConvert.DeserializeObject<updateCartRequest>(recieved_json);
+                        break;
+                    case "checkOut":
+                        recieved_obj = JsonConvert.DeserializeObject<checkOutRequest>(recieved_json);
                         break;
 
                 }
