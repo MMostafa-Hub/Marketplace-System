@@ -86,10 +86,20 @@ namespace Client_App
             {
                 Tuple<Product, int> newTuple = new Tuple<Product, int>(product, Globals.user.cart.products[product.id].Item2 + key);
                 Globals.user.cart.products[product.id]  = newTuple;
+                if (newTuple.Item2 > product.soldQuantity)
+                {
+                    MessageBox.Show("The Quantity Exceeded The limits");
+                }
             }
+
             try {
                 addToCartRequest addToCartReq = new addToCartRequest(product.id, key);
                 clientSocket.write(addToCartReq);
+                MessageBox.Show("Your product is successfully added");
+                CartForm cartF = new CartForm();
+                cartF.Show();
+                this.Close();
+
             }
             catch (Exception)
             {
