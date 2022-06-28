@@ -34,8 +34,8 @@ namespace Server_App.Functions
         }
         static public DashboardResponse dashboard()
         {
-            int customers, activeUsers, ordersCount;
-            float dailyProfit;
+            int customers = 0, activeUsers = 0, ordersCount = 0;
+            float dailyProfit = 0;
             DateTime today = DateTime.Now;
 
             SqlConnection sqlConnection = Globals.getDBConnection();
@@ -46,20 +46,25 @@ namespace Server_App.Functions
             String sql;
 
             //get total customers count
-            sql = "SELECT COUNT(id) FROM users";
+            sql = "SELECT COUNT(username) FROM users";
             command = new SqlCommand(sql, sqlConnection);
             dataReader = command.ExecuteReader();
-
-            customers = dataReader.GetInt32(0);
+            while (dataReader.Read())
+            {
+                customers = dataReader.GetInt32(0);
+            }
 
             dataReader.Close();
 
             //get active users count
-            sql = "SELECT COUNT(id) FROM users WHERE LoggedIn = 1";
+            sql = "SELECT COUNT(username) FROM users WHERE LoggedIn = 1";
             command = new SqlCommand(sql, sqlConnection);
             dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+                activeUsers = dataReader.GetInt32(0);
+            }
 
-            activeUsers = dataReader.GetInt32(0);
 
             dataReader.Close();
 
@@ -67,8 +72,10 @@ namespace Server_App.Functions
             sql = "SELECT COUNT(number) FROM orders ";
             command = new SqlCommand(sql, sqlConnection);
             dataReader = command.ExecuteReader();
-
-            ordersCount = dataReader.GetInt32(0);
+            while (dataReader.Read())
+            {
+                ordersCount = dataReader.GetInt32(0);
+            }
 
             dataReader.Close();
 
@@ -76,8 +83,10 @@ namespace Server_App.Functions
             sql = "SELECT SUM(p.price * c.quantity) FROM orders AS o, product AS p, contain AS c WHERE o.number = c.order_no AND p.id = c.product_id AND CAST(o.dateCreated AS DATE) = '"+ today.ToString("yyyyMMdd") +"'" ;
             command = new SqlCommand(sql, sqlConnection);
             dataReader = command.ExecuteReader();
-
-            dailyProfit = dataReader.GetInt32(0);
+            while (dataReader.Read())
+            {
+                dailyProfit = (float)dataReader.GetValue(0); ////// bug is here, returns null if no orders were made that day, results in exception
+            }
 
             dataReader.Close();
 
@@ -100,14 +109,16 @@ namespace Server_App.Functions
                   "WHERE o.number = c.order_no AND p.id = c.product_id GROUP BY CAST(o.dateCreated AS DATE)";
             command = new SqlCommand(sql,sqlConnection);    
             dataReader= command.ExecuteReader();
-
-            while (dataReader.Read())
+            if (dataReader.HasRows)
             {
-                int count = dataReader.GetInt32(0);
-                float profit = (float)dataReader.GetInt32(1);
-                string date = dataReader.GetString(2);
+                while (dataReader.Read())
+                {
+                    int count = dataReader.GetInt32(0);
+                    float profit = (float)dataReader.GetInt32(1);
+                    string date = dataReader.GetString(2);
 
-                orders.Add(new DayOrder(date, count, profit));
+                    orders.Add(new DayOrder(date, count, profit));
+                }
             }
 
             OrdersReportResponse ordersReport = new OrdersReportResponse(orders);
