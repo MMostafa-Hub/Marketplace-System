@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Client_App.Classes;
 
 namespace Client_App.Classes
 {
-    internal class UserLoginResponse : Response
+    internal class UserLoginResponse : AbstractResponse
     {
         int status;
         User? user = null;

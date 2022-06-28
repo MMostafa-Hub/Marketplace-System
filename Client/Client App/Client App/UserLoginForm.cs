@@ -70,7 +70,7 @@ namespace Client_App
             {
                 clientSocket.write(request);
             }
-            catch (Exceptioin)
+            catch (Exception)
             {
                 returnForm = this;
                 connectionForm.Show();
@@ -91,20 +91,20 @@ namespace Client_App
 
             if (response.getStatus() == 0)
             {
-                label5.Text = "*Username or password is wrong."
+                label5.Text = "*Username or password is wrong.";
             }
             else if (response.getStatus() == 1)
             {
                 label5.Hide();
-                HomePageForm f = new Client_App.HomePageForm();
+                HomeForm f = new Client_App.HomeForm();
                 f.ShowDialog();
                 this.Hide();
-                Globals.User = response.getUser();
+                Globals.user = response.getUser();
             }
             else if (response.getStatus() == 420)
             {
                 label5.Hide();
-                Message.Show("This account is already logged in");
+                MessageBox.Show("This account is already logged in");
             }
         }
 
