@@ -10,6 +10,6 @@ namespace Client_App.Classes
     {
         public string username;
         public float balance;
-        public Cart cart;
+        public Cart? cart = null;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Server_App.Classes;
 
-namespace Server_App
+namespace Server_App.Functions
 {
      internal static class Checkout
     {

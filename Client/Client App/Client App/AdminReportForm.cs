@@ -7,18 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Client_App.Globals;
 
 namespace Client_App
 {
     public partial class AdminReportForm : Form
     {
-        Form logoutForm;
-
-        public AdminReportForm(string adminName, Form logoutForm)
+        public AdminReportForm(string adminName)
         {
             InitializeComponent();
             labelAdmin.Text = adminName;
-            this.logoutForm = logoutForm;
             labelTitle.Text = "Dashboard";
             this.pnlFormLoader.Controls.Clear();
             DashboardForm DashBF = new DashboardForm(this) {Dock=DockStyle.Fill, TopLevel=false, TopMost=true};

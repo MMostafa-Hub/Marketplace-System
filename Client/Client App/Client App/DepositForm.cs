@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Client_App.Classes;
 using static Client_App.Globals;
 
+
 namespace Client_App
 {
     public partial class DepositForm : Form
@@ -26,7 +27,7 @@ namespace Client_App
 
 		private void DepositForm_Load(object sender, EventArgs e)
 		{
-			currentBalance.Text = user.balance;
+			currentBalance.Text = user.balance.ToString();
 		}
 
 		private void label1_Click(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace Client_App
 						clientSocket.write(depositRequest);
 						user.balance += depositValue;
 
-						currentBalance.Text = user.balance;//new balance
+						currentBalance.Text = user.balance.ToString();//new balance
 					}
 					catch (Exception) {
 						returnForm = this;

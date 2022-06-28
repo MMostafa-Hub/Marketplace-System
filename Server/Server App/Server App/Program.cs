@@ -7,6 +7,7 @@ using System.Net.NetworkInformation;
 using System.Threading;
 using System.Text;
 using Server_App.Classes;
+using Server_App.Functions;
 public class Server
 {
     private static void ProcessClientRequests(object argument)
@@ -15,20 +16,63 @@ public class Server
         try
         {
 
-            dynamic recieved_obj, transmit_obj;
-            while (true)
+            dynamic recieved_obj;
+            bool logout_flag = false;
+            while (!logout_flag)
             {
                 recieved_obj = serverSocket.read();
                 switch (recieved_obj.type)
                 {
-                    /* TODO: Choose the spcific operation based on the object type */
-                    /* transmit_obj = operation() */
+                    /* Choose the spcific operation based on the object type */
+                    case "userLogin":
+                        serverSocket.write(Login.loginUser(recieved_obj));
+                        break;
+                    case "adminLogin":
+                        serverSocket.write(Login.loginAdmin(recieved_obj));
+                        break;
+                    case "logout":
+                        Logout.LogoutHandler();
+                        logout_flag = true;
+                        break;
+                    case "createAccount":
+                        serverSocket.write(CreateAccount.createAccountHandler(recieved_obj));
+                        break;
+                    case "deposit":
+                        Deposit.depositBalance(recieved_obj);
+                        break;
+                    case "profile":
+                        serverSocket.write(Profile.profile(recieved_obj));
+                        break;
+                    case "addToCart":
+                        Add_Cart.addToCart(recieved_obj);
+                        break;
+                    case "CategoryRequest":
+                        serverSocket.write(Search.categorySearch());
+                        break;
+                    case "removeFromCart":
+                        Cart_remove.removefromCart(recieved_obj);
+                        break;
+                    case "SearchRequest":
+                        serverSocket.write(Search.search(recieved_obj));
+                        break;
+                    case "dashboard":
+                        serverSocket.write(AdminReports.dashboard());
+                        break;
+                    case "productsReport":
+                        serverSocket.write(AdminReports.productReport());
+                        break;
+                    case "ordersReport":
+                        serverSocket.write(AdminReports.orderReport());
+                        break;
+                    case "updateCart":
+                        Cart_update.updateCart(recieved_obj);
+                        break;
+                    case "checkOut":
+                        serverSocket.write(Checkout.checkOut(recieved_obj));
+                        break;
                 }
-                //serverSocket.write(transmit_obj);
             }
 
-            /* Closing the Connection */
-            serverSocket.close();
         }
         catch (ServerSocket.ReadTimeoutException e)
         {
@@ -37,6 +81,16 @@ public class Server
         catch (ServerSocket.WriteException e)
         {
             /**/
+        }
+        finally
+        {
+            Console.WriteLine("Connection Ended");
+
+            /* Closing the Connection */
+            serverSocket.close();
+
+            // Killing the thread with cold blood
+            Thread.CurrentThread.Interrupt();
         }
 
     }

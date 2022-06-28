@@ -13,6 +13,7 @@ namespace Client_App
         public static Form connectionForm;
         public static Form returnForm = null;
         public static ClientSocket clientSocket;
-        public static User user;
+        public static User user = null;
+        public static Form logoutForm;
     }
 }
