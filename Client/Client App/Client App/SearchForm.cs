@@ -1,8 +1,11 @@
 ﻿using Client_App.Classes;
+using static Client_App.Globals;
+
 namespace Client_App
 {
 	public partial class SearchForm : Form
 	{
+		SearchResponse srchresponse = null;
 		private Form backForm;
 		public SearchForm(Form backForm)
 		{
@@ -30,7 +33,7 @@ namespace Client_App
 			{
 				clientSocket.write(categoryRequest);
 			}
-			catch (clientSocket.WriteException)
+			catch (Exception)
 			{
 				returnForm = this;
 				connectionForm.Show();
@@ -38,23 +41,23 @@ namespace Client_App
 
 			}
 
-
+			CategoryResponse cateResponse=null;
 			try
 			{
-				CategoryResponse cateResponse = clientSocket.read<CategoryResponse>(timeout: 100);
+				 cateResponse = clientSocket.read<CategoryResponse>(timeout: 100);
 			}
-			catch (clientSocket.ReadTimeoutException)
+			catch (Exception)
 			{
 				returnForm = this;
 				connectionForm.Show();
 				this.Hide();
 			}
-
 
 			foreach (string category in cateResponse.categoryList)
 			{
 				categorycombobox.Items.Add(category);
 			}
+			
 
 			foreach (Product product in cateResponse.productList)
 			{
@@ -67,22 +70,15 @@ namespace Client_App
 				{
 					s = "Out of Stock";
 				}
-				string[] row = { product.name.ToString(), product.price.ToString(), s };
+
+				dynamic [] row = { product.name.ToString(), product.price, s };
 				dataGridView1.Rows.Add(row);
-			}	  
+			}
 
 			sortcombobox.SelectedIndex = 0;
-			categorycombobox.SelectedIndex = 0;
-
-
-
-			/*List<string> sortBy = new List<string>();
-			sortBy.Add("Price");
-			sortBy.Add("Latest product");
-			sortcombobox.DataSource = sortBy; */
 
 		}
-
+		
 		private void sortcombobox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
@@ -100,9 +96,49 @@ namespace Client_App
 			string sortText = sortcombobox.SelectedItem.ToString();
 			SearchRequest srequest = new SearchRequest(searchText, categoryText, sortText);
 
-			if (searchText == null)
+			if (searchText == null && categorycombobox==null)
 			{
-				MessageBox.Show("Enter a product name", "Negative value ", MessageBoxButtons.OK);
+				MessageBox.Show("Enter a product name and/or a category", "Negative value ", MessageBoxButtons.OK);
+			}
+			//receving a requestresponse
+			try
+			{
+				clientSocket.write(srequest);
+			}
+			catch (Exception)
+			{
+				returnForm = this;
+				connectionForm.Show();
+				this.Hide();
+
+			}
+
+
+			try
+			{
+				SearchResponse srchresponse = clientSocket.read<SearchResponse>(timeout: 100);
+			}
+			catch (Exception)
+			{
+				returnForm = this;
+				connectionForm.Show();
+				this.Hide();
+			}	   
+
+
+			foreach (Product product in srchresponse.productList)
+			{
+				string s;
+				if (product.stockQuantity >= 1)
+				{
+					s = "Available";
+				}
+				else
+				{
+					s = "Out of Stock";
+				}
+				string[] row = { product.name.ToString(), product.price.ToString(), s };
+				dataGridView1.Rows.Add(row);
 			}
 
 
@@ -111,6 +147,28 @@ namespace Client_App
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
+		}
+
+		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			DataGridView dgv = sender as DataGridView; 
+			if (dgv == null) return;
+			try 
+			{ 
+				if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null) 
+				{
+					dataGridView1.CurrentRow.Selected = true;
+					int rowIndex = e.RowIndex; 
+					Product selected = srchresponse.productList[rowIndex];
+					ProductForm productForm = new ProductForm(selected,this);
+					this.Hide();
+					productForm.Show();
+				} 
+			} 
+			catch (Exception ex) 
+			{
+				
+			} 
 		}
 	}
 }
