@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Server_App.Classes;
-namespace Server_App
+namespace Server_App.Functions
 {
     internal static class Add_Cart
     {
