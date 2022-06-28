@@ -49,7 +49,7 @@ namespace Client_App
 
 						currentBalance.Text = user.balance;//new balance
 					}
-					catch (IOException ex) {
+					catch (Exception) {
 						returnForm = this;
 						connectionForm.Show();
 						this.Hide();
