@@ -6,20 +6,13 @@ using System.Threading.Tasks;
 
 namespace Client_App.Classes
 {
-    internal class addToCartRequest : Request
+    internal class removeFromCartRequest : Request
     {
         public int productID;
-        public int quantity;
-   
-
-        public addToCartRequest (int productID, int quantity )
+        public removeFromCartRequest(int productID)
         {
             this.productID = productID;
-            this.quantity = quantity;
-            this.type = "addToCart";
+            type = "removeFromCart";
         }
-
-
-
     }
 }
