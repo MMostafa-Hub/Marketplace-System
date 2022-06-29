@@ -101,6 +101,7 @@
             // 
             // cartView
             // 
+            this.cartView.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cartView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cartView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID_col,
@@ -110,10 +111,10 @@
             this.totalPrice_col,
             this.dataGridViewButtonColumn1});
             this.cartView.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cartView.Location = new System.Drawing.Point(61, 70);
+            this.cartView.Location = new System.Drawing.Point(12, 64);
             this.cartView.Name = "cartView";
             this.cartView.RowTemplate.Height = 25;
-            this.cartView.Size = new System.Drawing.Size(1168, 205);
+            this.cartView.Size = new System.Drawing.Size(790, 284);
             this.cartView.TabIndex = 0;
             this.cartView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartView_CellContentClick);
             // 
@@ -199,7 +200,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(704, 313);
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button3.Location = new System.Drawing.Point(364, 365);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 45);
             this.button3.TabIndex = 1;
@@ -209,7 +211,8 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(363, 313);
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button4.Location = new System.Drawing.Point(364, 425);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(125, 45);
             this.button4.TabIndex = 2;
@@ -219,7 +222,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(61, 21);
+            this.button5.Location = new System.Drawing.Point(12, 24);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 3;
@@ -229,12 +232,15 @@
             // 
             // CartForm
             // 
-            this.ClientSize = new System.Drawing.Size(1292, 401);
+            this.ClientSize = new System.Drawing.Size(814, 482);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.cartView);
+            this.MinimumSize = new System.Drawing.Size(830, 520);
             this.Name = "CartForm";
+            this.Text = "Cart Page";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CartForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartView)).EndInit();

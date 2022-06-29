@@ -37,9 +37,11 @@
             // 
             // profileButton
             // 
-            this.profileButton.Location = new System.Drawing.Point(164, 94);
+            this.profileButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.profileButton.Location = new System.Drawing.Point(230, 196);
+            this.profileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profileButton.Name = "profileButton";
-            this.profileButton.Size = new System.Drawing.Size(124, 43);
+            this.profileButton.Size = new System.Drawing.Size(108, 32);
             this.profileButton.TabIndex = 0;
             this.profileButton.Text = "View Profile";
             this.profileButton.UseVisualStyleBackColor = true;
@@ -47,9 +49,11 @@
             // 
             // depositButton
             // 
-            this.depositButton.Location = new System.Drawing.Point(461, 94);
+            this.depositButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.depositButton.Location = new System.Drawing.Point(489, 196);
+            this.depositButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.depositButton.Name = "depositButton";
-            this.depositButton.Size = new System.Drawing.Size(116, 43);
+            this.depositButton.Size = new System.Drawing.Size(102, 32);
             this.depositButton.TabIndex = 1;
             this.depositButton.Text = "Deposit";
             this.depositButton.UseVisualStyleBackColor = true;
@@ -57,9 +61,11 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(164, 190);
+            this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchButton.Location = new System.Drawing.Point(230, 268);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(124, 38);
+            this.searchButton.Size = new System.Drawing.Size(108, 28);
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -67,9 +73,11 @@
             // 
             // cartButton
             // 
-            this.cartButton.Location = new System.Drawing.Point(461, 190);
+            this.cartButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cartButton.Location = new System.Drawing.Point(489, 268);
+            this.cartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cartButton.Name = "cartButton";
-            this.cartButton.Size = new System.Drawing.Size(116, 38);
+            this.cartButton.Size = new System.Drawing.Size(102, 28);
             this.cartButton.TabIndex = 3;
             this.cartButton.Text = "Cart";
             this.cartButton.UseVisualStyleBackColor = true;
@@ -77,9 +85,10 @@
             // 
             // logoutButton
             // 
-            this.logoutButton.Location = new System.Drawing.Point(22, 12);
+            this.logoutButton.Location = new System.Drawing.Point(19, 9);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(94, 29);
+            this.logoutButton.Size = new System.Drawing.Size(82, 22);
             this.logoutButton.TabIndex = 4;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = true;
@@ -87,16 +96,19 @@
             // 
             // HomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 287);
+            this.ClientSize = new System.Drawing.Size(814, 482);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.cartButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.depositButton);
             this.Controls.Add(this.profileButton);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(830, 520);
             this.Name = "HomeForm";
-            this.Text = "HomeForm";
+            this.Text = "Home Page";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

@@ -30,18 +30,18 @@
         {
             this.labelBestSellers = new System.Windows.Forms.Label();
             this.dataGridViewBS = new System.Windows.Forms.DataGridView();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoldQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelOutofStock = new System.Windows.Forms.Label();
             this.dataGridViewOxS = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.IndexCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoldQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBS)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,8 +80,36 @@
             this.dataGridViewBS.ReadOnly = true;
             this.dataGridViewBS.RowTemplate.Height = 25;
             this.dataGridViewBS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBS.Size = new System.Drawing.Size(424, 95);
+            this.dataGridViewBS.Size = new System.Drawing.Size(604, 115);
             this.dataGridViewBS.TabIndex = 3;
+            // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Index.HeaderText = "Rank";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            // 
+            // pName
+            // 
+            this.pName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pName.HeaderText = "Product Name";
+            this.pName.Name = "pName";
+            this.pName.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // SoldQuantity
+            // 
+            this.SoldQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SoldQuantity.HeaderText = "Sold Quantity";
+            this.SoldQuantity.Name = "SoldQuantity";
+            this.SoldQuantity.ReadOnly = true;
             // 
             // panel1
             // 
@@ -90,7 +118,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(444, 164);
+            this.panel1.Size = new System.Drawing.Size(624, 184);
             this.panel1.TabIndex = 4;
             // 
             // panel2
@@ -98,10 +126,10 @@
             this.panel2.Controls.Add(this.labelOutofStock);
             this.panel2.Controls.Add(this.dataGridViewOxS);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 173);
+            this.panel2.Location = new System.Drawing.Point(3, 193);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(444, 164);
+            this.panel2.Size = new System.Drawing.Size(624, 184);
             this.panel2.TabIndex = 5;
             // 
             // labelOutofStock
@@ -134,23 +162,8 @@
             this.dataGridViewOxS.ReadOnly = true;
             this.dataGridViewOxS.RowTemplate.Height = 25;
             this.dataGridViewOxS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewOxS.Size = new System.Drawing.Size(424, 95);
+            this.dataGridViewOxS.Size = new System.Drawing.Size(604, 115);
             this.dataGridViewOxS.TabIndex = 3;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(450, 340);
-            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // IndexCol
             // 
@@ -173,39 +186,26 @@
             this.PriceCol.Name = "PriceCol";
             this.PriceCol.ReadOnly = true;
             // 
-            // SoldQuantity
+            // tableLayoutPanel1
             // 
-            this.SoldQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoldQuantity.HeaderText = "Sold Quantity";
-            this.SoldQuantity.Name = "SoldQuantity";
-            this.SoldQuantity.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // pName
-            // 
-            this.pName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pName.HeaderText = "Product Name";
-            this.pName.Name = "pName";
-            this.pName.ReadOnly = true;
-            // 
-            // Index
-            // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Index.HeaderText = "Rank";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(630, 380);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // ProductsReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 340);
+            this.ClientSize = new System.Drawing.Size(630, 380);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductsReportForm";
