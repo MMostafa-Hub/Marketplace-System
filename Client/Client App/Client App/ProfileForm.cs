@@ -15,6 +15,7 @@ namespace Client_App
     public partial class ProfileForm : GenericForm
     {
         Form backForm;
+
         public ProfileForm(Form backForm)
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace Client_App
             labelUserBalance.Text = user.balance.ToString();
         }
 
-        private void ProfileForm_Load(object sender, EventArgs e)
+        private void ProfileForm_VisibleChanged(object sender, EventArgs e)
         {
             try
             {

@@ -279,7 +279,7 @@
             this.Name = "ProfileForm";
             this.Text = "Profile Page";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.ProfileForm_Load);
+            this.Load += new System.EventHandler(this.ProfileForm_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).EndInit();
