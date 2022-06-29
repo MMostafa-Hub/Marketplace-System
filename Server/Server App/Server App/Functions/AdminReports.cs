@@ -115,8 +115,8 @@ namespace Server_App.Functions
             SqlCommand command;
             SqlDataReader dataReader;
             String sql;
-            sql = "SELECT COUNT(DISTINCT o.number), SUM(p.price * c.quantity), CAST(o.dateCreated AS DATE) FROM orders AS o, product AS p, contain AS c "+
-                  "WHERE o.number = c.order_no AND p.id = c.product_id GROUP BY CAST(o.dateCreated AS DATE)";
+            sql = "SELECT TOP 7 COUNT(DISTINCT o.number), SUM(p.price * c.quantity), CAST(o.dateCreated AS DATE) FROM orders AS o, product AS p, contain AS c "+
+                  "WHERE o.number = c.order_no AND p.id = c.product_id GROUP BY CAST(o.dateCreated AS DATE) ORDER BY CAST(o.dateCreated AS DATE) DESC";
             command = new SqlCommand(sql,sqlConnection);    
             dataReader= command.ExecuteReader();
             if (dataReader.HasRows)
