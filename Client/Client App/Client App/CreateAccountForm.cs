@@ -37,8 +37,8 @@ namespace Client_App
 
             if (string.IsNullOrEmpty(textBox1.Text))
             {
-                this.label5.Text = "*Enter an username.";
-                this.label5.Show();
+                MessageBox.Show("Enter a username");
+                return;
             }
             else
             {
@@ -47,8 +47,8 @@ namespace Client_App
             }
             if (username.Length > 25)
             {
-                this.label5.Text = "*Username must be less than 25 character.";
-                this.label5.Show();
+                MessageBox.Show("Username must be less than 25 character");
+                return;
             }
             else
             {
@@ -57,8 +57,8 @@ namespace Client_App
 
             if (string.IsNullOrEmpty(textBox2.Text))
             {
-                this.label6.Text = "*Enter an password.";
-                this.label6.Show();
+                MessageBox.Show("Enter an password");
+                return;
             }
             else
             {
@@ -67,8 +67,8 @@ namespace Client_App
             }
             if (password.Length > 25)
             {
-                this.label6.Text = "*Password must be less than 25 character.";
-                this.label6.Show();
+                MessageBox.Show("Password must be less than 25 character");
+                return;
             }
             else
             {
@@ -81,8 +81,8 @@ namespace Client_App
             }
             else
             {
-                label7.Text = "*Choose your gender.";
-                label7.Show();
+                MessageBox.Show("Choose your gender");
+                return;
             }
 
             age = Convert.ToInt32(numericUpDown1.Value);
@@ -123,8 +123,7 @@ namespace Client_App
             }
             else
             {
-                label5.Text = "*This Username is already exist.";
-                label5.Show();
+                MessageBox.Show("This username already exists");
             }
         }
 
