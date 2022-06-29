@@ -50,11 +50,12 @@ namespace Client_App
         {
             if (cartView.Columns[e.ColumnIndex].HeaderText == "Remove")
             {
-                // cartView.Rows.RemoveAt(cartView.CurrentCell.RowIndex);
+                
                 int productId = Convert.ToInt32(cartView.Rows[e.RowIndex].Cells["ID_col"].Value);
                 removeFromCartRequest removeRequest = new removeFromCartRequest(productId); // product id
                 clientSocket.write(removeRequest);
                 Globals.user.cart.products.Remove(productId);
+                cartView.Rows.RemoveAt(cartView.CurrentCell.RowIndex);
                 cartView.Refresh();
             }
         }
