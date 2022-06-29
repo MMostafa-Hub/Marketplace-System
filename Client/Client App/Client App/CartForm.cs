@@ -153,11 +153,12 @@ namespace Client_App
                     else
                     {
                         ourMap.Add(Convert.ToInt32(cartView.Rows[i].Cells[0].Value), Convert.ToInt32(cartView.Rows[i].Cells[2].Value));
+                        cartView.Rows[i].Cells[4].Value = Convert.ToInt32(cartView.Rows[i].Cells[3].Value.ToString()) * Convert.ToInt32(cartView.Rows[i].Cells[2].Value.ToString());
                     }
                 }
                 else
                 {
-                    MessageBox.Show("please enter numeric values in quantity");
+                    MessageBox.Show("Please enter numeric values in quantity");
                     return;
                 }
             }
@@ -172,6 +173,7 @@ namespace Client_App
                         Globals.user.cart.products[ourMap.ElementAt(j).Key] = new Tuple<Product, int>(Globals.user.cart.products.ElementAt(j).Value.Item1, ourMap.ElementAt(j).Value);
                     }
                 }
+                MessageBox.Show("Cart updated successfully");
             }
             catch
             {
