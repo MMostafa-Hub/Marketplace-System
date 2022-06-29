@@ -175,7 +175,7 @@ namespace Client_App
                 }
                 MessageBox.Show("Cart updated successfully");
             }
-            catch
+            catch (Exception)
             {
                 connectionForm.Show();
                 this.Hide();
