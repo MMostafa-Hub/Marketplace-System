@@ -75,9 +75,11 @@ namespace Client_App
 
             {
                 key = Convert.ToInt32(Quant);
+
                 if ((product.stockQuantity == 0))
                  {
                     MessageBox.Show("There is no available Quantity");
+                    return;
                 }
 
                 if (Globals.user.cart.products.ContainsKey(product.id))
