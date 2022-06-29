@@ -99,8 +99,8 @@ namespace Client_App
             {
                 label5.Hide();
                 AdminReportForm f = new Client_App.AdminReportForm(request.getUsername());
-                f.ShowDialog();
                 this.Hide();
+                f.ShowDialog();
             }
         }
 
