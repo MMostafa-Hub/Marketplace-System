@@ -77,7 +77,8 @@ namespace Client_App
                 try
                 {
                   
-                    checkOutResponse checkRes = clientSocket.read<checkOutResponse>(100);
+                    // changed tieout from 100 to 5000 ms 
+                    checkOutResponse checkRes = clientSocket.read<checkOutResponse>(5000);
                     if (checkRes.flag ==false)
                     {
                         MessageBox.Show("OPPs, The Quantity of product is not enough");
