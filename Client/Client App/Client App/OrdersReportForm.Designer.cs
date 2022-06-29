@@ -65,7 +65,7 @@
             this.dataGridViewO7.Name = "dataGridViewO7";
             this.dataGridViewO7.ReadOnly = true;
             this.dataGridViewO7.RowTemplate.Height = 25;
-            this.dataGridViewO7.Size = new System.Drawing.Size(426, 179);
+            this.dataGridViewO7.Size = new System.Drawing.Size(606, 219);
             this.dataGridViewO7.TabIndex = 3;
             // 
             // DateCol
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 340);
+            this.ClientSize = new System.Drawing.Size(630, 380);
             this.Controls.Add(this.dataGridViewO7);
             this.Controls.Add(this.labelOrdx7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -59,16 +59,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(127, 421);
+            this.panel1.Size = new System.Drawing.Size(183, 482);
             this.panel1.TabIndex = 0;
             // 
             // btnLogout
             // 
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Location = new System.Drawing.Point(0, 368);
+            this.btnLogout.Location = new System.Drawing.Point(0, 429);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(125, 51);
+            this.btnLogout.Size = new System.Drawing.Size(181, 51);
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Log out";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -80,7 +80,7 @@
             this.btnOrdRepo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrdRepo.Location = new System.Drawing.Point(0, 243);
             this.btnOrdRepo.Name = "btnOrdRepo";
-            this.btnOrdRepo.Size = new System.Drawing.Size(125, 51);
+            this.btnOrdRepo.Size = new System.Drawing.Size(181, 51);
             this.btnOrdRepo.TabIndex = 3;
             this.btnOrdRepo.Text = "Orders Report";
             this.btnOrdRepo.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             this.btnProdRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdRep.Location = new System.Drawing.Point(0, 192);
             this.btnProdRep.Name = "btnProdRep";
-            this.btnProdRep.Size = new System.Drawing.Size(125, 51);
+            this.btnProdRep.Size = new System.Drawing.Size(181, 51);
             this.btnProdRep.TabIndex = 2;
             this.btnProdRep.Text = "Products Report";
             this.btnProdRep.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashboard.Location = new System.Drawing.Point(0, 141);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(125, 51);
+            this.btnDashboard.Size = new System.Drawing.Size(181, 51);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(125, 141);
+            this.panel2.Size = new System.Drawing.Size(181, 141);
             this.panel2.TabIndex = 1;
             // 
             // labelAdmin
@@ -125,7 +125,7 @@
             this.labelAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelAdmin.AutoSize = true;
             this.labelAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelAdmin.Location = new System.Drawing.Point(39, 100);
+            this.labelAdmin.Location = new System.Drawing.Point(67, 100);
             this.labelAdmin.Name = "labelAdmin";
             this.labelAdmin.Size = new System.Drawing.Size(50, 16);
             this.labelAdmin.TabIndex = 1;
@@ -135,7 +135,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Client_App.Properties.Resources.admin;
-            this.pictureBox1.Location = new System.Drawing.Point(33, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(60, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(57, 69);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -148,9 +148,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFormLoader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlFormLoader.Location = new System.Drawing.Point(127, 81);
+            this.pnlFormLoader.Location = new System.Drawing.Point(183, 101);
             this.pnlFormLoader.Name = "pnlFormLoader";
-            this.pnlFormLoader.Size = new System.Drawing.Size(450, 340);
+            this.pnlFormLoader.Size = new System.Drawing.Size(630, 380);
             this.pnlFormLoader.TabIndex = 1;
             // 
             // labelTitle
@@ -170,9 +170,9 @@
             this.panel3.Controls.Add(this.labelUpdateDate);
             this.panel3.Controls.Add(this.labelTitle);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(127, 0);
+            this.panel3.Location = new System.Drawing.Point(183, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(450, 83);
+            this.panel3.Size = new System.Drawing.Size(631, 104);
             this.panel3.TabIndex = 2;
             // 
             // labelTime
@@ -200,14 +200,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 421);
+            this.ClientSize = new System.Drawing.Size(814, 482);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlFormLoader);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MinimumSize = new System.Drawing.Size(593, 459);
+            this.MinimumSize = new System.Drawing.Size(830, 520);
             this.Name = "AdminReportForm";
             this.Text = "Store Statistics";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
