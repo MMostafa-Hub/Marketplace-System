@@ -75,47 +75,45 @@ namespace Client_App
 
             {
                 key = Convert.ToInt32(Quant);
-                if (key <= 0 || key > product.stockQuantity+Globals.user.cart.products[product.id].Item2 )
+                if (Globals.user.cart.products.ContainsKey(product.id))
                 {
-                    if (Globals.user.cart.products.ContainsKey(product.id))
+                    if (key <= 0 || key + Globals.user.cart.products[product.id].Item2 > product.stockQuantity )
                     {
-                        MessageBox.Show("Please Enter a Quantity number between (1 and " + product.stockQuantity + ")");
-                        return;
-                    }
-                    else
-                    {//edited
-                        MessageBox.Show("You have entered a Quantity number of ("+ key+" and the Quantity in the cart is "+
+                        MessageBox.Show("You have entered a Quantity number of (" + key + " and the Quantity in the cart is " +
                             Globals.user.cart.products[product.id].Item2 + ",and you wii exceed the max limit of Quantity , " +
-                            "so please Enter a value between 1 and "+(product.stockQuantity - Globals.user.cart.products[product.id].Item2) + ")");
-                        return;
-                    }
+                            "so please Enter a value between 1 and " + (product.stockQuantity - Globals.user.cart.products[product.id].Item2) + ")");
+                    return;
+                        }
 
                 }
+
                 else
                 {
+                    if (key <= 0 || key > product.stockQuantity)
+                    {
+                        MessageBox.Show("Please Enter a Quantity number between(1 and " + product.stockQuantity + ")");
+                        return; 
+                    }
 
-                    MessageBox.Show("Product is added Successfully");
+
                 }
             }
             
 
             if (Globals.user.cart.products.ContainsKey(product.id))
             {
-                Tuple<Product, int> newTuple = new Tuple<Product, int>(product, Globals.user.cart.products[product.id].Item2 + key);
-                Globals.user.cart.products[product.id]  = newTuple;
-                if (newTuple.Item2 > product.soldQuantity)
-                {
-                    MessageBox.Show("The Quantity Exceeded The limits");
-                    return;
-                }
+              
 
                 try
                 {
                     Dictionary<int, int> hmap = new Dictionary<int, int>();
-                    hmap.Add(product.id,key);
+                    hmap.Add(product.id, key + Globals.user.cart.products[product.id].Item2);
                     /*Waiting for completion*/
                     updateCartRequest updateToCartReq = new updateCartRequest(hmap);
                     clientSocket.write(updateToCartReq);
+
+                    Tuple<Product, int> newTuple = new Tuple<Product, int>(product, Globals.user.cart.products[product.id].Item2 + key);
+                    Globals.user.cart.products[product.id] = newTuple;
 
                     MessageBox.Show("Your product is successfully added");
                     return;
@@ -125,7 +123,7 @@ namespace Client_App
                 {
                     connectionForm.Show(this);
                     this.Hide();
-
+                    return;
                 }
             }
             else {
@@ -135,6 +133,10 @@ namespace Client_App
                     /*Waiting for completion*/
                     addToCartRequest addToCartReq = new addToCartRequest(product.id, key);
                     clientSocket.write(addToCartReq);
+
+                    Tuple<Product, int> newTuple = new Tuple<Product, int>(product, key);
+                    Globals.user.cart.products[product.id] = newTuple;
+
                     MessageBox.Show("Your product is successfully added");
 
 
