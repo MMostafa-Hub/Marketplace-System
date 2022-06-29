@@ -94,9 +94,9 @@
             this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(42, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 20);
+            this.label5.Size = new System.Drawing.Size(140, 20);
             this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.label5.Text = "*Enter an username.";
             // 
             // label6
             // 
