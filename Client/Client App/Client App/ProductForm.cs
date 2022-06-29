@@ -62,11 +62,13 @@ namespace Client_App
             if (Quant == "")
             {
                 MessageBox.Show("Please Enter a Quantity");
+                return;
             }
             else if (a == 1 && Quant != "0")
 
             {
                 MessageBox.Show("Please Enter a Quantity as a number ");
+                return;
             }
 
             else if (a == 0)
@@ -76,6 +78,7 @@ namespace Client_App
                 if (key <= 0 || key > product.stockQuantity)
                 {
                     MessageBox.Show("Please Enter a Quantity number between (1 and " + product.stockQuantity + ")");
+                    return;
                 }
                 else
                 {
