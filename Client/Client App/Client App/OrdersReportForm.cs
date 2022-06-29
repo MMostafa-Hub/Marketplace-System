@@ -32,6 +32,7 @@ namespace Client_App
                 returnForm = this.adminPage;
                 connectionForm.Show();
                 this.adminPage.Hide();
+                return;
             }
 
             OrdersReportResponse ordersResponse = null;
@@ -44,6 +45,7 @@ namespace Client_App
                 returnForm = this.adminPage;
                 connectionForm.Show();
                 this.adminPage.Hide();
+                return;
             }
             if (ordersResponse != null)
             {

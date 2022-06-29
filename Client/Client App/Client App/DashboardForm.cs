@@ -23,6 +23,7 @@ namespace Client_App
                 returnForm = this.adminPage;
                 connectionForm.Show();
                 this.adminPage.Hide();
+                return;
             }
 
             DashboardResponse dbResponse = null;
@@ -35,6 +36,7 @@ namespace Client_App
                 returnForm = this.adminPage;
                 connectionForm.Show();
                 this.adminPage.Hide();
+                return;
             }
             if (dbResponse != null)
             {

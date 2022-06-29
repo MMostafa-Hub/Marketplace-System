@@ -34,6 +34,7 @@ namespace Client_App
                 returnForm = this;
                 connectionForm.Show();
                 this.Hide();
+                return;
             }
 
             ProfileResponse profileResponse = null;
@@ -46,6 +47,7 @@ namespace Client_App
                 returnForm = this;
                 connectionForm.Show();
                 this.Hide();
+                return;
             }
             if (profileResponse != null)
             {
