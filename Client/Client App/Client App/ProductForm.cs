@@ -43,7 +43,7 @@ namespace Client_App
         private void BT2_Click(object sender, EventArgs e)
         {
            
-            this.Close();
+            this.Hide();
             returnForm.Show();
                 }
 
