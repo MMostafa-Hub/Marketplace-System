@@ -97,6 +97,7 @@ namespace Client_App
                 returnForm = this;
                 connectionForm.Show();
                 this.Hide();
+                return;
             }
 
             CreateAccountResponse response = null;
@@ -109,6 +110,7 @@ namespace Client_App
                 returnForm = this;
                 connectionForm.Show();
                 this.Hide();
+                return;
             }
 
             if(response.getSuccess())

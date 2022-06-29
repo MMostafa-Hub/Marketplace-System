@@ -75,6 +75,7 @@ namespace Client_App
                 returnForm = this;
                 connectionForm.Show();
                 this.Hide();
+                return;
             }
 
             UserLoginResponse response = null;
@@ -87,6 +88,7 @@ namespace Client_App
                 returnForm = this;
                 connectionForm.Show();
                 this.Hide();
+                return;
             }
 
             if (response.getStatus() == 0)
