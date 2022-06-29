@@ -77,12 +77,21 @@ namespace Client_App
                 key = Convert.ToInt32(Quant);
                 if (Globals.user.cart.products.ContainsKey(product.id))
                 {
+
                     if (key <= 0 || key + Globals.user.cart.products[product.id].Item2 > product.stockQuantity )
                     {
-                        MessageBox.Show("You have entered a Quantity number of (" + key + " and the Quantity in the cart is " +
-                            Globals.user.cart.products[product.id].Item2 + ",and you wii exceed the max limit of Quantity , " +
-                            "so please Enter a value between 1 and " + (product.stockQuantity - Globals.user.cart.products[product.id].Item2) + ")");
-                    return;
+                        if((product.stockQuantity - Globals.user.cart.products[product.id].Item2) ==0)
+                        {
+                            MessageBox.Show("There is no available Quantity");
+                        }
+                        else
+                        {
+                            MessageBox.Show("You have entered a Quantity number of (" + key + " and the Quantity in the cart is " +
+                             Globals.user.cart.products[product.id].Item2 + ",and you wii exceed the max limit of Quantity , " +
+                             "so please Enter a value between 1 and " + (product.stockQuantity - Globals.user.cart.products[product.id].Item2) + ")");
+                            return;
+                        }
+
                         }
 
                 }
