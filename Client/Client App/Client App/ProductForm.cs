@@ -76,7 +76,14 @@ namespace Client_App
             {
                 if(int.TryParse(Quant,out int n))
                 {
-                    key = Convert.ToInt32(Quant);
+                    try
+                    {
+                        key = Convert.ToInt32(Quant);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Quantity must be an integer");
+                    }
                 }
                 else
                 {

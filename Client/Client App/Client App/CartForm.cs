@@ -143,6 +143,11 @@ namespace Client_App
 
             for (int i = 0; i < cartView.RowCount - 1; i++)
             {
+                if(cartView.Rows[i].Cells[2].Value == null)
+                {
+                    MessageBox.Show("Please enter a qunatity");
+                    return;
+                }
                 if (isNumeric(cartView.Rows[i].Cells[2].Value.ToString()))
                 {
                     try
