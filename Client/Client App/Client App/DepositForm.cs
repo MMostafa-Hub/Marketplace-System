@@ -39,26 +39,32 @@ namespace Client_App
 		{
 			float depositValue;
 			if (float.TryParse(depositTextbox.Text, out depositValue))	  
-			{
-				if (depositValue > 0)
-				{
-					try
+			{	if (depositValue <= 100000 && depositValue >= 1) {
+					if (depositValue > 0)
 					{
-						DepositRequest depositRequest = new DepositRequest(depositValue+user.balance);
-						clientSocket.write(depositRequest);
-						user.balance += depositValue;
+						try
+						{
+							DepositRequest depositRequest = new DepositRequest(depositValue + user.balance);
+							clientSocket.write(depositRequest);
+							user.balance += depositValue;
 
-						currentBalance.Text = user.balance.ToString();//new balance
+							currentBalance.Text = user.balance.ToString();//new balance
+						}
+						catch (Exception)
+						{
+							returnForm = this;
+							connectionForm.Show();
+							this.Hide();
+						}
 					}
-					catch (Exception) {
-						returnForm = this;
-						connectionForm.Show();
-						this.Hide();
+					else
+					{
+						MessageBox.Show("Please enter a postive value", "Negative value ", MessageBoxButtons.OK);
 					}
 				}
-				else 
+				else
 				{
-					MessageBox.Show("Please enter a postive value", "Negative value ", MessageBoxButtons.OK);
+					MessageBox.Show("Maximum enter deposit is 100,000", MessageBoxButtons.OK);
 				}
 
 			}
