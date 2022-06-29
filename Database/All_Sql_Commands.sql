@@ -90,17 +90,7 @@ CREATE TABLE orders (
 );
 
 
-INSERT INTO orders(user_username , dateCreated)
-VALUES ('David00', '2022-05-24 16:02:00');
 
-INSERT INTO orders(user_username , dateCreated)
-VALUES ('Hazem00', '2022-05-24 16:02:00');
-
-INSERT INTO orders(user_username , dateCreated)
-VALUES ('Mario00', '2022-05-24 16:02:00');
-
-INSERT INTO orders(user_username , dateCreated)
-VALUES ('Marina1', '2022-05-24 16:02:00');
 
 
 CREATE TABLE contain (
@@ -110,32 +100,7 @@ CREATE TABLE contain (
 	PRIMARY KEY (order_no, product_id),
 );
 
-INSERT INTO contain(order_no ,product_id , quantity)
-VALUES (1 , 1 , 1);
 
-INSERT INTO contain(order_no ,product_id , quantity)
-VALUES (1 , 3 , 1);
-
-INSERT INTO contain(order_no ,product_id , quantity)
-VALUES (1 , 4 , 1);
-
-INSERT INTO contain(order_no ,product_id , quantity)
-VALUES (3 , 2 , 1);
-
-INSERT INTO contain(order_no ,product_id , quantity)
-VALUES (3 , 3 , 1);
-
-INSERT INTO contain(order_no ,product_id , quantity)
-VALUES (3 , 4 , 1);
-
-INSERT INTO contain(order_no ,product_id , quantity)
-VALUES (2 , 2 , 1);
-
-INSERT INTO contain(order_no ,product_id , quantity)
-VALUES (2 , 3 , 1);
-
-INSERT INTO contain(order_no ,product_id , quantity)
-VALUES (2 , 4 , 1);
 
 
 CREATE TABLE has_in_cart (
@@ -146,29 +111,3 @@ CREATE TABLE has_in_cart (
 );
 
 
-INSERT INTO has_in_cart(user_username ,product_id , quantity)
-VALUES ('David00' , 1 , 1);
-
-INSERT INTO has_in_cart(user_username ,product_id , quantity)
-VALUES ('David00' , 3 , 1);
-
-INSERT INTO has_in_cart(user_username ,product_id , quantity)
-VALUES ('David00' , 4 , 1);
-
-INSERT INTO has_in_cart(user_username ,product_id , quantity)
-VALUES ('Hazem00' , 2 , 1);
-
-INSERT INTO has_in_cart(user_username ,product_id , quantity)
-VALUES ('Hazem00' , 3 , 1);
-
-INSERT INTO has_in_cart(user_username ,product_id , quantity)
-VALUES ('Hazem00' , 4 , 1);
-
-INSERT INTO has_in_cart(user_username ,product_id , quantity)
-VALUES ('Mario00' , 2 , 1);
-
-INSERT INTO has_in_cart(user_username ,product_id , quantity)
-VALUES ('Mario00' , 3 , 1);
-
-INSERT INTO has_in_cart(user_username ,product_id , quantity)
-VALUES ('Mario00' , 4 , 1);
