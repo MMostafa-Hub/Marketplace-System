@@ -226,6 +226,9 @@
             this.dataGridViewButtonColumn1.HeaderText = "Remove";
             this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
             this.dataGridViewButtonColumn1.ReadOnly = true;
+            this.dataGridViewButtonColumn1.Text = "Remove";
+            this.dataGridViewButtonColumn1.ToolTipText = "Remove";
+            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             // 
             // CartForm
             // 
