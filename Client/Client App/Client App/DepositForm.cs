@@ -64,7 +64,7 @@ namespace Client_App
 				}
 				else
 				{
-					MessageBox.Show("Maximum enter deposit is 100,000", MessageBoxButtons.OK);
+					MessageBox.Show("Maximum enter deposit is 100000", "Negative value ", MessageBoxButtons.OK);
 				}
 
 			}
