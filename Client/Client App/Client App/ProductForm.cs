@@ -87,11 +87,18 @@ namespace Client_App
 
                     if (key <= 0 || key + Globals.user.cart.products[product.id].Item2 > product.stockQuantity)
                     {
-
+                        if ((product.stockQuantity == 0))
+                        {
+                            MessageBox.Show("There is no available Quantity");
+                            return;
+                        }
+                        else
+                        { 
                         MessageBox.Show("You have entered a Quantity number of (" + key + " and the Quantity in the cart is " +
                          Globals.user.cart.products[product.id].Item2 + ",and you wii exceed the max limit of Quantity , " +
                          "so please Enter a value between 1 and " + (product.stockQuantity - Globals.user.cart.products[product.id].Item2) + ")");
                         return;
+                        }
                     }
 
                 }
