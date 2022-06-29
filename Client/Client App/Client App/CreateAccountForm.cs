@@ -130,7 +130,7 @@ namespace Client_App
         private void button2_Click(object sender, EventArgs e)
         {
             FirstForm f = new Client_App.FirstForm();
-            this.Close();
+            this.Hide();
             f.ShowDialog();
 
         }
