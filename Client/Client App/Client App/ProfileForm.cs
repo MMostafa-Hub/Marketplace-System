@@ -64,6 +64,7 @@ namespace Client_App
                     {
                         labelMsg.Visible = false;
                         dataGridViewOH.Visible = true;
+                        dataGridViewOH.Rows.Clear();
                         int index = 1;
                         foreach (Order order in profileResponse.ordersHistory)
                         {
