@@ -20,7 +20,6 @@ namespace Client_App
             {
                 connectButton.Enabled = false;
                 clientSocket = new ClientSocket(serverIP, Int32.Parse(serverPort));
-                this.Hide();
                 if (returnForm == null)
                 {
                     FirstForm firstForm = new FirstForm();
@@ -31,6 +30,7 @@ namespace Client_App
                 {
                     returnForm.Show();
                 }
+                this.Hide();
             }
             catch (FormatException)
             {
@@ -47,6 +47,10 @@ namespace Client_App
 
         private void ConnectionForm_VisibleChanged(object sender, EventArgs e)
         {
+            if (this.Visible == false)
+            {
+                return;
+            }
             //If the form is shown due to a connection error in another form
             if (returnForm != null)
             {
