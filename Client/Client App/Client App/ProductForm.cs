@@ -95,7 +95,9 @@ namespace Client_App
                 if (newTuple.Item2 > product.soldQuantity)
                 {
                     MessageBox.Show("The Quantity Exceeded The limits");
+                    return;
                 }
+
                 try
                 {
                     Dictionary<int, int> hmap = new Dictionary<int, int>();
