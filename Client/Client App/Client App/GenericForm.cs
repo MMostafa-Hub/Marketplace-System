@@ -15,8 +15,18 @@ namespace Client_App
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 Request logoutRequest = new Request("logout");
-                clientSocket.write(logoutRequest);
-                Application.Exit();
+                try
+                {
+                    clientSocket.write(logoutRequest);
+                }
+                catch (Exception)
+                {
+
+                }
+                finally
+                {
+                    Application.Exit();
+                }
             }
         }
     }
