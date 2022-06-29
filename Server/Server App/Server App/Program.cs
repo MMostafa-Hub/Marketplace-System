@@ -17,8 +17,8 @@ public class Server
         {
 
             dynamic recieved_obj;
-            bool logout_flag = false;
-            while (!logout_flag)
+           // bool logout_flag = false;
+            while (true)
             {
                 recieved_obj = serverSocket.read();
                 switch (recieved_obj.type)
@@ -32,7 +32,7 @@ public class Server
                         break;
                     case "logout":
                         Logout.LogoutHandler();
-                        logout_flag = true;
+                        //logout_flag = true;
                         break;
                     case "createAccount":
                         serverSocket.write(CreateAccount.createAccountHandler(recieved_obj));

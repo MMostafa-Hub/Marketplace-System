@@ -89,6 +89,7 @@ namespace Server_App.Classes
                         break;
                     case "checkOut":
                         recieved_obj = JsonConvert.DeserializeObject<checkOutRequest>(recieved_json);
+                        break;
                     case "AYA":
                         recieved_obj = request;
                         break;
