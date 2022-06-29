@@ -80,7 +80,7 @@ namespace Client_App
             AdminLoginResponse response = null;
             try
             {
-                response = clientSocket.read<AdminLoginResponse>(timeout: 100);
+                response = clientSocket.read<AdminLoginResponse>(timeout: 5000);
             }
             catch (Exception)
             {

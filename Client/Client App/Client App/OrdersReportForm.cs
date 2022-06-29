@@ -37,7 +37,7 @@ namespace Client_App
             OrdersReportResponse ordersResponse = null;
             try
             {
-                ordersResponse = clientSocket.read<OrdersReportResponse>(timeout: 100);
+                ordersResponse = clientSocket.read<OrdersReportResponse>(timeout: 5000);
             }
             catch (Exception)
             {

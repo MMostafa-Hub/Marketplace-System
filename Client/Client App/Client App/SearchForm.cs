@@ -44,7 +44,7 @@ namespace Client_App
 			CategoryResponse cateResponse=null;
 			try
 			{
-				 cateResponse = clientSocket.read<CategoryResponse>(timeout: 100);
+				 cateResponse = clientSocket.read<CategoryResponse>(timeout: 5000);
 			}
 			catch (Exception)
 			{
@@ -116,7 +116,7 @@ namespace Client_App
 
 			try
 			{
-				SearchResponse srchresponse = clientSocket.read<SearchResponse>(timeout: 100);
+				SearchResponse srchresponse = clientSocket.read<SearchResponse>(timeout: 5000);
 			}
 			catch (Exception)
 			{

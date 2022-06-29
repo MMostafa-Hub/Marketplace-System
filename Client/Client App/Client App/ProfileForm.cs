@@ -39,7 +39,7 @@ namespace Client_App
             ProfileResponse profileResponse = null;
             try
             {
-                profileResponse = clientSocket.read<ProfileResponse>(timeout: 100);
+                profileResponse = clientSocket.read<ProfileResponse>(timeout: 5000);
             }
             catch (Exception)
             {

@@ -37,7 +37,7 @@ namespace Client_App
             ProductsReportResponse productsResponse = null;
             try
             {
-                productsResponse = clientSocket.read<ProductsReportResponse>(timeout: 100);
+                productsResponse = clientSocket.read<ProductsReportResponse>(timeout: 5000);
             }
             catch (Exception)
             {

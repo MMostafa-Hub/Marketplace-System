@@ -28,7 +28,7 @@ namespace Client_App
             DashboardResponse dbResponse = null;
             try
             {
-                dbResponse = clientSocket.read<DashboardResponse>(timeout: 100);
+                dbResponse = clientSocket.read<DashboardResponse>(timeout: 5000);
             }
             catch (Exception)
             {

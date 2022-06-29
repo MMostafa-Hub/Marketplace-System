@@ -102,7 +102,7 @@ namespace Client_App
             CreateAccountResponse response = null;
             try
             {
-                response = clientSocket.read<CreateAccountResponse>(timeout: 100);
+                response = clientSocket.read<CreateAccountResponse>(timeout: 5000);
             }
             catch (Exception)
             {
