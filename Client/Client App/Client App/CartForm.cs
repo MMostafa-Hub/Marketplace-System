@@ -71,7 +71,12 @@ namespace Client_App
         // this to handle checkout functionality
         private void button4_Click(object sender, EventArgs e)
         {
-            if (Globals.user.balance < Total)
+            if (user.cart.products.Count == 0)
+            {
+                MessageBox.Show("Cart is empty", "Checkout error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (Globals.user.balance < Total)
             {
                 MessageBox.Show("You don't have enough money");
             }
@@ -129,7 +134,11 @@ namespace Client_App
         private void button3_Click(object sender, EventArgs e)
         {
             // loop to take all quantity values to all products in datagrid
-
+            if (user.cart.products.Count == 0)
+            {
+                MessageBox.Show("Cart is empty", "Update cart error", MessageBoxButtons.OK);
+                return;
+            }
             Dictionary<int, int> ourMap = null;
 
 

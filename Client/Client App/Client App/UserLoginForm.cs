@@ -23,45 +23,25 @@ namespace Client_App
         {
             string username = "";
             string password = "";
+            
 
             if (string.IsNullOrEmpty(textBox1.Text))
             {
-                this.label3.Text = "*Enter an username.";
-                this.label3.Show();
+                MessageBox.Show("Enter an username");
             }
             else
             {
                 username = textBox1.Text;
-                this.label3.Hide();
             }
-            if (username.Length > 25)
-            {
-                this.label3.Text = "*Username must be less than 25 character.";
-                this.label3.Show();
-            }
-            else
-            {
-                this.label3.Hide();
-            }
+           
 
             if (string.IsNullOrEmpty(textBox2.Text))
             {
-                this.label4.Text = "*Enter an password.";
-                this.label4.Show();
+                MessageBox.Show("Enter a password");
             }
             else
             {
                 password = textBox2.Text;
-                this.label4.Hide();
-            }
-            if (password.Length > 25)
-            {
-                this.label4.Text = "*Password must be less than 25 character.";
-                this.label4.Show();
-            }
-            else
-            {
-                this.label4.Hide();
             }
 
             UserLoginRequest request = new UserLoginRequest(username, password);
@@ -98,8 +78,6 @@ namespace Client_App
             }
             else if (response.getStatus() == 1)
             {
-                this.label3.Hide();
-                this.label4.Hide();
                 this.label5.Hide();
                 HomeForm f = new Client_App.HomeForm();
                 Globals.user = response.getUser();
@@ -109,21 +87,17 @@ namespace Client_App
             }
             else if (response.getStatus() == 420)
             {
-                this.label3.Hide();
-                this.label4.Hide();
-                label5.Hide();
+                this.label5.Hide();
                 MessageBox.Show("This account is already logged in");
             }
         }
 
         private void UserLoginForm_Load(object sender, EventArgs e)
         {
-            this.label3.Hide();
-            this.label4.Hide();
             this.label5.Hide();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             FirstForm f = new Client_App.FirstForm();
             this.Close();
