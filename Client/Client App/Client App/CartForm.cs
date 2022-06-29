@@ -52,8 +52,7 @@ namespace Client_App
             {
                 if(Globals.user.cart.products.Count == 0)
                 {
-                    cartView.Rows.RemoveAt(0);
-                    cartView.Refresh();
+                    return;
                 }
                 else
                 {
