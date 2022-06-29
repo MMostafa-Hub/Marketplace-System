@@ -147,12 +147,14 @@
 			// 
 			// categorycombobox
 			// 
+			this.categorycombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.categorycombobox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.categorycombobox.FormattingEnabled = true;
 			this.categorycombobox.Location = new System.Drawing.Point(114, 153);
 			this.categorycombobox.Name = "categorycombobox";
 			this.categorycombobox.Size = new System.Drawing.Size(151, 31);
 			this.categorycombobox.TabIndex = 8;
+			this.categorycombobox.SelectedIndexChanged += new System.EventHandler(this.categorycombobox_SelectedIndexChanged);
 			// 
 			// sortcombobox
 			// 

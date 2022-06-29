@@ -116,7 +116,7 @@ namespace Client_App
 
 			try
 			{
-				SearchResponse srchresponse = clientSocket.read<SearchResponse>(timeout: 5000);
+				SearchResponse srchresponse = clientSocket.read<SearchResponse>(timeout: 10000);
 			}
 			catch (Exception)
 			{
@@ -169,6 +169,11 @@ namespace Client_App
 			{
 				
 			} 
+		}
+
+		private void categorycombobox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
