@@ -105,7 +105,7 @@ namespace Client_App
 			string sortText = sortcombobox.SelectedItem.ToString();
 			SearchRequest srequest = new SearchRequest(searchText, categoryText, sortText);
 
-			if (searchText == null && categorycombobox==null)
+			if (String.IsNullOrEmpty(searchTxtBox.Text) && String.IsNullOrEmpty(categorycombobox.Text))	 //check
 			{
 				MessageBox.Show("Enter a product name and/or a category", "Negative value ", MessageBoxButtons.OK);
 			}
@@ -125,7 +125,7 @@ namespace Client_App
 
 			try
 			{
-				SearchResponse srchresponse = clientSocket.read<SearchResponse>(timeout: 10000);
+				srchresponse = clientSocket.read<SearchResponse>(timeout: 50000);
 			}
 			catch (Exception)
 			{
@@ -135,6 +135,7 @@ namespace Client_App
 			}
 
 			productList.Clear();
+			dataGridView1.Rows.Clear();
 			foreach (Product product in srchresponse.productList)
 			{
 				productList.Add(product);

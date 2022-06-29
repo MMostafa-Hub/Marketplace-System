@@ -45,7 +45,7 @@ namespace Client_App
             }
         }
 
-        private void ConnectionForm_Shown(object sender, EventArgs e)
+        private void ConnectionForm_VisibleChanged(object sender, EventArgs e)
         {
             //If the form is shown due to a connection error in another form
             if (returnForm != null)

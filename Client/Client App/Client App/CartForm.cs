@@ -71,6 +71,7 @@ namespace Client_App
                     DateTime dateOnly = DateTime.Now;
                     checkOutRequest check = new checkOutRequest(Total, dateOnly);
                     clientSocket.write(check);
+
                 }
                 catch (Exception)
                 {
@@ -90,6 +91,9 @@ namespace Client_App
                     else
                     {
                         MessageBox.Show("The process is successfully done");
+                        Globals.user.balance -= Total;
+                        Globals.user.cart.products.Clear();
+                        cartView.Rows.Clear();
                     }
                 }
                 catch (Exception)
