@@ -75,10 +75,21 @@ namespace Client_App
 
             {
                 key = Convert.ToInt32(Quant);
-                if (key <= 0 || key > product.stockQuantity)
+                if (key <= 0 || key > product.stockQuantity+Globals.user.cart.products[product.id].Item2 )
                 {
-                    MessageBox.Show("Please Enter a Quantity number between (1 and " + product.stockQuantity + ")");
-                    return;
+                    if (Globals.user.cart.products.ContainsKey(product.id))
+                    {
+                        MessageBox.Show("Please Enter a Quantity number between (1 and " + product.stockQuantity + ")");
+                        return;
+                    }
+                    else
+                    {//edited
+                        MessageBox.Show("You have entered a Quantity number of ("+ key+" and the Quantity in the cart is "+
+                            Globals.user.cart.products[product.id].Item2 + ",and you wii exceed the max limit of Quantity , " +
+                            "so please Enter a value between 1 and "+(product.stockQuantity - Globals.user.cart.products[product.id].Item2) + ")");
+                        return;
+                    }
+
                 }
                 else
                 {
