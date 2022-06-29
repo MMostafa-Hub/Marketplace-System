@@ -12,9 +12,12 @@ namespace Client_App
     {
         protected override void OnFormClosing(System.Windows.Forms.FormClosingEventArgs e)
         {
-            Request logoutRequest = new Request("logout");
-            clientSocket.write(logoutRequest);
-            Application.Exit();
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Request logoutRequest = new Request("logout");
+                clientSocket.write(logoutRequest);
+                Application.Exit();
+            }
         }
     }
 }
