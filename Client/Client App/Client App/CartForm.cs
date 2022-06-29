@@ -50,13 +50,21 @@ namespace Client_App
         {
             if (cartView.Columns[e.ColumnIndex].HeaderText == "Remove")
             {
+                if(Globals.user.cart.products.Count == 0)
+                {
+                    cartView.Rows.RemoveAt(0);
+                    cartView.Refresh();
+                }
+                else
+                {
+                    int productId = Convert.ToInt32(cartView.Rows[e.RowIndex].Cells["ID_col"].Value);
+                    removeFromCartRequest removeRequest = new removeFromCartRequest(productId); // product id
+                    clientSocket.write(removeRequest);
+                    Globals.user.cart.products.Remove(productId);
+                    cartView.Rows.RemoveAt(cartView.CurrentCell.RowIndex);
+                    cartView.Refresh();
+                }
                 
-                int productId = Convert.ToInt32(cartView.Rows[e.RowIndex].Cells["ID_col"].Value);
-                removeFromCartRequest removeRequest = new removeFromCartRequest(productId); // product id
-                clientSocket.write(removeRequest);
-                Globals.user.cart.products.Remove(productId);
-                cartView.Rows.RemoveAt(cartView.CurrentCell.RowIndex);
-                cartView.Refresh();
             }
         }
 
