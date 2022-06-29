@@ -136,6 +136,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FirstForm";
             this.Text = "FirstForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
