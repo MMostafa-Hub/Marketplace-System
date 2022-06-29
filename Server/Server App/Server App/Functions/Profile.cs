@@ -57,7 +57,7 @@ namespace Server_App.Functions
                     age = (int)dataReader.GetValue(0);
                     gender = dataReader.GetString(1);
                     lastOrderNumber = (int)dataReader.GetValue(2);
-                    dateCreated = dataReader.GetString(3);
+                    dateCreated = dataReader.GetDateTime(3).ToString();
                     firstIteration = false;
                 }
 
@@ -80,9 +80,10 @@ namespace Server_App.Functions
 
             ProfileResponse response = new ProfileResponse(age, gender, orderHistory);
 
-            return response;
+            
             dataReader.Close();
             command.Dispose();
+            return response;
         }
 
     }

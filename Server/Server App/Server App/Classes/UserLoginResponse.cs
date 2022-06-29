@@ -8,8 +8,8 @@ namespace Server_App.Classes
 {
     internal class UserLoginResponse : AbstractResponse
     {
-        int status;
-        User? user = null;
+        public int status;
+        public User? user = null;
         
         public UserLoginResponse(int status, User user)
         {

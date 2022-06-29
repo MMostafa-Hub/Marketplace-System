@@ -8,8 +8,8 @@ namespace Server_App.Classes
 {
     internal class CategoryResponse : AbstractResponse
     {
-        List<string> categoryList;
-        List<Product> productList;
+        public List<string> categoryList;
+        public List<Product> productList;
         public CategoryResponse(List<string> categoryList, List<Product> productList)
         {
             this.categoryList = categoryList;

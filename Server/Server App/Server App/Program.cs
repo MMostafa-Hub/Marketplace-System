@@ -88,6 +88,8 @@ public class Server
 
             /* Closing the Connection */
             serverSocket.close();
+            Logout.LogoutHandler();
+            
 
             // Killing the thread with cold blood
             Thread.CurrentThread.Interrupt();

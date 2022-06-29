@@ -8,8 +8,8 @@ namespace Server_App.Classes
 {
     internal class UserLoginRequest :Request
     {
-        String username;
-        String password;
+        public String username;
+        public String password;
 
         public UserLoginRequest(string username, string password)
         {

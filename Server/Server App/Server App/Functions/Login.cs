@@ -46,7 +46,6 @@ namespace Server_App.Functions
 
                 dataReader.Close();
 
-
                 command.Dispose();
                 return new AdminLoginResponse(1);
             }

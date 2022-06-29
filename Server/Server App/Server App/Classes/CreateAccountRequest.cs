@@ -8,10 +8,10 @@ namespace Server_App.Classes
 {
     internal class CreateAccountRequest : Request
     {
-        String username;
-        String password;
-        String gender;
-        int age;
+        public String username;
+        public String password;
+        public String gender;
+        public int age;
 
         public CreateAccountRequest(string username, string password, string gender, int age)
         {

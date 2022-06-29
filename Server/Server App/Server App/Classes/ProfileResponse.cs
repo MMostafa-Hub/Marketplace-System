@@ -8,9 +8,9 @@ namespace Server_App.Classes
 {
     internal class ProfileResponse : AbstractResponse
     {
-        int age;
-        string gender;
-        List<Order> ordersHistory;
+        public int age;
+        public string gender;
+        public List<Order> ordersHistory;
         public ProfileResponse(int age, string gender, List<Order> ordersHistory)
         {
             this.age = age;

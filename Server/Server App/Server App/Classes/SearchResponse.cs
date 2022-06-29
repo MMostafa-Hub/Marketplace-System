@@ -9,7 +9,7 @@ namespace Server_App.Classes
     internal class SearchResponse : AbstractResponse
     {
         
-        List<Product> productList;
+        public List<Product> productList;
         public SearchResponse(List<Product> productList)
         {
             
