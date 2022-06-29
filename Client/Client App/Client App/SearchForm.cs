@@ -39,6 +39,7 @@ namespace Client_App
 				returnForm = this;
 				connectionForm.Show();
 				this.Hide();
+				return;
 
 			}
 
@@ -52,6 +53,7 @@ namespace Client_App
 				returnForm = this;
 				connectionForm.Show();
 				this.Hide();
+				return;
 			}
 
 			foreach (string category in cateResponse.categoryList)
@@ -119,6 +121,7 @@ namespace Client_App
 				returnForm = this;
 				connectionForm.Show();
 				this.Hide();
+				return;
 
 			}
 
@@ -132,6 +135,7 @@ namespace Client_App
 				returnForm = this;
 				connectionForm.Show();
 				this.Hide();
+				return;
 			}
 
 			productList.Clear();
