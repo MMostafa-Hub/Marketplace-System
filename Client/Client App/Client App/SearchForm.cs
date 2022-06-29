@@ -6,6 +6,7 @@ namespace Client_App
 	public partial class SearchForm : Form
 	{
 		SearchResponse srchresponse = null;
+		List<Product> productList = new List<Product>();
 		private Form backForm;
 		public SearchForm(Form backForm)
 		{
@@ -57,10 +58,11 @@ namespace Client_App
 			{
 				categorycombobox.Items.Add(category);
 			}
-			
 
+			productList.Clear();
 			foreach (Product product in cateResponse.productList)
 			{
+				productList.Add(product);
 				string s;
 				if (product.stockQuantity >= 1)
 				{
@@ -123,11 +125,12 @@ namespace Client_App
 				returnForm = this;
 				connectionForm.Show();
 				this.Hide();
-			}	   
+			}
 
-
+			productList.Clear();
 			foreach (Product product in srchresponse.productList)
 			{
+				productList.Add(product);
 				string s;
 				if (product.stockQuantity >= 1)
 				{
@@ -159,7 +162,7 @@ namespace Client_App
 				{
 					dataGridView1.CurrentRow.Selected = true;
 					int rowIndex = e.RowIndex; 
-					Product selected = srchresponse.productList[rowIndex];
+					Product selected = productList[rowIndex];
 					ProductForm productForm = new ProductForm(selected,this);
 					this.Hide();
 					productForm.Show();
