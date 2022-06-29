@@ -20,16 +20,9 @@ namespace Client_App
             {
                 connectButton.Enabled = false;
                 clientSocket = new ClientSocket(serverIP, Int32.Parse(serverPort));
-                if (returnForm == null)
-                {
-                    FirstForm firstForm = new FirstForm();
-                    logoutForm = firstForm;
-                    firstForm.Show();
-                }
-                else
-                {
-                    returnForm.Show();
-                }
+                FirstForm firstForm = new FirstForm();
+                logoutForm = firstForm;
+                firstForm.Show();
                 this.Hide();
             }
             catch (FormatException)
