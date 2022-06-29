@@ -94,10 +94,13 @@ namespace Client_App
             if (response.getStatus() == 0)
             {
                 label5.Text = "*Username or password is wrong.";
+                this.label5.Show();
             }
             else if (response.getStatus() == 1)
             {
-                label5.Hide();
+                this.label3.Hide();
+                this.label4.Hide();
+                this.label5.Hide();
                 HomeForm f = new Client_App.HomeForm();
                 Globals.user = response.getUser();
                 this.Hide();
@@ -106,6 +109,8 @@ namespace Client_App
             }
             else if (response.getStatus() == 420)
             {
+                this.label3.Hide();
+                this.label4.Hide();
                 label5.Hide();
                 MessageBox.Show("This account is already logged in");
             }
@@ -116,6 +121,13 @@ namespace Client_App
             this.label3.Hide();
             this.label4.Hide();
             this.label5.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FirstForm f = new Client_App.FirstForm();
+            this.Close();
+            f.ShowDialog();
         }
     }
 

@@ -52,9 +52,19 @@ namespace Client_App
         private void logoutButton_Click(object sender, EventArgs e)
         {
             Request logoutRequest = new Request("logout");
-            clientSocket.write(logoutRequest);
-            logoutForm.Show();
-            this.Close();
+            try
+            {
+                clientSocket.write(logoutRequest);
+            }
+            catch (Exception)
+            {
+                
+            }
+            finally
+            {
+                logoutForm.Show();
+                this.Hide();
+            }
         }
     }
 }

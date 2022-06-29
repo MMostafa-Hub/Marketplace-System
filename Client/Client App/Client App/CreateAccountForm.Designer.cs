@@ -103,7 +103,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 15);
             this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.label5.Text = "*Enter an username.";
             // 
             // label6
             // 
