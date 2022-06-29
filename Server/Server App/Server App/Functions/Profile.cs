@@ -31,11 +31,11 @@ namespace Server_App.Functions
                 command = new SqlCommand(sql, connection);
 
                 SqlDataReader dataReaderEmpty = command.ExecuteReader();
-
+                dataReaderEmpty.Read();
                 int ageEmpty = (int)dataReaderEmpty.GetValue(0);
-                String genderEmpty = dataReader.GetString(1);
+                String genderEmpty = dataReaderEmpty.GetString(1);
 
-                dataReader.Close();
+                dataReaderEmpty.Close();
                 command.Dispose();
 
 
