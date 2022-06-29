@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Client_App.Classes;
+﻿using Client_App.Classes;
 using static Client_App.Globals;
 
 namespace Client_App
@@ -25,54 +16,66 @@ namespace Client_App
 
         private void ProfileForm_VisibleChanged(object sender, EventArgs e)
         {
-            labelUserBalance.Text = user.balance.ToString();
-            try
+            if (this.Visible == true)
             {
-                clientSocket.write(new ProfileRequest());
-            }
-            catch (Exception)
-            {
-                returnForm = this;
-                connectionForm.Show();
-                this.Hide();
-                return;
-            }
+                labelUserBalance.Text = user.balance.ToString();
 
-            ProfileResponse profileResponse = null;
-            try
-            {
-                profileResponse = clientSocket.read<ProfileResponse>(timeout: 5000);
-            }
-            catch (Exception)
-            {
-                returnForm = this;
-                connectionForm.Show();
-                this.Hide();
-                return;
-            }
-            if (profileResponse != null)
-            {
-                labelGenderAge.Text = profileResponse.gender.ToString() + " - " + profileResponse.age.ToString();
-                if (profileResponse.ordersHistory.Count == 0)
+                try
+
                 {
-                    dataGridViewOH.Visible = false;
-                    labelMsg.Visible = true;
+
+                    clientSocket.write(new ProfileRequest());
+
                 }
-                else
+
+                catch (Exception)
+
                 {
-                    labelMsg.Visible = false;
-                    dataGridViewOH.Visible = true;
-                    int index = 1;
-                    foreach (Order order in profileResponse.ordersHistory)
+
+                    returnForm = this;
+
+                    connectionForm.Show();
+
+                    this.Hide();
+                    return;
+                }
+
+                ProfileResponse profileResponse = null;
+                try
+                {
+                    profileResponse = clientSocket.read<ProfileResponse>(timeout: 5000);
+                }
+                catch (Exception)
+                {
+                    returnForm = this;
+                    connectionForm.Show();
+                    this.Hide();
+                    return;
+                }
+                if (profileResponse != null)
+                {
+                    labelGenderAge.Text = profileResponse.gender.ToString() + " - " + profileResponse.age.ToString();
+                    if (profileResponse.ordersHistory.Count == 0)
                     {
-                        string[] row = { index.ToString(), order.dateCreated, "", "" };
-                        dataGridViewOH.Rows.Add(row);
-                        foreach (Tuple<string, int> tuple in order.productsInOrder)
+                        dataGridViewOH.Visible = false;
+                        labelMsg.Visible = true;
+                    }
+                    else
+                    {
+                        labelMsg.Visible = false;
+                        dataGridViewOH.Visible = true;
+                        int index = 1;
+                        foreach (Order order in profileResponse.ordersHistory)
                         {
-                            string[] innerRow = { "", "", tuple.Item1, tuple.Item2.ToString() };
-                            dataGridViewOH.Rows.Add(innerRow);
+                            string[] row = { index.ToString(), order.dateCreated, "", "" };
+                            dataGridViewOH.Rows.Add(row);
+                            foreach (Tuple<string, int> tuple in order.productsInOrder)
+                            {
+                                string[] innerRow = { "", "", tuple.Item1, tuple.Item2.ToString() };
+                                dataGridViewOH.Rows.Add(innerRow);
+                            }
+                            index++;
                         }
-                        index++;
                     }
                 }
             }
