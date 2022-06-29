@@ -150,7 +150,7 @@ namespace Server_App.Functions
             String sql;
 
             //best sellers
-            sql = "SELECT TOP 5 * FROM product ORDER BY soldQuantity";
+            sql = "SELECT TOP 5 * FROM product ORDER BY soldQuantity DESC";
             command = new SqlCommand(sql, sqlConnection);
             dataReader = command.ExecuteReader();
             bestSellers = addProductsToList(dataReader);
