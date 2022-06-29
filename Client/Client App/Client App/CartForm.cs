@@ -145,15 +145,23 @@ namespace Client_App
             {
                 if (isNumeric(cartView.Rows[i].Cells[2].Value.ToString()))
                 {
-                    if (Convert.ToInt32(cartView.Rows[i].Cells[2].Value.ToString()) == 0)
+                    try
                     {
-                        MessageBox.Show("New value must be greater than 0");
-                        return;
+                        if (Convert.ToInt32(cartView.Rows[i].Cells[2].Value.ToString()) == 0)
+                        {
+                            MessageBox.Show("New value must be greater than 0");
+                            return;
+                        }
+                        else
+                        {
+                            ourMap.Add(Convert.ToInt32(cartView.Rows[i].Cells[0].Value), Convert.ToInt32(cartView.Rows[i].Cells[2].Value));
+                            cartView.Rows[i].Cells[4].Value = Convert.ToInt32(cartView.Rows[i].Cells[3].Value.ToString()) * Convert.ToInt32(cartView.Rows[i].Cells[2].Value.ToString());
+                        }
                     }
-                    else
+                    catch(Exception)
                     {
-                        ourMap.Add(Convert.ToInt32(cartView.Rows[i].Cells[0].Value), Convert.ToInt32(cartView.Rows[i].Cells[2].Value));
-                        cartView.Rows[i].Cells[4].Value = Convert.ToInt32(cartView.Rows[i].Cells[3].Value.ToString()) * Convert.ToInt32(cartView.Rows[i].Cells[2].Value.ToString());
+                        MessageBox.Show("Please enter a valid quantity", "Invalid Quantity");
+                        return;
                     }
                 }
                 else

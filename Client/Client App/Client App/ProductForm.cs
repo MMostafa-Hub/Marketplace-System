@@ -74,7 +74,14 @@ namespace Client_App
             else if (a == 0)
 
             {
-                key = Convert.ToInt32(Quant);
+                if(int.TryParse(Quant,out int n))
+                {
+                    key = Convert.ToInt32(Quant);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a positive integer");
+                }
 
                 if (product.stockQuantity == 0)
                 {
