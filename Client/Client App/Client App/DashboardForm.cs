@@ -39,9 +39,9 @@ namespace Client_App
             if (dbResponse != null)
             {
                 labelNCust.Text = dbResponse.customersCount.ToString();
-                labelActiveUsers.Text = dbResponse.activeUsers.ToString();
+                labelNUser.Text = dbResponse.activeUsers.ToString();
                 labelNOrd.Text = dbResponse.ordersCount.ToString();
-                labelDailyPro.Text = dbResponse.dailyProfit.ToString() + " EGP";
+                labelProfit.Text = dbResponse.dailyProfit.ToString() + " EGP";
             }
         }
     }
