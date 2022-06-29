@@ -109,6 +109,7 @@
             this.price_col,
             this.totalPrice_col,
             this.dataGridViewButtonColumn1});
+            this.cartView.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cartView.Location = new System.Drawing.Point(59, 76);
             this.cartView.Name = "cartView";
             this.cartView.RowTemplate.Height = 25;
@@ -222,6 +223,9 @@
             this.dataGridViewButtonColumn1.HeaderText = "Remove";
             this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
             this.dataGridViewButtonColumn1.ReadOnly = true;
+            this.dataGridViewButtonColumn1.Text = "Remove";
+            this.dataGridViewButtonColumn1.ToolTipText = "Remove";
+            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             // 
             // CartForm
             // 

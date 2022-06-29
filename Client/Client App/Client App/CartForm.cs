@@ -50,7 +50,7 @@ namespace Client_App
         {
             if (cartView.Columns[e.ColumnIndex].Name == "Remove")
             {
-                cartView.Rows.RemoveAt(cartView.SelectedCells[0].RowIndex);
+                cartView.Rows.RemoveAt(cartView.CurrentCell.RowIndex);
             }
         }
 
