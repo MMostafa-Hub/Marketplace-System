@@ -86,7 +86,7 @@ namespace Client_App
 
 		private void backButton_Click(object sender, EventArgs e) 
 		{ 
-			this.Close();
+			this.Hide();
 			backForm.Show();
 		}	
 	}

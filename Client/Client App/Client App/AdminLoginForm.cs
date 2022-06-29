@@ -26,7 +26,8 @@ namespace Client_App
 
             if (string.IsNullOrEmpty(textBox1.Text))
             {
-                MessageBox.Show("Enter an username");
+                MessageBox.Show("Enter a username");
+                return;
             }
             else
             {
@@ -37,6 +38,7 @@ namespace Client_App
             if (string.IsNullOrEmpty(textBox2.Text))
             {
                 MessageBox.Show("Enter a password");
+                return;
             }
             else
             {
@@ -92,7 +94,7 @@ namespace Client_App
         private void button2_Click(object sender, EventArgs e)
         {
             FirstForm f = new Client_App.FirstForm();
-            this.Close();
+            this.Hide();
             f.ShowDialog();
         }
     }
