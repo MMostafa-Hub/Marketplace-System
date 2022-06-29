@@ -34,13 +34,15 @@ namespace Server_App.Classes
         }
         public dynamic read()
         {   
-            /* Setting the timeout to be 1 minute */
-            this.stream.ReadTimeout = 60000;
+            /* Setting the timeout to be 3 minute */
+            this.stream.ReadTimeout = 180000;
             string recieved_json;
             dynamic recieved_obj = new object();
             try
             {
                 recieved_json = this.reader.ReadLine();
+                Console.WriteLine("Request is :");
+                Console.WriteLine(recieved_json);
                 var request = JsonConvert.DeserializeObject<Request>(recieved_json);
                 switch (request.type)
                 {
@@ -107,6 +109,8 @@ namespace Server_App.Classes
             try
             {
                 this.writer.WriteLine(JsonConvert.SerializeObject(obj));
+                Console.WriteLine("Response:");
+                Console.WriteLine(JsonConvert.SerializeObject(obj));
                 this.writer.Flush();
             }
             catch (Exception ex)
