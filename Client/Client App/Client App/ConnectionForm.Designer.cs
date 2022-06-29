@@ -83,6 +83,7 @@
             this.Name = "ConnectionForm";
             this.Text = "Connection Page";
             this.Shown += new System.EventHandler(this.ConnectionForm_Shown);
+            this.VisibleChanged += new System.EventHandler(this.ConnectionForm_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
