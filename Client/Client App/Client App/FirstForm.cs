@@ -29,42 +29,44 @@ namespace Client_App
         private void button2_Click(object sender, EventArgs e)
         {
             UserLoginForm f = new Client_App.UserLoginForm();
-            f.ShowDialog();
             this.Hide();
+            f.ShowDialog();
         }
 
         // Create Account Button
         private void button3_Click(object sender, EventArgs e)
         {
             CreateAccountForm f = new Client_App.CreateAccountForm();
-            f.ShowDialog();
             this.Hide();
-        }
-        /*
-        // Admin Login Pic
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            AdminLoginForm f = new Client_App.AdminLoginForm();
             f.ShowDialog();
-            this.Hide();
         }
 
-        // User Login Pic
+        // Admin Login Pic
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            UserLoginForm f = new Client_App.UserLoginForm();
-            f.ShowDialog();
+            AdminLoginForm f = new Client_App.AdminLoginForm();
             this.Hide();
+            f.ShowDialog();
         }
 
-        // Create Account Pic
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            CreateAccountForm f = new Client_App.CreateAccountForm();
-            f.ShowDialog();
-            this.Hide();
-        }
-        */
-        
+        /*
+
+// User Login Pic
+private void pictureBox2_Click(object sender, EventArgs e)
+{
+   UserLoginForm f = new Client_App.UserLoginForm();
+   f.ShowDialog();
+   this.Hide();
+}
+
+// Create Account Pic
+private void pictureBox3_Click(object sender, EventArgs e)
+{
+   CreateAccountForm f = new Client_App.CreateAccountForm();
+   f.ShowDialog();
+   this.Hide();
+}
+*/
+
     }
 }
