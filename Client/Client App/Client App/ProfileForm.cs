@@ -21,11 +21,11 @@ namespace Client_App
             InitializeComponent();
             this.backForm = backForm;
             labelUserName.Text = user.username;
-            labelUserBalance.Text = user.balance.ToString();
         }
 
         private void ProfileForm_VisibleChanged(object sender, EventArgs e)
         {
+            labelUserBalance.Text = user.balance.ToString();
             try
             {
                 clientSocket.write(new ProfileRequest());
@@ -100,10 +100,20 @@ namespace Client_App
             if (result == DialogResult.OK)
             {
                 Request logoutRequest = new Request("logout");
-                clientSocket.write(logoutRequest);
-                this.Hide();
-                logoutForm.Show();
-                MessageBox.Show("You have logged out successfully", "Logout");
+                try
+                {
+                    clientSocket.write(logoutRequest);
+                }
+                catch (Exception)
+                {
+
+                }
+                finally
+                {
+                    this.Hide();
+                    logoutForm.Show();
+                    MessageBox.Show("You have logged out successfully", "Logout");
+                }
             }
         }
     }
