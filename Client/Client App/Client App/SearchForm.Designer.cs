@@ -158,6 +158,7 @@
 			// 
 			// sortcombobox
 			// 
+			this.sortcombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.sortcombobox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.sortcombobox.FormattingEnabled = true;
 			this.sortcombobox.Items.AddRange(new object[] {
