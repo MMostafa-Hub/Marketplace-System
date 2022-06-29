@@ -105,7 +105,7 @@ namespace Client_App
                     clientSocket.write(updateToCartReq);
 
                     MessageBox.Show("Your product is successfully added");
-                   
+                    return;
 
                 }
                 catch (Exception)
