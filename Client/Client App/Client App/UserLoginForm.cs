@@ -97,9 +97,10 @@ namespace Client_App
             {
                 label5.Hide();
                 HomeForm f = new Client_App.HomeForm();
-                f.ShowDialog();
                 Globals.user = response.getUser();
                 this.Hide();
+                f.ShowDialog();
+                
             }
             else if (response.getStatus() == 420)
             {

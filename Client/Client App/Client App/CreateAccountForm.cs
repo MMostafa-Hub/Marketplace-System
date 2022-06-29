@@ -114,9 +114,10 @@ namespace Client_App
             if(response.getSuccess())
             {
                 label5.Hide();
-                HomeForm f = new Client_App.HomeForm();
-                f.ShowDialog();
+                UserLoginForm f = new Client_App.UserLoginForm();
                 this.Hide();
+                f.ShowDialog();
+                
             }
             else
             {
