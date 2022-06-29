@@ -256,7 +256,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(258, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 20);
+            this.label1.Size = new System.Drawing.Size(201, 15);
             this.label1.TabIndex = 4;
             this.label1.Text = "Double click here to change quantity";
             // 

@@ -75,9 +75,9 @@
             this.labelDailyPro.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelDailyPro.Location = new System.Drawing.Point(46, 43);
             this.labelDailyPro.Name = "labelDailyPro";
-            this.labelDailyPro.Size = new System.Drawing.Size(144, 32);
+            this.labelDailyPro.Size = new System.Drawing.Size(171, 32);
             this.labelDailyPro.TabIndex = 7;
-            this.labelDailyPro.Text = "Daily Profit";
+            this.labelDailyPro.Text = "Today\'s Profit";
             this.labelDailyPro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelCustomers
