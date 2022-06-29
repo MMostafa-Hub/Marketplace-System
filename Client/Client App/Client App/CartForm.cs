@@ -138,18 +138,26 @@ namespace Client_App
                 MessageBox.Show("Cart is empty", "Update cart error", MessageBoxButtons.OK);
                 return;
             }
-            Dictionary<int, int> ourMap = null;
+            Dictionary<int, int> ourMap = new Dictionary<int, int>();
 
 
-            foreach (DataGridViewRow row in cartView.Rows)
+            for (int i = 0; i < cartView.RowCount - 1; i++)
             {
-                if (isNumeric(row.Cells[2].Value.ToString()))
+                if (isNumeric(cartView.Rows[i].Cells[2].Value.ToString()))
                 {
-                    ourMap.Add((int)row.Cells[0].Value, (int)row.Cells[2].Value);
+                    ourMap.Add(Convert.ToInt32(cartView.Rows[i].Cells[0].Value), Convert.ToInt32(cartView.Rows[i].Cells[2].Value));
+
                     try
                     {
                         updateCartRequest newRequest = new updateCartRequest(ourMap);
                         clientSocket.write(newRequest);
+                        for(int j = 0; j < ourMap.Count; j++)
+                        {
+                            if (ourMap.ElementAt(j).Key == Globals.user.cart.products.ElementAt(j).Key)
+                            {
+                                Globals.user.cart.products[ourMap.ElementAt(j).Key] = new Tuple<Product, int>(Globals.user.cart.products.ElementAt(j).Value.Item1, ourMap.ElementAt(j).Value);
+                            }
+                        }
                     }
                     catch
                     {
