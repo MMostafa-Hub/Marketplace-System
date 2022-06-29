@@ -51,19 +51,27 @@ namespace Client_App
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            Request logoutRequest = new Request("logout");
-            try
+            string message = "Are you sure you want to Logout?";
+            string title = "Confirm Logout";
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
             {
-                clientSocket.write(logoutRequest);
-            }
-            catch (Exception)
-            {
-                
-            }
-            finally
-            {
-                logoutForm.Show();
-                this.Hide();
+                Request logoutRequest = new Request("logout");
+                try
+                {
+                    clientSocket.write(logoutRequest);
+                }
+                catch (Exception)
+                {
+
+                }
+                finally
+                {
+                    this.Hide();
+                    logoutForm.Show();
+                    MessageBox.Show("You have logged out successfully", "Logout");
+                }
             }
         }
     }
