@@ -11,7 +11,7 @@ using static Client_App.Globals;
 
 namespace Client_App
 {
-    public partial class AdminReportForm : Form
+    public partial class AdminReportForm : GenericForm2
     {
         public AdminReportForm(string adminName)
         {

@@ -12,7 +12,7 @@ using static Client_App.Globals;
 
 namespace Client_App
 {
-    public partial class ProductForm : Form
+    public partial class ProductForm : GenericForm
     {
         int key, a = 0;
         Product product;

@@ -15,7 +15,7 @@ using static Client_App.Globals;
 
 namespace Client_App
 {
-    public partial class DepositForm : Form
+    public partial class DepositForm : GenericForm
     {
 		private Form backForm;
         public DepositForm(Form backForm)

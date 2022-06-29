@@ -14,7 +14,7 @@ using  Client_App.Classes;
 namespace Client_App
 {
 
-    public partial class CartForm : Form
+    public partial class CartForm : GenericForm
     {
       
         Form rtForm;

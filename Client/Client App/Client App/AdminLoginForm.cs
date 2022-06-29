@@ -12,7 +12,7 @@ using Client_App.Classes;
 
 namespace Client_App
 {
-    public partial class AdminLoginForm : Form
+    public partial class AdminLoginForm : GenericForm2
     {
         public AdminLoginForm()
         {

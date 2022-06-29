@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Client_App
 {
-    public partial class CreateAccountForm : Form
+    public partial class CreateAccountForm : GenericForm2
     {
         public CreateAccountForm()
         {

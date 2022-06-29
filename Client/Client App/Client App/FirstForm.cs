@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Client_App
 {
-    public partial class FirstForm : Form
+    public partial class FirstForm : GenericForm2
     {
         public FirstForm()
         {

@@ -12,7 +12,7 @@ using static Client_App.Globals;
 
 namespace Client_App
 {
-    public partial class ProductsReportForm : Form
+    public partial class ProductsReportForm : GenericForm2
     {
         Form adminPage;
         public ProductsReportForm(Form adminPage)

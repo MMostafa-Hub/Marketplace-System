@@ -12,7 +12,7 @@ using static Client_App.Globals;
 
 namespace Client_App
 {
-    public partial class UserLoginForm : Form
+    public partial class UserLoginForm : GenericForm2
     {
         public UserLoginForm()
         {

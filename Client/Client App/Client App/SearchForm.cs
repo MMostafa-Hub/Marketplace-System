@@ -3,7 +3,7 @@ using static Client_App.Globals;
 
 namespace Client_App
 {
-	public partial class SearchForm : Form
+	public partial class SearchForm : GenericForm
 	{
 		SearchResponse srchresponse = null;
 		List<Product> productList = new List<Product>();

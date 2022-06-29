@@ -2,7 +2,7 @@ using Client_App.Classes;
 using static Client_App.Globals;
 namespace Client_App
 {
-    public partial class DashboardForm : Form
+    public partial class DashboardForm : GenericForm2
     {
         Form adminPage;
 
