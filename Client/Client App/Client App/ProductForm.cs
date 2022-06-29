@@ -47,15 +47,18 @@ namespace Client_App
             returnForm.Show();
                 }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ProductForm_Load(object sender, EventArgs e)
         {
-            string Quant = textBox1.Text;
             LB3.Text = product.id.ToString();
             LB5.Text = product.name;
             LB7.Text = product.category;
             LB10.Text = product.stockQuantity.ToString();
+        }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string Quant = textBox1.Text;
+         
             if (Quant == "")
             {
                 MessageBox.Show("Please Enter a Quantity");

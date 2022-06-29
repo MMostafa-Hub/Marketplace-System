@@ -192,6 +192,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ProductForm";
             this.Text = "ProductForm";
+            this.Load += new System.EventHandler(this.ProductForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
