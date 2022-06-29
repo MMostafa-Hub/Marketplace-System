@@ -125,7 +125,7 @@ namespace Client_App
 
 			try
 			{
-				SearchResponse srchresponse = clientSocket.read<SearchResponse>(timeout: 10000);
+				srchresponse = clientSocket.read<SearchResponse>(timeout: 50000);
 			}
 			catch (Exception)
 			{
