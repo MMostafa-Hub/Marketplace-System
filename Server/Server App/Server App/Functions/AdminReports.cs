@@ -131,7 +131,7 @@ namespace Server_App.Functions
                 }
             }
             dataReader.Close();
-            command.dispose();
+            command.Dispose();
 
             OrdersReportResponse ordersReport = new OrdersReportResponse(orders);
             return ordersReport;
