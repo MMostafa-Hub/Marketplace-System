@@ -70,6 +70,8 @@ public class Server
                     case "checkOut":
                         serverSocket.write(Checkout.checkOut(recieved_obj));
                         break;
+                    case "AYA":
+                        break;
                 }
             }
 

@@ -70,6 +70,10 @@ namespace Client_App.Classes
             try
             {
                 this.writer.WriteLine(JsonConvert.SerializeObject(obj));
+
+                /* Server Are You Alive?: Throws Excpetion if it's not alive :( */
+                this.writer.WriteLine(JsonConvert.SerializeObject(new Request("AYA")));
+
                 this.writer.Flush();
             }
             catch (Exception ex)
