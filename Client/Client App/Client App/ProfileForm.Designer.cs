@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelGenderAge = new System.Windows.Forms.Label();
             this.buttonDeposit = new System.Windows.Forms.Button();
             this.labelUserBalance = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
             this.labelBalance = new System.Windows.Forms.Label();
             this.UserPictureBox = new System.Windows.Forms.PictureBox();
-            this.labelName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelMsg = new System.Windows.Forms.Label();
@@ -58,22 +58,33 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.labelGenderAge);
             this.panel1.Controls.Add(this.buttonDeposit);
             this.panel1.Controls.Add(this.labelUserBalance);
             this.panel1.Controls.Add(this.labelUserName);
             this.panel1.Controls.Add(this.labelBalance);
             this.panel1.Controls.Add(this.UserPictureBox);
-            this.panel1.Controls.Add(this.labelName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 44);
+            this.panel1.Location = new System.Drawing.Point(3, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(498, 97);
+            this.panel1.Size = new System.Drawing.Size(498, 114);
             this.panel1.TabIndex = 1;
+            // 
+            // labelGenderAge
+            // 
+            this.labelGenderAge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelGenderAge.AutoSize = true;
+            this.labelGenderAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelGenderAge.Location = new System.Drawing.Point(227, 43);
+            this.labelGenderAge.Name = "labelGenderAge";
+            this.labelGenderAge.Size = new System.Drawing.Size(124, 24);
+            this.labelGenderAge.TabIndex = 6;
+            this.labelGenderAge.Text = "Gender/Age";
             // 
             // buttonDeposit
             // 
             this.buttonDeposit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonDeposit.Location = new System.Drawing.Point(421, 66);
+            this.buttonDeposit.Location = new System.Drawing.Point(421, 79);
             this.buttonDeposit.Name = "buttonDeposit";
             this.buttonDeposit.Size = new System.Drawing.Size(67, 24);
             this.buttonDeposit.TabIndex = 5;
@@ -86,7 +97,7 @@
             this.labelUserBalance.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelUserBalance.AutoSize = true;
             this.labelUserBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelUserBalance.Location = new System.Drawing.Point(324, 65);
+            this.labelUserBalance.Location = new System.Drawing.Point(324, 78);
             this.labelUserBalance.Name = "labelUserBalance";
             this.labelUserBalance.Size = new System.Drawing.Size(65, 24);
             this.labelUserBalance.TabIndex = 4;
@@ -97,7 +108,7 @@
             this.labelUserName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelUserName.AutoSize = true;
             this.labelUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelUserName.Location = new System.Drawing.Point(324, 27);
+            this.labelUserName.Location = new System.Drawing.Point(227, 9);
             this.labelUserName.Name = "labelUserName";
             this.labelUserName.Size = new System.Drawing.Size(114, 24);
             this.labelUserName.TabIndex = 3;
@@ -108,7 +119,7 @@
             this.labelBalance.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelBalance.AutoSize = true;
             this.labelBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelBalance.Location = new System.Drawing.Point(227, 65);
+            this.labelBalance.Location = new System.Drawing.Point(227, 78);
             this.labelBalance.Name = "labelBalance";
             this.labelBalance.Size = new System.Drawing.Size(91, 24);
             this.labelBalance.TabIndex = 2;
@@ -121,21 +132,10 @@
             this.UserPictureBox.Image = global::Client_App.Properties.Resources.user;
             this.UserPictureBox.Location = new System.Drawing.Point(0, 0);
             this.UserPictureBox.Name = "UserPictureBox";
-            this.UserPictureBox.Size = new System.Drawing.Size(194, 95);
+            this.UserPictureBox.Size = new System.Drawing.Size(194, 112);
             this.UserPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.UserPictureBox.TabIndex = 1;
             this.UserPictureBox.TabStop = false;
-            // 
-            // labelName
-            // 
-            this.labelName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelName.Location = new System.Drawing.Point(227, 27);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(71, 24);
-            this.labelName.TabIndex = 0;
-            this.labelName.Text = "Name:";
             // 
             // tableLayoutPanel1
             // 
@@ -151,7 +151,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(504, 412);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(504, 482);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // panel2
@@ -160,9 +160,9 @@
             this.panel2.Controls.Add(this.dataGridViewOH);
             this.panel2.Controls.Add(this.labelOrdHisto);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 147);
+            this.panel2.Location = new System.Drawing.Point(3, 171);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(498, 262);
+            this.panel2.Size = new System.Drawing.Size(498, 308);
             this.panel2.TabIndex = 2;
             // 
             // labelMsg
@@ -196,7 +196,7 @@
             this.dataGridViewOH.ReadOnly = true;
             this.dataGridViewOH.RowTemplate.Height = 25;
             this.dataGridViewOH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewOH.Size = new System.Drawing.Size(470, 186);
+            this.dataGridViewOH.Size = new System.Drawing.Size(470, 232);
             this.dataGridViewOH.TabIndex = 2;
             // 
             // Index
@@ -244,7 +244,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(498, 35);
+            this.panel3.Size = new System.Drawing.Size(498, 42);
             this.panel3.TabIndex = 3;
             // 
             // buttonLogout
@@ -252,7 +252,7 @@
             this.buttonLogout.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonLogout.Location = new System.Drawing.Point(408, 0);
             this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(90, 35);
+            this.buttonLogout.Size = new System.Drawing.Size(90, 42);
             this.buttonLogout.TabIndex = 1;
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.UseVisualStyleBackColor = true;
@@ -263,7 +263,7 @@
             this.buttonBack.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonBack.Location = new System.Drawing.Point(0, 0);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(90, 35);
+            this.buttonBack.Size = new System.Drawing.Size(90, 42);
             this.buttonBack.TabIndex = 0;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -273,9 +273,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 412);
+            this.ClientSize = new System.Drawing.Size(504, 482);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(520, 450);
+            this.MinimumSize = new System.Drawing.Size(520, 520);
             this.Name = "ProfileForm";
             this.Text = "Profile";
             this.Load += new System.EventHandler(this.ProfileForm_Load);
@@ -296,7 +296,6 @@
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
         private PictureBox UserPictureBox;
-        private Label labelName;
         private Panel panel2;
         private Button buttonDeposit;
         private Label labelUserBalance;
@@ -312,5 +311,6 @@
         private Button buttonLogout;
         private Button buttonBack;
         private Label labelMsg;
+        private Label labelGenderAge;
     }
 }

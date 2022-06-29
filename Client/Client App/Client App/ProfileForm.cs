@@ -49,6 +49,7 @@ namespace Client_App
             }
             if (profileResponse != null)
             {
+                labelGenderAge.Text = profileResponse.gender.ToString() + " - " + profileResponse.age.ToString();
                 if (profileResponse.ordersHistory.Count == 0)
                 {
                     dataGridViewOH.Visible = false;
