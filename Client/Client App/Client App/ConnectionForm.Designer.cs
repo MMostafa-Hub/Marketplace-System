@@ -89,7 +89,6 @@
             this.MinimumSize = new System.Drawing.Size(630, 230);
             this.Name = "ConnectionForm";
             this.Text = "Connection Page";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.VisibleChanged += new System.EventHandler(this.ConnectionForm_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();

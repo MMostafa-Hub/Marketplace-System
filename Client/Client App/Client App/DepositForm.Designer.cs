@@ -132,7 +132,6 @@
             this.MinimumSize = new System.Drawing.Size(630, 230);
             this.Name = "DepositForm";
             this.Text = "Deposit Page";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.DepositForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
