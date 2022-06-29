@@ -48,13 +48,14 @@ namespace Client_App
 
         private void cartView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (cartView.Columns[e.ColumnIndex].Name == "Remove")
+            if (cartView.Columns[e.ColumnIndex].HeaderText == "Remove")
             {
                 // cartView.Rows.RemoveAt(cartView.CurrentCell.RowIndex);
                 int productId = Convert.ToInt32(cartView.Rows[e.RowIndex].Cells["ID_col"].Value);
                 removeFromCartRequest removeRequest = new removeFromCartRequest(productId); // product id
                 clientSocket.write(removeRequest);
-                this.Refresh();
+                Globals.user.cart.products.Remove(productId);
+                cartView.Refresh();
             }
         }
 
