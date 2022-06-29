@@ -145,30 +145,38 @@ namespace Client_App
             {
                 if (isNumeric(cartView.Rows[i].Cells[2].Value.ToString()))
                 {
-                    ourMap.Add(Convert.ToInt32(cartView.Rows[i].Cells[0].Value), Convert.ToInt32(cartView.Rows[i].Cells[2].Value));
-
-                    try
+                    if (Convert.ToInt32(cartView.Rows[i].Cells[2].Value.ToString()) == 0)
                     {
-                        updateCartRequest newRequest = new updateCartRequest(ourMap);
-                        clientSocket.write(newRequest);
-                        for(int j = 0; j < ourMap.Count; j++)
-                        {
-                            if (ourMap.ElementAt(j).Key == Globals.user.cart.products.ElementAt(j).Key)
-                            {
-                                Globals.user.cart.products[ourMap.ElementAt(j).Key] = new Tuple<Product, int>(Globals.user.cart.products.ElementAt(j).Value.Item1, ourMap.ElementAt(j).Value);
-                            }
-                        }
+                        MessageBox.Show("New value must be greater than 0");
+                        return;
                     }
-                    catch
+                    else
                     {
-                        connectionForm.Show();
-                        this.Hide();
+                        ourMap.Add(Convert.ToInt32(cartView.Rows[i].Cells[0].Value), Convert.ToInt32(cartView.Rows[i].Cells[2].Value));
                     }
                 }
                 else
                 {
                     MessageBox.Show("please enter numeric values in quantity");
+                    return;
                 }
+            }
+            try
+            {
+                updateCartRequest newRequest = new updateCartRequest(ourMap);
+                clientSocket.write(newRequest);
+                for (int j = 0; j < ourMap.Count; j++)
+                {
+                    if (ourMap.ElementAt(j).Key == Globals.user.cart.products.ElementAt(j).Key)
+                    {
+                        Globals.user.cart.products[ourMap.ElementAt(j).Key] = new Tuple<Product, int>(Globals.user.cart.products.ElementAt(j).Value.Item1, ourMap.ElementAt(j).Value);
+                    }
+                }
+            }
+            catch
+            {
+                connectionForm.Show();
+                this.Hide();
             }
 
 

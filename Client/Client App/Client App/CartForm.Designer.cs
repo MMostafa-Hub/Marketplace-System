@@ -35,6 +35,12 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartView = new System.Windows.Forms.DataGridView();
+            this.ID_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPrice_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,12 +49,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.ID_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPrice_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartView)).BeginInit();
             this.SuspendLayout();
@@ -81,22 +82,28 @@
             this.ProductName});
             this.dataGridView1.Location = new System.Drawing.Point(41, 33);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(711, 288);
             this.dataGridView1.TabIndex = 2;
             // 
             // ID
             // 
+            this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
+            this.ID.Width = 125;
             // 
             // Quantity
             // 
+            this.Quantity.MinimumWidth = 6;
             this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
             // 
             // ProductName
             // 
             this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ProductName.HeaderText = "Product Name";
+            this.ProductName.MinimumWidth = 6;
             this.ProductName.Name = "ProductName";
             // 
             // cartView
@@ -113,27 +120,82 @@
             this.cartView.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cartView.Location = new System.Drawing.Point(12, 64);
             this.cartView.Name = "cartView";
+            this.cartView.RowHeadersWidth = 51;
             this.cartView.RowTemplate.Height = 25;
             this.cartView.Size = new System.Drawing.Size(790, 284);
             this.cartView.TabIndex = 0;
             this.cartView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartView_CellContentClick);
             // 
+            // ID_col
+            // 
+            this.ID_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID_col.HeaderText = "ID_col";
+            this.ID_col.MinimumWidth = 6;
+            this.ID_col.Name = "ID_col";
+            this.ID_col.ReadOnly = true;
+            // 
+            // name_col
+            // 
+            this.name_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name_col.HeaderText = "name_col";
+            this.name_col.MinimumWidth = 6;
+            this.name_col.Name = "name_col";
+            this.name_col.ReadOnly = true;
+            // 
+            // quantity_col
+            // 
+            this.quantity_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.quantity_col.HeaderText = "quantity_col";
+            this.quantity_col.MinimumWidth = 6;
+            this.quantity_col.Name = "quantity_col";
+            // 
+            // price_col
+            // 
+            this.price_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.price_col.HeaderText = "price_col";
+            this.price_col.MinimumWidth = 6;
+            this.price_col.Name = "price_col";
+            this.price_col.ReadOnly = true;
+            // 
+            // totalPrice_col
+            // 
+            this.totalPrice_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.totalPrice_col.HeaderText = "totalPrice_col";
+            this.totalPrice_col.MinimumWidth = 6;
+            this.totalPrice_col.Name = "totalPrice_col";
+            this.totalPrice_col.ReadOnly = true;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewButtonColumn1.HeaderText = "Remove";
+            this.dataGridViewButtonColumn1.MinimumWidth = 6;
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.ReadOnly = true;
+            this.dataGridViewButtonColumn1.Text = "Remove";
+            this.dataGridViewButtonColumn1.ToolTipText = "Remove";
+            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // Price
             // 
             this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
             // 
@@ -141,6 +203,7 @@
             // 
             this.TotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TotalPrice.HeaderText = "Total Price";
+            this.TotalPrice.MinimumWidth = 6;
             this.TotalPrice.Name = "TotalPrice";
             this.TotalPrice.ReadOnly = true;
             // 
@@ -148,6 +211,7 @@
             // 
             this.Remove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Remove.HeaderText = "Remove";
+            this.Remove.MinimumWidth = 6;
             this.Remove.Name = "Remove";
             this.Remove.ReadOnly = true;
             this.Remove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -186,53 +250,20 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // ID_col
+            // label1
             // 
-            this.ID_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID_col.HeaderText = "ID_col";
-            this.ID_col.Name = "ID_col";
-            this.ID_col.ReadOnly = true;
-            // 
-            // name_col
-            // 
-            this.name_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name_col.HeaderText = "name_col";
-            this.name_col.Name = "name_col";
-            this.name_col.ReadOnly = true;
-            // 
-            // quantity_col
-            // 
-            this.quantity_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.quantity_col.HeaderText = "quantity_col";
-            this.quantity_col.Name = "quantity_col";
-            // 
-            // price_col
-            // 
-            this.price_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.price_col.HeaderText = "price_col";
-            this.price_col.Name = "price_col";
-            this.price_col.ReadOnly = true;
-            // 
-            // totalPrice_col
-            // 
-            this.totalPrice_col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.totalPrice_col.HeaderText = "totalPrice_col";
-            this.totalPrice_col.Name = "totalPrice_col";
-            this.totalPrice_col.ReadOnly = true;
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            this.dataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewButtonColumn1.HeaderText = "Remove";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.ReadOnly = true;
-            this.dataGridViewButtonColumn1.Text = "Remove";
-            this.dataGridViewButtonColumn1.ToolTipText = "Remove";
-            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(258, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(252, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Double click here to change quantity";
             // 
             // CartForm
             // 
             this.ClientSize = new System.Drawing.Size(814, 482);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -245,6 +276,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -271,5 +303,6 @@
         private DataGridViewTextBoxColumn price_col;
         private DataGridViewTextBoxColumn totalPrice_col;
         private DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private Label label1;
     }
 }
