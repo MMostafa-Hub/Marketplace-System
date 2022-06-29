@@ -56,6 +56,7 @@ namespace Server_App.Functions
                   int inStock=dataReader.GetInt32(0);
                   if(inStock<Hashmap.ElementAt(i).Value)
                   {
+                    dataReader.Close();
                     /*Cant provide as instock quantity is less than quantity user wants*/
                     return new checkOutResponse(false); /*Checkout failure*/
                   }
@@ -157,10 +158,10 @@ namespace Server_App.Functions
               adapter.InsertCommand = command;
                adapter.InsertCommand.ExecuteNonQuery();
               command.Dispose();
+                
             }
-
             return new checkOutResponse(true); /*Success*/
+            
         }
-     
     }
 }
