@@ -93,8 +93,15 @@ namespace Client_App
 
 		private void btn_search_Click(object sender, EventArgs e)
 		{
+			string categoryText;
 			string searchText = searchTxtBox.Text;
-			string categoryText = categorycombobox.SelectedItem.ToString();
+			if (categorycombobox.SelectedItem == null)
+			{
+				categoryText = null;
+			}
+			else {
+				categoryText = categorycombobox.SelectedItem.ToString();
+			}
 			string sortText = sortcombobox.SelectedItem.ToString();
 			SearchRequest srequest = new SearchRequest(searchText, categoryText, sortText);
 
