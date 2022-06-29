@@ -15,7 +15,7 @@ namespace Server_App
 
         public static readonly object checkOutLock = new object();
         public static readonly object userLoginLock = new object();
-
+        [ThreadStatic]
         private static SqlConnection? dbConnection = null;
         public static SqlConnection getDBConnection()
         {
