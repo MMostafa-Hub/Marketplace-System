@@ -8,9 +8,9 @@ namespace Client_App.Classes
 {
 	internal class SearchRequest : Request
 	{
-		string? searchtxt;
-		string?  categorytxt;
-		string sorttxt;
+		public string? searchtxt;
+		public string?  categorytxt;
+		public string sorttxt;
 		public SearchRequest(string searchtxt,string categorytxt,string sorttxt)
 		{
 			this.searchtxt = searchtxt;

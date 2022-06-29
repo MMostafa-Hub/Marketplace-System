@@ -8,7 +8,7 @@ namespace Client_App.Classes
 {
     internal class CreateAccountResponse : AbstractResponse
     {
-        bool success;
+        public bool success;
 
         public CreateAccountResponse(bool success)
         {

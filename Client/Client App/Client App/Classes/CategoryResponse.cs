@@ -10,7 +10,7 @@ namespace Client_App.Classes
 	{
 		public List<string> categoryList = new List<string>();
 		public List<Product> productList = new List<Product>();
-		public CategoryResponse(List<String> categoryList, List<Product> productList) { 
+		public CategoryResponse(List<string> categoryList, List<Product> productList) { 
 			this.categoryList = categoryList;
 			this.productList = productList;
 		}

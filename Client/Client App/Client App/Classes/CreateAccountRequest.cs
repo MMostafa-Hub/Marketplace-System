@@ -8,10 +8,10 @@ namespace Client_App.Classes
 {
     internal class CreateAccountRequest : Request
     {
-        String username;
-        String password;
-        String gender;
-        int age;
+        public string username;
+        public string password;
+        public string gender;
+        public int age;
 
         public CreateAccountRequest(string username, string password, string gender, int age)
         {
@@ -23,15 +23,15 @@ namespace Client_App.Classes
             type = "createAccount";
         }
 
-        public String getUsername()
+        public string getUsername()
         {
             return username;
         }
-        public String getPassword()
+        public string getPassword()
         {
             return password;
         }
-        public String getGender()
+        public string getGender()
         {
             return gender;
         }

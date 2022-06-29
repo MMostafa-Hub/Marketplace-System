@@ -8,7 +8,7 @@ namespace Client_App.Classes
 {
     internal class AdminLoginResponse : AbstractResponse
     {
-        int status;
+        public int status;
 
         public AdminLoginResponse(int status)
         {

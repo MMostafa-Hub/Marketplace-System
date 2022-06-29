@@ -8,8 +8,8 @@ namespace Client_App.Classes
 {
     internal class AdminLoginRequest : Request
     {
-        String username;
-        String password;
+        public string username;
+        public string password;
 
         public AdminLoginRequest(string username, string password)
         {
