@@ -22,5 +22,19 @@ namespace Server_App.Functions
 
 
         }
+        /*Function Used For Server initialization (Usefule if server crashes)
+         *Input: NONE
+         *Output:NONE
+         *Result:Logs out all users when server is started.
+         */
+        public static void logOutAllHandler()
+        {
+            SqlConnection connection = Globals.getDBConnection();
+            String sql = "UPDATE users SET loggedIn = 0";
+            SqlCommand command = new SqlCommand(sql, connection);
+
+            command.ExecuteNonQuery();
+            command.Dispose();
+        }
     }
 }
