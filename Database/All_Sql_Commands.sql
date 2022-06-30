@@ -49,6 +49,9 @@ VALUES ('Mahmoud', 'hoda123', 23 , 'Male' , 20000 , 0);
 INSERT INTO users (username, password, age , gender , balance , loggedIn)
 VALUES ('fady00', 'fady123', 23 , 'Male' , 20000 , 0);
 
+INSERT INTO users (username, password, age , gender , balance , loggedIn)
+VALUES ('Mohanad', 'hello', 22 , 'Male' , 20000 , 0);
+
 
 
 CREATE TABLE Product (
@@ -62,13 +65,13 @@ CREATE TABLE Product (
 );
 
 INSERT INTO Product(name, description , category, price , stockQuantity , soldQuantity)
-VALUES ('iPhone 13', 'this is a very good one',  'Mobiles', 13000, 10 , 0);
+VALUES ('iPhone 13', 'this is a very good one',  'Mobiles', 13000, 10 , 2);
 
 INSERT INTO Product(name, description, category, price , stockQuantity , soldQuantity)
-VALUES ('Samsung S12', 'this is a very good one', 'Mobiles', 11000, 7 , 0);
+VALUES ('Samsung S12', 'this is a very good one', 'Mobiles', 11000, 7 , 3);
 
 INSERT INTO Product(name, description, category, price , stockQuantity , soldQuantity)
-VALUES ('Mx Master 3','this is a very good one','Mouses', 4000, 30 , 0);
+VALUES ('Mx Master 3','this is a very good one','Mouses', 4000, 30 , 2);
 
 INSERT INTO Product(name, description, category, price , stockQuantity , soldQuantity)
 VALUES ('LG C2','this is a very good one', 'TV', 25000, 5 , 0);
@@ -88,7 +91,14 @@ CREATE TABLE orders (
     dateCreated DATETIME,
     user_username VARCHAR(25) REFERENCES users(username)
 );
+INSERT INTO orders(user_username , dateCreated)
+VALUES ('Mario00', '2022-05-24 16:02:00');
 
+INSERT INTO orders(user_username , dateCreated)
+VALUES ('Hazem00', '2022-05-24 17:30:00');
+
+INSERT INTO orders(user_username , dateCreated)
+VALUES ('Mohanad', '2022-05-27 13:02:00');
 
 
 
@@ -99,6 +109,23 @@ CREATE TABLE contain (
 	quantity int
 	PRIMARY KEY (order_no, product_id),
 );
+INSERT INTO contain(order_no ,product_id , quantity)
+VALUES (1 , 1 , 2);
+
+INSERT INTO contain(order_no ,product_id , quantity)
+VALUES (2 , 2 , 2);
+
+INSERT INTO contain(order_no ,product_id , quantity)
+VALUES (2 , 3 , 1);
+
+INSERT INTO contain(order_no ,product_id , quantity)
+VALUES (3 , 2 , 1);
+
+INSERT INTO contain(order_no ,product_id , quantity)
+VALUES (3 , 3 , 1);
+
+
+
 
 
 
