@@ -14,18 +14,29 @@ namespace Client_App
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                Request logoutRequest = new Request("logout");
-                try
+                string message = "Are you sure you want to exit the program?";
+                string title = "Confirm Exit";
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
                 {
-                    clientSocket.write(logoutRequest);
-                }
-                catch (Exception)
-                {
+                    Request logoutRequest = new Request("logout");
+                    try
+                    {
+                        clientSocket.write(logoutRequest);
+                    }
+                    catch (Exception)
+                    {
 
+                    }
+                    finally
+                    {
+                        Application.Exit();
+                    }
                 }
-                finally
+                else
                 {
-                    Application.Exit();
+                    e.Cancel = true;
                 }
             }
         }
