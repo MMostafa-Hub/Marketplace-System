@@ -3,6 +3,7 @@ using System.Net.Sockets;
 using static Client_App.Globals;
 using Client_App.Classes;
 using static Client_App.Classes.ClientSocket;
+using System.Xml;
 
 namespace Client_App
 {
@@ -10,6 +11,7 @@ namespace Client_App
     {
         string serverIP;
         string serverPort;
+        private const string configFileName = "App.config";
         public ConnectionForm()
         {
             InitializeComponent();
@@ -52,12 +54,21 @@ namespace Client_App
             }
             connectionForm = this;
             //Get data from App.config
-            ConfigurationManager.RefreshSection("appSettings");
-            serverIP = ConfigurationManager.AppSettings.Get("IP");
-            serverPort = ConfigurationManager.AppSettings.Get("Port");
-            IPLabel.Text = "Server IP address set to " + serverIP;
-            portLabel.Text = "Server port set to " + serverPort;
-            connectButton.Enabled = true;
+            try
+            {
+                XmlDocument configFile = new XmlDocument();
+                configFile.Load(configFileName);
+                serverIP = configFile.GetElementsByTagName("IP")[0].InnerText;
+                serverPort = configFile.GetElementsByTagName("Port")[0].InnerText;
+                IPLabel.Text = "Server IP address set to " + serverIP;
+                portLabel.Text = "Server port set to " + serverPort;
+                connectButton.Enabled = true;
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Couldn't find App.config file. Please make sure it's in the same directory", "App.config not found error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
         }
     }
 }
