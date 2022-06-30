@@ -50,6 +50,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.balanceLabel = new System.Windows.Forms.Label();
+            this.totalPriceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartView)).BeginInit();
             this.SuspendLayout();
@@ -256,13 +258,35 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(258, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 15);
+            this.label1.Size = new System.Drawing.Size(319, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Double click in quantity_col to change quantity";
+            // 
+            // balanceLabel
+            // 
+            this.balanceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.balanceLabel.AutoSize = true;
+            this.balanceLabel.Location = new System.Drawing.Point(724, 24);
+            this.balanceLabel.Name = "balanceLabel";
+            this.balanceLabel.Size = new System.Drawing.Size(50, 20);
+            this.balanceLabel.TabIndex = 5;
+            this.balanceLabel.Text = "label2";
+            // 
+            // totalPriceLabel
+            // 
+            this.totalPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.totalPriceLabel.AutoSize = true;
+            this.totalPriceLabel.Location = new System.Drawing.Point(724, 377);
+            this.totalPriceLabel.Name = "totalPriceLabel";
+            this.totalPriceLabel.Size = new System.Drawing.Size(50, 20);
+            this.totalPriceLabel.TabIndex = 6;
+            this.totalPriceLabel.Text = "label2";
             // 
             // CartForm
             // 
             this.ClientSize = new System.Drawing.Size(814, 482);
+            this.Controls.Add(this.totalPriceLabel);
+            this.Controls.Add(this.balanceLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -304,5 +328,7 @@
         private DataGridViewTextBoxColumn totalPrice_col;
         private DataGridViewButtonColumn dataGridViewButtonColumn1;
         private Label label1;
+        private Label balanceLabel;
+        private Label totalPriceLabel;
     }
 }

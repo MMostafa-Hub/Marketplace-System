@@ -28,6 +28,7 @@ namespace Client_App
 
         private void CartForm_Load(object sender, EventArgs e)
         {
+            balanceLabel.Text = "Your balance: " + user.balance.ToString();
             Dictionary<int, Tuple<Product, int>> hashMap = user.cart.products;
             for(int i=0;i<hashMap.Count;i++)
             {
@@ -39,6 +40,7 @@ namespace Client_App
                 cartView.Rows.Add(row);
                 Total += total_Amount;
             }
+            totalPriceLabel.Text = "Total price: " + Total.ToString();
         }
 
         float calculateTotalProce( int quantity , float price)
@@ -60,6 +62,8 @@ namespace Client_App
                     removeFromCartRequest removeRequest = new removeFromCartRequest(productId); // product id
                     clientSocket.write(removeRequest);
                     Globals.user.cart.products.Remove(productId);
+                    Total -= float.Parse(cartView.Rows[e.RowIndex].Cells[4].Value.ToString());
+                    totalPriceLabel.Text = "Total price: " + Total;
                     cartView.Rows.RemoveAt(cartView.CurrentCell.RowIndex);
                     cartView.Refresh();
                 }
@@ -100,7 +104,7 @@ namespace Client_App
                     checkOutResponse checkRes = clientSocket.read<checkOutResponse>(5000);
                     if (checkRes.flag ==false)
                     {
-                        MessageBox.Show("OPPs, The Quantity of product is not enough");
+                        MessageBox.Show("Oops, The in-stock quantity of product is not enough");
                     }
                     else
                     {
@@ -108,6 +112,8 @@ namespace Client_App
                         Globals.user.balance -= Total;
                         Globals.user.cart.products.Clear();
                         cartView.Rows.Clear();
+                        totalPriceLabel.Text = "Total price: 0";
+                        balanceLabel.Text = "Your balance: " + user.balance.ToString();
                     }
                 }
                 catch (Exception)
@@ -139,13 +145,13 @@ namespace Client_App
                 return;
             }
             Dictionary<int, int> ourMap = new Dictionary<int, int>();
-
+            float total = 0;
 
             for (int i = 0; i < cartView.RowCount - 1; i++)
             {
                 if(cartView.Rows[i].Cells[2].Value == null)
                 {
-                    MessageBox.Show("Please enter a qunatity");
+                    MessageBox.Show("Please enter a quantity");
                     return;
                 }
                 if (isNumeric(cartView.Rows[i].Cells[2].Value.ToString()))
@@ -160,7 +166,8 @@ namespace Client_App
                         else
                         {
                             ourMap.Add(Convert.ToInt32(cartView.Rows[i].Cells[0].Value), Convert.ToInt32(cartView.Rows[i].Cells[2].Value));
-                            cartView.Rows[i].Cells[4].Value = Convert.ToInt32(cartView.Rows[i].Cells[3].Value.ToString()) * Convert.ToInt32(cartView.Rows[i].Cells[2].Value.ToString());
+                            cartView.Rows[i].Cells[4].Value = float.Parse(cartView.Rows[i].Cells[3].Value.ToString()) * Convert.ToInt32(cartView.Rows[i].Cells[2].Value.ToString());
+                            total += float.Parse(cartView.Rows[i].Cells[4].Value.ToString());
                         }
                     }
                     catch(Exception)
@@ -186,6 +193,8 @@ namespace Client_App
                         Globals.user.cart.products[ourMap.ElementAt(j).Key] = new Tuple<Product, int>(Globals.user.cart.products.ElementAt(j).Value.Item1, ourMap.ElementAt(j).Value);
                     }
                 }
+                Total = total;
+                totalPriceLabel.Text = "Total price: " + Total;
                 MessageBox.Show("Cart updated successfully");
             }
             catch (Exception)
