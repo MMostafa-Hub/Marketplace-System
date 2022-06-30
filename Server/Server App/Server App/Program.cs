@@ -118,6 +118,7 @@ public class Server
 
             Console.WriteLine("IP Address: {0}\nPort Number: {1}", ippaddress.ToString(), portNumber);
             Console.WriteLine("Multithreaded Server started...");
+            Logout.logOutAllHandler();
 
             /* The Main Thread is Waiting for a new Client connetction */
             while (true)
