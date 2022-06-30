@@ -55,7 +55,7 @@ namespace Client_App
 				this.Hide();
 				return;
 			}
-
+			categorycombobox.Items.Add("");
 			foreach (string category in cateResponse.categoryList)
 			{
 				categorycombobox.Items.Add(category);
@@ -97,7 +97,7 @@ namespace Client_App
 		{
 			string categoryText;
 			string searchText = searchTxtBox.Text;
-			if (categorycombobox.SelectedItem == null)
+			if (categorycombobox.SelectedItem == null || categorycombobox.SelectedItem.ToString() == "")
 			{
 				categoryText = null;
 			}
