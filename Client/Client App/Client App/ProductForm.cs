@@ -53,6 +53,13 @@ namespace Client_App
             LB5.Text = product.name;
             LB7.Text = product.category;
             LB10.Text = product.stockQuantity.ToString();
+            descriptionLabel.Text = product.description;
+            priceLabel.Text = product.price.ToString();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
