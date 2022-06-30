@@ -19,23 +19,14 @@ namespace Client_App
             if (this.Visible == true)
             {
                 labelUserBalance.Text = user.balance.ToString();
-
                 try
-
                 {
-
                     clientSocket.write(new ProfileRequest());
-
                 }
-
                 catch (Exception)
-
                 {
-
                     returnForm = this;
-
                     connectionForm.Show();
-
                     this.Hide();
                     return;
                 }

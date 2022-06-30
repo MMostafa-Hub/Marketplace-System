@@ -51,7 +51,7 @@ namespace Client_App
             {
                 foreach (DayOrder order in ordersResponse.dayOrders)
                 {
-                    string[] row = { order.date, order.count.ToString(), order.profit.ToString() };
+                    string[] row = { order.date.Substring(0, 10), order.count.ToString(), order.profit.ToString() };
                     dataGridViewO7.Rows.Add(row);
                 }
             }

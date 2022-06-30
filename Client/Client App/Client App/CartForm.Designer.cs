@@ -221,9 +221,9 @@
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Location = new System.Drawing.Point(364, 365);
+            this.button3.Location = new System.Drawing.Point(320, 365);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(125, 45);
+            this.button3.Size = new System.Drawing.Size(159, 45);
             this.button3.TabIndex = 1;
             this.button3.Text = "Update Quantity";
             this.button3.UseVisualStyleBackColor = true;
@@ -232,9 +232,9 @@
             // button4
             // 
             this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.Location = new System.Drawing.Point(364, 425);
+            this.button4.Location = new System.Drawing.Point(320, 425);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 45);
+            this.button4.Size = new System.Drawing.Size(159, 45);
             this.button4.TabIndex = 2;
             this.button4.Text = "Check Out ";
             this.button4.UseVisualStyleBackColor = true;
@@ -256,9 +256,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(258, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 15);
+            this.label1.Size = new System.Drawing.Size(256, 15);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Double click here to change quantity";
+            this.label1.Text = "Double click in quantity_col to change quantity";
             // 
             // CartForm
             // 
